@@ -1,3 +1,7 @@
 from django.contrib import admin
+from apps.opinion.models import Opinion
 
-# Register your models here.
+@admin.register(Opinion)
+class opinionAdmin(admin.ModelAdmin):
+    list_display = ("opinion","usuario","cursada",)
+

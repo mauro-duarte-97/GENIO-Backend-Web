@@ -1,3 +1,7 @@
 from django.contrib import admin
+from apps.profesor.models import Profesor
 
-# Register your models here.
+@admin.register(Profesor)
+class profesorAdmin(admin.ModelAdmin):
+    list_display = ("nombre","cursada","calificacion",)
+

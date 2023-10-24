@@ -1,13 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-import ifts
+
 
 
 class Calificacion(models.Model):
 
-    institucion = models.ForeignKey('ifts.Institucion', on_delete=models.CASCADE)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)  # Usuario que realizó la calificación
-    puntuacion = models.PositiveIntegerField()  # Puntuación de 1 a 5 estrellas
+    calificacion = models.PositiveIntegerField()  # Puntuación de 1 a 5 estrellas
+    usuario = models.ForeignKey('custom_user.CustomUser', on_delete=models.CASCADE)  # Usuario que realizó la calificación
+    cursada = models.ForeignKey('cursada.Cursada', related_name='calificaciones', on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)  # Fecha de la calificación
     
     # Otros campos o atributos relacionados con la calificación, como comentario, etc.

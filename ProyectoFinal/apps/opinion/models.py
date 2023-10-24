@@ -6,13 +6,13 @@ from django.db import models
 
 
 class Opinion(models.Model):
+    opinion = models.TextField()  # Comentario de la opinión
     usuario = models.ForeignKey('custom_user.CustomUser', on_delete=models.CASCADE)  # Usuario que realizó la opinión
-    institucion = models.ForeignKey('ifts.Institucion', on_delete=models.CASCADE, null=True, blank=True)
+    cursada= models.ForeignKey('cursada.Cursada', on_delete=models.CASCADE, blank=True)
+    #fecha = models.DateTimeField(auto_now_add=True)  # Fecha de la opinión
     #carrera = models.ForeignKey('carrera.Carrera', on_delete=models.CASCADE, null=True, blank=True)
     #materia = models.ForeignKey('materia.Materia', on_delete=models.CASCADE, null=True, blank=True)
     #profesor = models.ForeignKey('profesor.Profesor', on_delete=models.CASCADE, null=True, blank=True)
-    comentario = models.TextField()  # Comentario de la opinión
-    fecha = models.DateTimeField(auto_now_add=True)  # Fecha de la opinión
 
     def __str__(self):
         return f'Opinión de {self.usuario}'

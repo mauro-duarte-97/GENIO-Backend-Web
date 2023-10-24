@@ -1,3 +1,7 @@
 from django.contrib import admin
+from apps.materia.models import Materia
 
-# Register your models here.
+@admin.register(Materia)
+class materiaAdmin(admin.ModelAdmin):
+    list_display = ("nombre","duracion","cursada",)
+

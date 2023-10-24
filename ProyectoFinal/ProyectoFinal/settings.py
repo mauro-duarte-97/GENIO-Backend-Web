@@ -28,13 +28,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOCAL_APPS = [
+    'apps.alumno',
     'apps.calificacion',
     'apps.carrera',
-    'apps.ifts',
+    'apps.cursada',
+    'apps.custom_user',
+    'apps.detalle_calificacion',
+    'apps.institucion',
     'apps.materia',
     'apps.opinion',
     'apps.profesor',
-    'apps.custom_user',
 ]
 
 # Application definition

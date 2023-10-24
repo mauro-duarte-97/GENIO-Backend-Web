@@ -1,0 +1,36 @@
+Fecha y Hora: Registra la fecha y la hora de cada entrada para tener un registro cronológico de las actividades.
+
+Descripción de la Actividad: Detalla qué actividad o tarea se llevó a cabo. Específica y clara.
+
+############################################### DESCRIPCION DE BITACORA ################################################
+
+Duración: Cuanto tiempo inverti en el avanze
+
+Problemas y Desafíos: Anota cualquier problema o desafío que surgió durante la actividad y cómo se resolvió.
+
+Logros y Éxitos: Registra los logros y éxitos alcanzados durante la actividad. Esto puede ser útil para motivar al equipo y reconocer el progreso.
+
+Próximos Pasos: Indica cuáles son los próximos pasos a seguir después de completar la actividad actual.
+
+Notas Adicionales: Espacio para cualquier otra información relevante o observaciones que puedan ser útiles para futuras referencias.
+
+Lecciones Aprendidas: Documentar lo que se ha aprendido durante el proyecto y cómo se pueden aplicar esas lecciones en el futuro
+
+################################################### FIN DESCRIPCION ####################################################
+
+
+###################################################### 22/10/2023 ######################################################
+
+
+Duración: 
+
+Problemas y Desafíos: 
+
+Logros y Éxitos: 
+
+Próximos Pasos: 
+
+Notas Adicionales:
+
+Lecciones Aprendidas: 
+
