@@ -2,5 +2,14 @@ from django.contrib import admin
 from apps.alumno.models import Alumno
 
 @admin.register(Alumno)
-class alumnoAdmin(admin.ModelAdmin):
-    list_display = ("nombre","calificacion","opinion", "cursada",)
+class AlumnoAdmin(admin.ModelAdmin):
+    list_display = ("nombre", "get_id_carrera", "get_id_usuario")
+
+    def get_id_carrera(self, obj):
+        return obj.fk_id_carrera.id
+
+    def get_id_usuario(self, obj):
+        return obj.fk_id_usuario.id
+
+    get_id_carrera.short_description = "ID Carrera"
+    get_id_usuario.short_description = "ID Usuario"

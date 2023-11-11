@@ -1,13 +1,9 @@
 from django.db import models
 
 class Alumno(models.Model):
-    nombre = models.CharField(max_length=100)
-    cursada = models.ForeignKey('cursada.Cursada', on_delete=models.CASCADE)
-    calificacion = models.DecimalField(max_digits=3, decimal_places=2)
-    opinion = models.ForeignKey('opinion.Opinion', on_delete=models.CASCADE)
-    # experiencia = models.PositiveIntegerField()
-    # disponibilidad = models.CharField(max_length=100, null=True, blank=True)
-    
+    nombre = models.CharField(max_length=100, blank=True, null=True, default=None)
+    fk_id_carrera = models.ForeignKey('carrera.Carrera', on_delete=models.CASCADE, null=True, default=None)
+    fk_id_usuario = models.ForeignKey('custom_user.CustomUser', on_delete=models.CASCADE, null=True, default=None)
     # Otras relaciones y campos según tus necesidades
 
     def __str__(self):

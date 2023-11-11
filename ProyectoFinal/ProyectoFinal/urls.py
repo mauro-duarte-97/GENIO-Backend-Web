@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -30,4 +32,10 @@ urlpatterns = [
     path('cursada/', include("apps.cursada.urls")),
     path('custom_user/', include("apps.custom_user.urls")),
     path('detalle_calificacion/', include("apps.detalle_calificacion.urls")),
+    path("auth/", include("apps.custom_user.urls")),
 ]
+# ... tus otras rutas ...
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

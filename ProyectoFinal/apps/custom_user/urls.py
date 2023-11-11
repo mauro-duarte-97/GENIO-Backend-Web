@@ -1,6 +1,7 @@
 from django.urls import path
-from apps.custom_user.views import CustomUserTemplateView
-
+from .views import CustomLoginView, CustomLogoutView
 
 urlpatterns = [
-    path("", CustomUserTemplateView.as_view(), name="custom_user")]
+    path("login/", CustomLoginView.as_view(), name="login"),
+    path("logout/", CustomLogoutView.as_view(), name="logout"),
+]

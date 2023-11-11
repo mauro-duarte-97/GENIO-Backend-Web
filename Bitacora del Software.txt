@@ -19,7 +19,37 @@ Lecciones Aprendidas: Documentar lo que se ha aprendido durante el proyecto y c�
 ################################################### FIN DESCRIPCION ####################################################
 
 
-###################################################### 22/10/2023 ######################################################
+###################################################### 6/11/2023 ######################################################
+
+
+Duración: 10hs
+
+Problemas y Desafíos: Completar los modelos, conseguir que migren al servidor.
+
+Logros y Éxitos: Completar el diagrama y codificacion de los modulos, completar la bitacora, estar "encaminado".
+
+Próximos Pasos: Codear los valores default de los atributos del modulo ya que necesitan valores por ser obligatorios, luego que se suba exitosamente al servidor hacer una prueba cargando 3 cosas de cada modelo. Luego hacer login y vistas.
+
+Notas Adicionales: Cada dia avanzar un poco, para no perder el hilo.
+
+Lecciones Aprendidas: Romper un poco la conciencia que me intimidaba a codear
+
+###################################################### 10/11/2023 ######################################################
+
+
+Duración: 4
+
+Problemas y Desafíos: Modelos
+
+Logros y Éxitos: Modelos
+
+Próximos Pasos: Hacer vistas, y los templates. Buscar ejemplos de cuadros de materia y formato tabla, 
+
+Notas Adicionales: Clase con el profesor
+
+Lecciones Aprendidas: Migraciones, related names, showmigrations, errores de modelaje.
+
+###################################################### 11/11/2023 ######################################################
 
 
 Duración: 
@@ -32,5 +62,7 @@ Próximos Pasos:
 
 Notas Adicionales:
 
-Lecciones Aprendidas: 
+Lecciones Aprendidas:
+
+
 
