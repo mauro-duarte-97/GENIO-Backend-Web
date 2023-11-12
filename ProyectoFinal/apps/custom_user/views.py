@@ -1,5 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
+from django.views.generic.base import TemplateView
 
 
 class CustomLoginView(LoginView):
@@ -14,3 +15,10 @@ class CustomLoginView(LoginView):
 
 class CustomLogoutView(LogoutView):
     pass
+
+class GuiaEstudianteHomeView(TemplateView):
+    template_name = "guiaEstudiante_home.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

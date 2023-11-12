@@ -52,17 +52,19 @@ Lecciones Aprendidas: Migraciones, related names, showmigrations, errores de mod
 ###################################################### 11/11/2023 ######################################################
 
 
-Duración: 
+Duración: 2
 
-Problemas y Desafíos: 
+Problemas y Desafíos: Vistas
 
-Logros y Éxitos: 
+Logros y Éxitos: Avanze en las vistas home de cada modelo
 
-Próximos Pasos: 
+Próximos Pasos: Terminar las vistas
 
-Notas Adicionales:
+Notas Adicionales: Aprender mas de vistas
 
-Lecciones Aprendidas:
+Lecciones Aprendidas: vincular una vista a un template
+
+###################################################### 12/11/2023 ######################################################
 
 
 

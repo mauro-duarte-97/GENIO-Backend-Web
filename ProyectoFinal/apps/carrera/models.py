@@ -1,7 +1,7 @@
 from django.db import models
 
 class Carrera(models.Model):
-    titulo = models.CharField(default="Tecnicatura Superior", max_length=50, blank=True, null=True)
+    titulo = models.CharField(default="Tecnicatura Superior", max_length=150, blank=True, null=True)
     duracion = models.PositiveIntegerField(default=None)
     fk_id_institucion = models.ForeignKey('institucion.Institucion', on_delete=models.CASCADE, related_name='carreras_institucion', default=None)
     
