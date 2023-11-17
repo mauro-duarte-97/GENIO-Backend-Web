@@ -18,7 +18,7 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-
+    PROFESOR = 'Profesor'
     ALUMNO = 'Alumno'
     INSTITUCION = 'Institución'
     
@@ -28,9 +28,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     img_perfil = models.ImageField(upload_to='perfiles/', null=True, blank=True, default=None)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    
     TIPO_USUARIO_CHOICES = [
         (ALUMNO, 'Alumno'),
         (INSTITUCION, 'Institución'),
+        (PROFESOR, 'Profesor'),
     ]
     tipo_usuario = models.CharField(max_length=20, choices=TIPO_USUARIO_CHOICES, default=ALUMNO, blank=True, null=True)
 
@@ -41,6 +43,5 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # Campos adicionales PISA EL OBJECT DE DJANGO
     objects = CustomUserManager()
    
-
     def __str__(self):
         return self.nombre

@@ -3,6 +3,6 @@ from apps.institucion.views import InstitucionTemplateView
 from .views import InstitucionListView
 
 urlpatterns = [
-    path("home/", InstitucionTemplateView.as_view(), name="institucion"),
-    path("listaInstituciones/", InstitucionListView.as_view(), name="institucion_list"),]
+    path("detalle/", InstitucionTemplateView.as_view(), name="detalle_institucion"),
+    path("lista/", InstitucionListView.as_view(), name="lista_institucion"),]
 

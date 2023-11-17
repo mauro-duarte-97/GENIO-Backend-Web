@@ -1,0 +1,17 @@
+{% extends "template_base.html" %}
+
+<head>
+    {% block title %} Lista de Profesores {% endblock %}
+</head>
+
+{% block content %}
+    <h1>Lista de Profesores</h1>
+    <ul>
+
+        {% for profesor in profesores %}
+
+                <li><a href="{% url 'detalle_profesor' pk=profesor.pk %}">{{ profesor.nombre }}</a></li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}

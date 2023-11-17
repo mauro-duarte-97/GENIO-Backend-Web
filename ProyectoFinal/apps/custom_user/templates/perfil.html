@@ -1,0 +1,15 @@
+{% extends "template_base.html" %}
+
+{% block title %} Perfil {% endblock %}
+
+{% block content %}
+
+<h1>{{ custom_user.nombre }}</h1>
+<p>Su email es: {{custom_user.email}}</p>
+<ul>
+<li><a href="{% url 'crear_usuario' %}">Crear Usuario</a></li>
+<li><a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a></li>
+<li><a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar Usuario</a></li>
+</ul>
+
+{% endblock %}

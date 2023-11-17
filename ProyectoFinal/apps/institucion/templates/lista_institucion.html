@@ -1,0 +1,21 @@
+{% extends "template_base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %} Lista de Instituciones {% endblock %}
+</head>
+
+    {% block content %}
+    <h1>Lista de Instituciones</h1>
+    <ul>
+
+        {% for objeto in objetos %}
+
+                <li><a href="{{objeto.url}}">{{ objeto.nombre }}</a></li>
+
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+</html>

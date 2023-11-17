@@ -1,6 +1,10 @@
 from django.urls import path
-from apps.alumno.views import AlumnoTemplateView
-
+from .views import AlumnoDetailView
+from .views import AlumnoListView
 
 urlpatterns = [
-    path("", AlumnoTemplateView.as_view(), name="alumno")]
+    path('detalle/<int:pk>', AlumnoDetailView.as_view(), name='alumno_detalle'),
+    path('lista/', AlumnoListView.as_view(), name='alumno_list'),
+]
+
+    

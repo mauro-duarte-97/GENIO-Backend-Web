@@ -1,6 +1,7 @@
 from django.urls import path
-from apps.carrera.views import CarreraTemplateView
-
+from apps.carrera.views import CarreraDetailView
+from .views import CarreraListView
 
 urlpatterns = [
-    path("", CarreraTemplateView.as_view(), name="carrera")]
+    path("detalle/<int:pk>", CarreraDetailView.as_view(), name="detalle_carrera"),
+    path("lista/", CarreraListView.as_view(), name="lista_carrera"),]

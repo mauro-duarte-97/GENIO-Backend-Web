@@ -1,0 +1,19 @@
+{% extends "template_base.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %} Lista de Materias {% endblock %}
+</head>
+
+{% block content %}
+<h1>Lista de Materias</h1>
+    <ul>
+        {% for materia in materias %}
+
+                <li><a href="{% url 'detalle_materia' pk=materia.pk %}">{{ materia.nombre }}</a></li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}
+</html>

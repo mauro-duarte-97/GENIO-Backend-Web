@@ -66,5 +66,28 @@ Lecciones Aprendidas: vincular una vista a un template
 
 ###################################################### 12/11/2023 ######################################################
 
+Duración: 3
 
+Problemas y Desafíos: Vistas que relacionen los modelos
 
+Logros y Éxitos: Avanze en las vistas template 
+
+Próximos Pasos: Terminar las vistas
+
+Notas Adicionales: Aprender mas de vistas
+
+Lecciones Aprendidas: vincular una vista a un template
+
+###################################################### 14/11/2023 ######################################################
+
+Duración: 2
+
+Problemas y Desafíos: Vistas de form
+
+Logros y Éxitos: Avanze en las vistas template, carpeta static.
+
+Próximos Pasos: Terminar las vistas
+
+Notas Adicionales: Aprender mas de vistas
+
+Lecciones Aprendidas: vincular una vista a un template

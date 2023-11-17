@@ -1,0 +1,45 @@
+#navegador-principal-color {
+    background-color: #3498db; /* Cambia el color a azul */
+}
+
+
+#menu-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer{
+    background-color: #3498db;
+}
+
+.boton-fullwidth{
+    background-color: #3498db;
+}
+.logo-principal {
+    max-height: 150px; /* Ajusta según sea necesario */
+    background-color: #3498db;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 10px; /* Espacio entre botones */
+}
+
+li a {
+    display: block;
+    padding: 10px 15px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
