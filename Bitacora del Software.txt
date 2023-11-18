@@ -91,3 +91,23 @@ Próximos Pasos: Terminar las vistas
 Notas Adicionales: Aprender mas de vistas
 
 Lecciones Aprendidas: vincular una vista a un template
+
+###################################################### 16/11/2023 ######################################################
+
+Duración: 5
+
+Problemas y Desafíos: Vistas y templates
+
+Logros y Éxitos: Vistas form, conexion de templates, conexion de vistas, creacion de perfil
+
+Próximos Pasos: Mejoras
+
+Notas Adicionales: Aprender mas de vistas, perfil, autenticacion, api, front, etc
+
+Lecciones Aprendidas: 
+
+<!-- <p>Pertenece a la institucion: {{ nombre_instituto }}</p> -->
+<!-- <p>Pertenece a la carrera: {{  }}</p> -->
+<!-- <p>Participo en las cursadas: {{  }}</p>  -->
+
+###################################################### 16/11/2023 ######################################################

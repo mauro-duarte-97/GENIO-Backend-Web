@@ -31,6 +31,13 @@ class CustomProfileView(TemplateView):
     template_name = 'perfil.html'  # Nombre del template
     context_object_name = 'usuario'  # Nombre del objeto en el contexto
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_id = self.kwargs.get('pk')
+        user = CustomUser.objects.get(pk=user_id)
+        context['usuario'] = user
+        return context
+
 class CrearUsuarioView(CreateView):
     model = CustomUser
     form_class = CustomUserCreateForm

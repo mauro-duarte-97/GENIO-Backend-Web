@@ -46,7 +46,7 @@
             
         </ul>
 
-        <a href="{% url 'perfil_usuario' pk=custom_user.pk %}">Mi Perfil</a>
+        <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi Perfil</a>
     </div>
     
 </nav>

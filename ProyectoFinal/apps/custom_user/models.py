@@ -36,7 +36,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]
     tipo_usuario = models.CharField(max_length=20, choices=TIPO_USUARIO_CHOICES, default=ALUMNO, blank=True, null=True)
 
-
     REQUIRED_FIELDS = ['nombre']  # Campos requeridos para el inicio de sesión
     USERNAME_FIELD = 'email'  # Campo que se utiliza como nombre de usuario para el inicio de sesión
 
