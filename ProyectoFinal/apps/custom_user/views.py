@@ -54,4 +54,4 @@ class EliminarUsuarioView(DeleteView):
     model = CustomUser
     form_class = CustomUserDeleteForm
     template_name = 'eliminar_usuario.html'
-    success_url = reverse_lazy('/home/')
+    success_url = 'home/'
