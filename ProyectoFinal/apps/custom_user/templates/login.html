@@ -1,51 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <title>Iniciar sesión</title>
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+        <!-- <link rel="stylesheet" href="/ProyectoFinal/static/style.css"> -->
         <style>
             .error-message {
                 color: red;
             }
+
+            .containers-btn{
+                justify-self: center;
+                
+            }
+           
         </style>
     </head>
+
     <body>
+
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title"></span>
+                    <span class="mdl-layout-title">Login</span>
                 </div>
             </header>
+
             <main class="mdl-layout__content">
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--4-col mdl-cell--4-offset">
+                    <div class="mdl-card mdl-shadow--6dp">
+                    <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+                        <h2 class="mdl-card__title-text">Iniciar sesión</h2>
+                    </div>
+
                         <div class="mdl-card mdl-shadow--6dp">
-                            <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-                                <h2 class="mdl-card__title-text">Iniciar sesión</h2>
-                            </div>
-                            <div class="mdl-card mdl-shadow--6dp">
-                                <div class="mdl-card__supporting-text">
+                            <div class="mdl-card__supporting-text" >
 
-                                    <form method="post">
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-                                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-                                            Iniciar sesión
-                                        </button>
-                                    </form>
-
-                                    {% for message in messages %}
-                                    <div class="mdl-textfield">
-                                        <p class="error-message">{{ message }}</p>
+                                <!-- /////////////////////////// FORMULARIO /////////////////////////////////// -->
+                                <form method="post" >
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <!-- <div class="mb-3">
+                                        <label for="FormControlInput1" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
                                     </div>
-                                    {% endfor %}
+                                    <br>
+                                    <div class="mb-3">
+                                        <label for="inputPassword5" class="form-label">Password:</label>
+                                        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="aTr24prrI">
+                                        <br>
+                                        <br>
+                                        <div id="passwordHelpBlock" class="form-text">Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</div>
+                                    </div> -->
+                                    
+                                    <div class="containers-btn">
+                                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Iniciar Sesión</button>
+                                        <br>
+                                        <button type="submit" id="google-login-btn"><img width="40px" height="40px"  src="../../../media/g-icon.jpg" alt="Google-icon">Acceder con cuenta de Google</button>
+                                    </div>
+                                </form>
+                                <!-- /////////////////////////// FIN FORMULARIO /////////////////////////////////// -->
+
+                                {% for message in messages %}
+                                <div class="mdl-textfield">
+                                    <p class="error-message">{{ message }}</p>
                                 </div>
+                                {% endfor %}
+
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                console.log('Name: ' + profile.getName());
+                console.log('Image URL: ' + profile.getImageUrl());
+                console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            }
+        </script>
+
+        <script>
+            document.getElementById('google-login-btn').addEventListener('click', function() {
+                // Redirigir al usuario a la página de autenticación de Google
+                window.location.href = "{% url 'google-auth' %}";
+            });
+        </script>
 
         <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </body>

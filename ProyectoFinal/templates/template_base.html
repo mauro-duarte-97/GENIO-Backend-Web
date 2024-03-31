@@ -2,95 +2,93 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Estudiar en IFTS la carrera que se desee con pleno conocimiento a base de reseñas y opiniones de la institucion, carrera, materias y profesores">
-    <meta name="keywords" content="I.F.T.S. reseñas, ayuda a los estudiantes con su decision a tomar de institucion y carrera">
+    <head>  
+        
+        <meta name="description" content="Estudiar en IFTS la carrera que se desee con pleno conocimiento a base de reseñas y opiniones de la institucion, carrera, materias y profesores">
+        <meta name="keywords" content="I.F.T.S. reseñas, ayuda a los estudiantes con su decision a tomar de institucion y carrera">
 
-    <title>{% block title %} {% endblock %}</title>
+        <title>{% block title %} {% endblock %}</title>
 
-    <link rel="shortcut icon" href="{% static 'media/other_media_files/logo-web3.jpg' %}" type="image/png">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://www.estudios.com.ar/css/estilos-guiav2.css?v=6.0" type="text/css">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- SETEOS COMPATIBILIDAD MOBILE-->
+        <link rel="shortcut icon" href="{% static 'media/other_media_files/logo-web3.jpg' %}" type="image/png">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://www.estudios.com.ar/css/estilos-guiav2.css?v=6.0" type="text/css">
+        
     </head>
 
-  <!-- Este script jQuery está diseñado para responder al clic en un elemento con el ID "activador-avanzadas". Cuando se hace clic en este elemento, se desvanecerá gradualmente un elemento con ID "advancedSearch" y se ocultarán los elementos con la clase "contenedor-opciones" -->
-<script type="text/javascript">
-    $(document).ready(function(){
-    $("#activador-avanzadas").click(function(){
-        $("#advancedSearch").fadeIn (500);
-        $(".contenedor-opciones").hide (500);
-        }); 
-    }); 
-</script>
+    <body>
+        <!-- Este script jQuery está diseñado para responder al clic en un elemento con el ID "activador-avanzadas". Cuando se hace clic en este elemento, se desvanecerá gradualmente un elemento con ID "advancedSearch" y se ocultarán los elementos con la clase "contenedor-opciones" -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $("#activador-avanzadas").click(function(){
+                $("#advancedSearch").fadeIn (500);
+                $(".contenedor-opciones").hide (500);
+                }); 
+            }); 
+        </script>
 
-<!-- ################ BODY ############################## -->
-<body>
+        <!-- ################ BODY ############################## -->
+        <header>
+        <!-- ################ NAVEGADOR PC ######################## -->
+        <nav id="navegador-principal-color">
+            <div id="menu-principal"><a href="{% url 'home'%}"><img class="logo-principal" src="{% static 'media/other_media_files/Logo-web-IFTS.png' %}"></a>
+                <!-- <a  class="logo-principal" href="#"></a> -->
+                <ul>
+                    <li><a href="{% url 'lista_institucion'%}">Buscar Instituciones</a></li>
+                    
+                    <li><a href="{% url 'lista_carrera'%}">Buscar Carreras</a></li>
+                    
+                    <li><a href="{% url 'lista_profesor'%}">Buscar Profesor</a></li>
+                    
+                    <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
+                    
+                </ul>
 
-<!-- ################ HEADER ############################## -->
-<header>
-<!-- ################ NAVEGADOR PC ######################## -->
-<nav id="navegador-principal-color">
-    <div id="menu-principal">
-        <img class="logo-principal" src="{% static 'media/other_media_files/Logo-web-IFTS.png' %}"><!-- <a  class="logo-principal" href="#"></a> -->
-        <ul>
-            <li><a href="{% url 'lista_institucion'%}">Buscar Instituciones</a></li>
+                <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi Perfil</a>
+            </div>
             
-            <li><a href="{% url 'lista_carrera'%}">Buscar Carreras</a></li>
-            
-            <li><a href="{% url 'lista_profesor'%}">Buscar Profesor</a></li>
-            
-            <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
-            
-        </ul>
+        </nav>
+        <!-- ################ FIN NAVEGADOR PC ######################## -->
 
-        <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi Perfil</a>
-    </div>
-    
-</nav>
-<!-- ################ FIN NAVEGADOR PC ######################## -->
+        <!-- ################ NAVEGADOR MOVIL ######################## -->
+        <nav id="menu-movil">
 
-<!-- ################ NAVEGADOR MOVIL ######################## -->
-<nav id="menu-movil">
+            <div class="menu-button">GUÍA DEL ESTUDIANTE DE IFTS<span class="touch-button"><i class="navicon">▼</i></span></div>
+            <ul class="flexnav with-js opacity sm-screen" data-breakpoint="800">
+                <li><a href="{% url 'lista_institucion'%}">Buscador de Instituciones</a></li>
+                <li><a href="{% url 'lista_carrera'%}">Buscador de Carreras</a></li>
+                <li><a href="{% url 'lista_profesor'%}">Buscador Profesores</a></li>
+                <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
+            </ul>
+        </nav>
+        <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
 
-    <div class="menu-button">GUÍA DEL ESTUDIANTE DE IFTS<span class="touch-button"><i class="navicon">▼</i></span></div>
-    <ul class="flexnav with-js opacity sm-screen" data-breakpoint="800">
-        <li><a href="{% url 'lista_institucion'%}">Buscador de Instituciones</a></li>
-        <li><a href="{% url 'lista_carrera'%}">Buscador de Carreras</a></li>
-        <li><a href="{% url 'lista_profesor'%}">Buscador Profesores</a></li>
-        <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
-    </ul>
-</nav>
-<!-- ################ FIN NAVEGADOR MOVIL ######################## -->
+        <noscript><div>Su explorador no ejecuta Javascript. Active Javascript para una correcta visualización de este sitio.</div></noscript>
 
-<noscript><div>Su explorador no ejecuta Javascript. Active Javascript para una correcta visualización de este sitio.</div></noscript>
+        </header>
+        <!-- ################ FIN HEADER ############################## -->
 
-</header>
-<!-- ################ FIN HEADER ############################## -->
+        <!-- ################ CONTENIDO ############################## -->
 
-<!-- ################ CONTENIDO ############################## -->
+        <div id="contenedor-principal">
 
-<div id="contenedor-principal">
+            {% block content %}
 
-    {% block content %}
+            {% endblock %}
 
-    {% endblock %}
+        </div> 
+        <!-- Fin de contenedor principal -->
 
-</div> 
-<!-- Fin de contenedor principal -->
+        <!-- ################ FIN CONTENIDO ############################## -->
 
-<!-- ################ FIN CONTENIDO ############################## -->
+        <!-- ################################ FOOTER ######################################## -->
 
-<!-- ################################ FOOTER ######################################## -->
+        <footer>
+        <img height="150" width="150" src="{% static 'media/other_media_files/logo-web.jpg' %}">
+        <p>¡Sumate a la comunidad IFTS!</p>
+        <br>
+        <br>
+            <p>Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
+        </footer>
+    </body>
 
-<footer>
- <img height="150" width="150" src="{% static 'media/other_media_files/logo-web.jpg' %}">
- <p>¡Sumate a la comunidad IFTS!</p>
- <br>
- <br>
-    <p>Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
-</footer>
-</body>
 </html>

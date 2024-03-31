@@ -1,22 +1,30 @@
-Fecha y Hora: Registra la fecha y la hora de cada entrada para tener un registro cronológico de las actividades.
+Datos importantes de la pagina:
+Usuario: admin@gmail.com	
+Pwd: admin
 
-Descripción de la Actividad: Detalla qué actividad o tarea se llevó a cabo. Específica y clara.
+COMANDOS IMPORTANTES:
+python manage.py runserver
 
-############################################### DESCRIPCION DE BITACORA ################################################
 
-Duración: Cuanto tiempo inverti en el avanze
+URLS ACTUALES:
+http://127.0.0.1:8000/auth/crear/
+http://127.0.0.1:8000/institucion/lista/
+http://127.0.0.1:8000/carrera/lista/
+http://127.0.0.1:8000/profesor/lista/
+http://127.0.0.1:8000/materia/lista/
+http://127.0.0.1:8000/auth/home/
+http://127.0.0.1:8000/auth/perfil/1/
 
-Problemas y Desafíos: Anota cualquier problema o desafío que surgió durante la actividad y cómo se resolvió.
+###################################################### 31/03/2024 ######################################################
+Crear home, login y register HTML.
 
-Logros y Éxitos: Registra los logros y éxitos alcanzados durante la actividad. Esto puede ser útil para motivar al equipo y reconocer el progreso.
+Crear el back de home, login y register.
 
-Próximos Pasos: Indica cuáles son los próximos pasos a seguir después de completar la actividad actual.
+Investigar y desarrollar la forma en que se pueda acceder con la cuenta de google.
 
-Notas Adicionales: Espacio para cualquier otra información relevante o observaciones que puedan ser útiles para futuras referencias.
 
-Lecciones Aprendidas: Documentar lo que se ha aprendido durante el proyecto y cómo se pueden aplicar esas lecciones en el futuro
-
-################################################### FIN DESCRIPCION ####################################################
+###################################################### 24/03/2024 ######################################################
+Rework de proyecto. Vuelvo a retomarlo con otra vista, quiero crear todas las vistas/pages, luego darle la funcionalidad a cada boton/obj interactuable. OBLIGATORIO: REGISTER-LOGIN con email o con google account.
 
 
 ###################################################### 6/11/2023 ######################################################
@@ -110,4 +118,68 @@ Lecciones Aprendidas:
 <!-- <p>Pertenece a la carrera: {{  }}</p> -->
 <!-- <p>Participo en las cursadas: {{  }}</p>  -->
 
-###################################################### 16/11/2023 ######################################################
+
+************************************************************************  CODIGO POSIBLE A REUSAR ************************************************************************
+
+LOGIN:
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Iniciar sesión</title>
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+        <style>
+            .error-message {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Login</span>
+                </div>
+            </header>
+
+            <main class="mdl-layout__content">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col mdl-cell--4-offset">
+                        <div class="mdl-card mdl-shadow--6dp">
+
+                            <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+                                <h2 class="mdl-card__title-text">Iniciar sesión</h2>
+                            </div>
+                            
+                            <div class="mdl-card mdl-shadow--6dp">
+                                <div class="mdl-card__supporting-text">
+
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                                            Iniciar sesión
+                                        </button>
+                                    </form>
+
+                                    {% for message in messages %}
+                                    <div class="mdl-textfield">
+                                        <p class="error-message">{{ message }}</p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </body>
+</html>
+
+--------------------------------------------------------------------------------------------------------------------
+

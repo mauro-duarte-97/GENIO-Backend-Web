@@ -22,17 +22,19 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include("apps.custom_user.urls")),
     path('alumno/', include("apps.alumno.urls")),
     path('calificacion/', include("apps.calificacion.urls")),
     path('carrera/', include("apps.carrera.urls")),
     path('cursada/', include("apps.cursada.urls")),
-    path('custom_user/', include("apps.custom_user.urls")),
     path('detalle_calificacion/', include("apps.detalle_calificacion.urls")),
     path('institucion/', include("apps.institucion.urls")),
     path('materia/', include("apps.materia.urls")),
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
     path("auth/", include("apps.custom_user.urls")),
+    
+
 ]
 # ... tus otras rutas ...
 
