@@ -1,3 +1,5 @@
+from imaplib import _Authenticator
+from django.contrib.auth import login
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.views.generic.base import TemplateView
@@ -5,16 +7,22 @@ from .models import CustomUser
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import CustomUserCreateForm, CustomUserUpdateForm, CustomUserDeleteForm
 from django.urls import reverse_lazy
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 class CustomLoginView(LoginView):
     template_name = "login.html"
 
+    def form_valid(self, form):
+
+        messages.success(self.request, "¡Bienvenido de nuevo!")
+        return super().form_valid(form)
+    
     def form_invalid(self, form):
         messages.error(
             self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
         )  # Mensaje de error
         return super().form_invalid(form)
+
 
 class CustomLogoutView(LogoutView):
     template_name = "home.html"
@@ -36,7 +44,6 @@ class UserHomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
     
 class CustomProfileView(TemplateView):
     model = CustomUser 
@@ -50,17 +57,32 @@ class CustomProfileView(TemplateView):
         context['usuario'] = user
         return context
 
+class CustomLoginView(LoginView):
+    def get(self, request):
+        return render(request, 'login.html')
+
+    def post(self, request):
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        user = _Authenticator(email=email, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'login.html', {'error_message': 'Usuario o contraseña incorrectos'})
+
+
 class RegisterUsuarioView(CreateView):
     model = CustomUser
     form_class = CustomUserCreateForm
     template_name = 'registrar_usuario.html'
-    success_url = '/perfil/'
+    success_url = 'perfil/'
 
 class EditarUsuarioView(UpdateView):
     model = CustomUser
     form_class = CustomUserUpdateForm
     template_name = 'editar_usuario.html'
-    success_url = '/perfil/'
+    success_url = 'perfil/'
 
 class EliminarUsuarioView(DeleteView):
     model = CustomUser

@@ -3,7 +3,16 @@ Usuario: admin@gmail.com
 Pwd: admin
 
 COMANDOS IMPORTANTES:
+
+ -ABRIR PROYECTO {
+cd EntornoDePrueba
+Scripts\activate
+cd..
+cd ProyectoFinal
 python manage.py runserver
+}
+
+
 
 
 URLS ACTUALES:

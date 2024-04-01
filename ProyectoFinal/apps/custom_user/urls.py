@@ -4,7 +4,7 @@ from .views import google_auth
 
 urlpatterns = [
     path("login/", CustomLoginView.as_view(), name="login"),
-    path("logout/", CustomLogoutView.as_view(), name="logout"),
+    # path("home/", CustomLogoutView.as_view(), name="logout"),
     path("perfil/<int:pk>/", CustomProfileView.as_view(), name="perfil_usuario"),
     path("home/", HomeView.as_view(), name="home"),
     path("userHome/", UserHomeView.as_view(), name="user_home"),

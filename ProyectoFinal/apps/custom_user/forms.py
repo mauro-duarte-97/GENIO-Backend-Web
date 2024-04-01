@@ -41,3 +41,12 @@ class CustomUserDeleteForm(forms.ModelForm):
             label='Confirmar eliminación',
             help_text='Marca esta casilla para confirmar que deseas eliminar este usuario.',
         )
+
+class CustomUserLoginForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['email', 'password']
+        widgets = {
+            'email': forms.EmailInput(attrs={'placeholder': 'Correo electrónico'}),
+            'password': forms.PasswordInput(attrs={'placeholder': 'Contraseña'}),
+        }

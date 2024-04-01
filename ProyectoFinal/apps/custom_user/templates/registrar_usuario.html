@@ -11,7 +11,7 @@
 <h1>Registrar Usuario</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!-- {{ form.as_p }} -->
         <label>Ingrese nombre de usuario</label>
         <input type="text" name="username" required placeholder="Dummy">
         <br><br>
@@ -50,19 +50,17 @@
             <option value="opcion3">I.F.T.S N°30</option>
             <option value="opcion3">I.F.T.S N°31</option>
         </select>
-        
+        <br>
         <label>Ingrese su genero</label>
         <select title="Genero">
             <option value="opcion1">Masculino</option>
             <option value="opcion2">Femenino</option>
             <option value="opcion3">Otro</option>
         </select>
-
+        <br>
         <label>Ingrese su fecha de cumpleaños</label>
-            <input placeholder="Dia" type="date" name="dia_nacimiento" required>
-            <input placeholder="Mes" type="date" name="mes_nacimiento" required>
-            <input placeholder="Año" type="date" name="anio_nacimiento" required>
-
+        <input placeholder="MM/DD/YYYY" type="date" name="fecha" required>
+        <br>
         <button type="submit" value="registrar">Registrar</button>
     </form>
 {% endblock %}
