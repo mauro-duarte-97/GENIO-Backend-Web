@@ -23,16 +23,15 @@ class CustomLoginView(LoginView):
         )  # Mensaje de error
         return super().form_invalid(form)
 
-
 class CustomLogoutView(LogoutView):
-    template_name = "home.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
 class HomeView(TemplateView):
-    template_name = "home.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -96,4 +95,4 @@ def google_auth(request):
     # Aquí deberías manejar la lógica de autenticación de Google
     # Esto puede implicar redirigir al usuario a la URL de autenticación de Google y luego procesar el token devuelto por Google.
     # Aquí solo redirigimos al usuario a la página de inicio por ahora.
-    return redirect('home')  # Cambia 'inicio' por el nombre de la URL de tu página de inicio
+    return redirect('userHome')  # Cambia 'inicio' por el nombre de la URL de tu página de inicio
