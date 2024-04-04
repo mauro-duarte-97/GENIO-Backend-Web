@@ -1,0 +1,9 @@
+IDEAS:
+
+- Que el usuario pueda pedir un cambio de tipo de usuario de visitante a Alumno u Profesor.
+
+- Crear un sistema de foro.
+
+- Ver de implementar en otras instituciones.
+
+- Ver si tiene un buen flujo de gente y a las autoridades les agrada la idea, agregar una seccion para solicitudes de mejora a la institucion.

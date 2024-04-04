@@ -9,7 +9,7 @@
 
         <title>{% block title %} {% endblock %}</title>
 
-        <link rel="shortcut icon" href="{% static 'media/other_media_files/logo-web3.jpg' %}" type="image/png">
+        <link rel="shortcut icon" href="{% static 'imagenes/Logo/logo-web3.jpg' %}" type="image/png">
         <link rel="stylesheet" href="{% static 'style.css' %}">
         <link rel="stylesheet" href="https://www.estudios.com.ar/css/estilos-guiav2.css?v=6.0" type="text/css">
         
@@ -30,7 +30,7 @@
         <header>
         <!-- ################ NAVEGADOR PC ######################## -->
         <nav id="navegador-principal-color">
-            <div id="menu-principal"><a href="{% url 'index'%}"><img class="logo-principal" src="{% static 'media/other_media_files/Logo-web-IFTS.png' %}"></a>
+            <div id="menu-principal"><a href="{% url 'user_home'%}"><img class="logo-principal" src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}"></a>
                 <!-- <a  class="logo-principal" href="#"></a> -->
                 <ul>
                     <li><a href="{% url 'lista_institucion'%}">Buscar Instituciones</a></li>
@@ -83,10 +83,9 @@
         <!-- ################################ FOOTER ######################################## -->
 
         <footer>
-        <img height="150" width="150" src="{% static 'media/other_media_files/logo-web.jpg' %}">
-        <p>¡Sumate a la comunidad IFTS!</p>
-        <br>
-        <br>
+            <img height="150" width="150" src="{% static 'imagenes/Logo/logo-web.jpg' %}">
+            <p>¡Sumate a la comunidad IFTS!</p>
+            <br>
             <p>Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
         </footer>
     </body>

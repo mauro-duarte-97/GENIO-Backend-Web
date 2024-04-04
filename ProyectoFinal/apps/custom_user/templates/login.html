@@ -39,7 +39,7 @@
                             <div class="mdl-card__supporting-text" >
 
                                 <!-- /////////////////////////// FORMULARIO /////////////////////////////////// -->
-                                <form method="post" >
+                                <form action="{% url 'user_home' %}"method="post" >
                                     {% csrf_token %}
                                     {{ form.as_p }}
                                     <div class="mb-3">
@@ -58,7 +58,7 @@
                                     <div class="containers-btn">
                                         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Iniciar Sesión</button>
                                         <br>
-                                        <button type="submit" id="google-login-btn"><img width="40px" height="40px"  src="../../../media/g-icon.jpg" alt="Google-icon">Acceder con cuenta de Google</button>
+                                        <button type="submit" id="google-login-btn"><img width="40px" height="40px"  src="../../../static/imagenes/Iconos/g-icon.jpg" alt="Google-icon">Acceder con cuenta de Google</button>
                                     </div>
                                 </form>
                                 <!-- /////////////////////////// FIN FORMULARIO /////////////////////////////////// -->

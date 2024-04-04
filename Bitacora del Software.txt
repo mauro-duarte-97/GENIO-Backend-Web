@@ -24,12 +24,25 @@ http://127.0.0.1:8000/materia/lista/
 http://127.0.0.1:8000/auth/home/
 http://127.0.0.1:8000/auth/perfil/1/
 
+###################################################### 02/04/2024 ######################################################
+
+Continuacion de Investigacion
+
+###################################################### 01/04/2024 ######################################################
+El comando: {% if request.path == 'URL' %} compara la url actual con la que vos designes y actua en consecuencia.
+
+Investigacion de Login y Register. Tambien Google Auth.
+
 ###################################################### 31/03/2024 ######################################################
 Crear home, login y register HTML.
 
 Crear el back de home, login y register.
 
 Investigar y desarrollar la forma en que se pueda acceder con la cuenta de google.
+
+Agregar el tipo Visitante al usuario.
+
+Agregar los atributos sexo y edad.
 
 
 ###################################################### 24/03/2024 ######################################################
@@ -130,7 +143,7 @@ Lecciones Aprendidas:
 
 ************************************************************************  CODIGO POSIBLE A REUSAR ************************************************************************
 
-LOGIN:
+LOGIN PROFE:
 
 <!DOCTYPE html>
 <html lang="es">
@@ -192,3 +205,80 @@ LOGIN:
 
 --------------------------------------------------------------------------------------------------------------------
 
+Elementos varios utiles de la pagina que use como referencia:
+
+
+<!--  ################################## CODIGO UTIL ############################################ -->
+
+<!-- Codigo de conexion a facebook -->
+
+<!-- <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=148738392218835";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script> -->
+
+
+
+<!-- Codigo de conexion a google analytics -->
+
+    <!-- <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37993161-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script> -->
+
+
+<!-- Codigo de conexion a google maps -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script>
+        var address = 'Cañada de Gómez 3850, Villa Lugano, Capital Federal, Argentina';
+        var map;
+        
+        function initialize() {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status != google.maps.GeocoderStatus.OK) {
+                $('#map_canvas').hide();
+                return;
+            } 
+            var loc = results[0].geometry.location;
+        var mapOptions = {
+            zoom: 15,
+            center: loc,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById('map_canvas'),
+        mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: loc,
+            map: map
+        });
+    });
+    return;
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>-->
+
+
+<!-- Codigo de rollback, retrocede la accion/navegador -->
+    <!-- <script>
+    function goBack() {
+        window.history.back();
+    }
+</script> -->
