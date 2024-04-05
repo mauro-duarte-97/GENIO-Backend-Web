@@ -1,8 +1,6 @@
 html, body{
   margin: 0;
   padding: 0;
-  display: flex;
-  width: 100%;
   
 }
 main{
@@ -15,7 +13,6 @@ main{
   width: 100%;
   justify-content:space-evenly;
   align-content: center;
-  
 }
 
 .container {
@@ -55,7 +52,7 @@ main{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #8a2be2; /* Violeta */
+  background-color: #f6b072; /* Violeta */
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
@@ -75,11 +72,11 @@ main{
 }
 
 input:checked + .slider {
-  background-color: #4CAF50; /* Verde */
+  background-color: #ef8996; /* Verde */
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #4CAF50;
+  box-shadow: 0 0 1px #ef8996;
 }
 
 input:checked + .slider:before {
@@ -108,7 +105,7 @@ button[type="submit"],
 button {
   width: calc(100% - 20px);
   padding: 10px;
-  background-color: #8a2be2; /* Violeta */
+  background-color: #f6b072; /* Violeta */
   color: white;
   border: none;
   border-radius: 5px;
@@ -142,6 +139,8 @@ p {
 .seccionImagen{
   height: auto;
   display:flex;
+  max-width:50%;
+
 }
 .divImg{
   align-items: center;
@@ -164,6 +163,16 @@ animation: divImg 5s ease 0s infinite normal none;
   justify-content: center;
   align-content: center;
   width:70%;
+}
+
+#loginCard{
+
+}
+#registerCard form button{
+  background-color: #ef8996;
+}
+#googleboton{
+background-color: darkgray;
 }
 
 /* animacion img*/
