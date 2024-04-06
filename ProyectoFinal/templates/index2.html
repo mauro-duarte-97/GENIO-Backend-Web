@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <!-- ///////////////////////////////  LOGIN  /////////////////////////////// -->
+    <div class="login-space">
+        <h1>Login</h1>
+        <a href="{% url 'login' %}" class="sing-in-btn"><button type="submit">Sign in</button></a>
+    </div>
+
+    <div class="container-img-register">
+        
+        <!-- ///////////////////////////////// IMG /////////////////////////////// -->
+        <div class="portada-space">
+            <img src="../static/imagenes/Portada/Portada3.jpg" alt="portada">
+        </div>
+
+        <!-- ///////////////////////////////  REGISTER  /////////////////////////////// -->
+        <div class="register-space">
+            <h2>Registro</h2>
+            <br>
+
+            <div class="register-form">
+                <form action="register">
+
+                <div class="register-form-1">
+                    <div class="register-form-1-labels">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                
+
+                    <div class="register-form-1-labels">
+                        <label for="password">Password:</label>  
+                        <input type="password" name="password" id="password" required>                    
+                    </div>
+                </div>
+
+                <h2>Elegi tu categoria</h2>
+                <div class="register-form-1"> 
+                    <div class="cat-register-form">
+                        <a href="{% url 'user_home' %}"><button type="submit" class="register-type-user">Visitante</button></a>
+                        <a href="{% url 'registrar_usuario' %}"><button type="submit" class="register-type-user">Alumno</button></a>
+                        <a href="{% url 'registrar_usuario' %}"><button type="submit" class="register-type-user">Profesor</button></a>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

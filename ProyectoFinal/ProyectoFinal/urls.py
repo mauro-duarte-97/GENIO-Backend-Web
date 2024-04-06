@@ -32,7 +32,7 @@ urlpatterns = [
     path('materia/', include("apps.materia.urls")),
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
-    path("auth/", include("apps.custom_user.urls")),
+    # path("auth/", include("apps.custom_user.urls")),
     
 
 ]

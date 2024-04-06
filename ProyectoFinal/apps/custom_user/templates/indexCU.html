@@ -27,16 +27,14 @@
     <div class="form-container">
       <div class="card" id="loginCard">
         <h2>Iniciar Sesión</h2>
-
         <form id="loginForm" action="{% url 'user_home' %}"method="post">
           {% csrf_token %}
-          <input type="text" placeholder="Email" id="email" name="email" required>
-          <input type="password" placeholder="Contraseña" id="password" name="password" required>
+          <input type="text" placeholder="Usuario" id="username" required>
+          <input type="password" placeholder="Contraseña" id="password" required>
           <button type="submit" id="loginButton">Ingresar</button>
         </form>
-
         <p>O inicia sesión con</p>
-        <button type="button" onclick="google_auth()" id="googleboton1">Google</button>
+        <button type="button" onclick="googleLogin()" id="googleboton1">Google</button>
       </div>   
     </div>
     
@@ -47,8 +45,8 @@
         <h2>Registro</h2>
         <form id="registerForm" method="post">
           {% csrf_token %}
-          <input type="text" placeholder="Email" id="regEmail" name="regEmail" required>
-          <input type="password" placeholder="Contraseña" id="regPassword" name="regPassword" required>
+          <input type="text" placeholder="Usuario" id="regUsername" required>
+          <input type="password" placeholder="Contraseña" id="regPassword" required>
           <select id="userType">
             <option value="visitante">Visitante</option>
             <option value="alumno">Alumno</option>
@@ -57,7 +55,7 @@
           <button type="submit" id="registerButton">Crear Cuenta</button>
         </form>
         <p>O regístrate con</p>
-        <button onclick="google_auth()" id="googleboton2">Google</button>
+        <button onclick="googleLogin()" id="googleboton2">Google</button>
       </div>
         </div>
   </div>   

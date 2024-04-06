@@ -1,205 +1,209 @@
-/* /////////////////////////  TEMPLATE_BASE HTML  ////////////////////////// */
-footer{
-    background-color: #3498db;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+html, body{
+  margin: 0;
+  padding: 0;
+  
+}
+main{
+  
 }
 
-#menu-principal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    max-width: 1200px;
-    margin: 0 auto;
+.divImagenyForm{
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content:space-evenly;
+  align-content: center;
 }
 
-.logo-principal {
-    max-height: 150px; /* Ajusta según sea necesario */
-    background-color: #3498db;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 
-#navegador-principal-color {
-    background-color: #3498db; /* Cambia el color a azul */
+.switch-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
+.switch-container p {
+  margin-right: 10px;
 }
 
-li {
-    margin-right: 10px; /* Espacio entre botones */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-li a {
-    display: block;
-    padding: 10px 15px;
-    background-color: orange;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-/* /////////////////////////  HOME HTML  ////////////////////////// */
-/* Estilos para el cuerpo de la página */
-body {
-    margin: 0; /* Elimina el margen por defecto */
-    padding: 0; /* Elimina el relleno por defecto */
-    overflow: hidden; /* Deshabilita el desplazamiento */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f6b072; /* Violeta */
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
 }
 
-/* Estilos para ocupar todo el espacio disponible */
-html, body {
-    width: 100%; /* Ocupa el 100% del ancho del viewport */
-    height: 100%; /* Ocupa el 100% del alto del viewport */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
 }
 
-.login-space{
-    display: flex;
-    flex: 1;
-    background-color: #3d8af7;
-    align-items: center;
-    padding: 0;
-    width: 100%;
-    height: 15vh;
-    
+input:checked + .slider {
+  background-color: #ef8996; /* Verde */
 }
 
-.container-img-register{
-    display: flex;
-    flex: 4;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    /* padding-top: 10px; */
-    width: 100%;
-    height: 90vh;
-    margin: 10px;
-
+input:focus + .slider {
+  box-shadow: 0 0 1px #ef8996;
 }
 
-.portada-space{
-    display: flex;
-    padding: 10px;
-    width: 85vh;
-    height: 100%;
-    margin: 10px;
-}
-
-.register-space{
-    display: flex;
-    flex-direction: column;
-    background-color: #e692f8;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 70vh;
-    height: 100%;
-    margin: 10px;
-}
-
-.sing-in-btn{
-    position: fixed;
-    top: 10px; /* Ajusta la distancia desde la parte superior */
-    right: 10px; /* Ajusta la distancia desde el borde derecho */
-    padding: 10px 20px; /* Ajusta el relleno del botón */
-    background-color: #007bff; /* Color de fondo del botón */
-    color: #8b8282; /* Color del texto del botón */
-    border: none; /* Quita el borde del botón */
-    border-radius: 5px; /* Agrega bordes redondeados al botón */
-    cursor: pointer;
-}
-    
-.sign-in-btn:hover {
-    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón por encima */
-}
-    
-.sign-in-btn:active {
-    background-color: #0056b3; /* Cambia el color de fondo al hacer clic */
-}
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-
-}
-
-.register-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-}
-
-.register-form-1{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-}
-
-
-.cat-register-form{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10vh;
-    margin: 10vh;
-    width: 100%;
-}
-
-.register-form-1-labels{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-
-}
-
-.register-type-user{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    width: 18vh;
-    margin: 0 auto;
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
 
 
 
-
-/* /////////////////////////  HOME-USER HTML  ////////////////////////// */
-
-
-
-/* /////////////////////////  LOGIN HTML  ////////////////////////// */
-
-::-webkit-input-placeholder {
-    color: #aca9a9; /* Color de texto aclarado */
- }
-.mb-3 {
-    margin-bottom: 1rem;
-    padding: 1rem;
+.card h2 {
+  margin-bottom: 20px;
 }
 
-/* /////////////////////////  REGISTER HTML  ////////////////////////// */
+input[type="text"],
+input[type="password"],
+select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
+button[type="submit"],
+button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #f6b072; /* Violeta */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+button[type="submit"]:hover,
+button:hover {
+  background-color: #7c26cd; /* Violeta más oscuro */
+}
+
+button[type="submit"]:focus,
+button:focus {
+  outline: none;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.card {
+  justify-content: center;
+  align-content: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.seccionImagen{
+  height: auto;
+  display:flex;
+  max-width:50%;
+
+}
+.divImg{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+
+}
+.divImg img{
+max-width: 50%;
+height: auto;
+border-radius: 1000px;
+animation: divImg 5s ease 0s infinite normal none;
+
+}
+
+.loginHome{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  width:70%;
+}
+
+#loginCard{
+
+}
+#registerCard form button{
+  background-color: #ef8996;
+}
+#googleboton1{
+background-color: darkgray;
+}
+
+#googleboton2{
+  background-color: darkgray;
+  }
+
+/* animacion img*/
+@keyframes divImg {
+  0%,
+  100% {
+	transform: translateX(0%);
+	transform-origin: 50% 50%;
+  }
+
+  15% {
+	transform: translateX(-30px) rotate(6deg);
+  }
+
+  30% {
+	transform: translateX(15px) rotate(-6deg);
+  }
+
+  45% {
+	transform: translateX(-15px) rotate(3.6deg);
+  }
+
+  60% {
+	transform: translateX(9px) rotate(-2.4deg);
+  }
+
+  75% {
+	transform: translateX(-6px) rotate(1.2deg);
+  }
+}

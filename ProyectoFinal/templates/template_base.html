@@ -10,7 +10,7 @@
         <title>{% block title %} {% endblock %}</title>
 
         <link rel="shortcut icon" href="{% static 'imagenes/Logo/logo-web3.jpg' %}" type="image/png">
-        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'style2.css' %}">
         <link rel="stylesheet" href="https://www.estudios.com.ar/css/estilos-guiav2.css?v=6.0" type="text/css">
         
     </head>
@@ -43,7 +43,7 @@
                     
                 </ul>
 
-                <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi Perfil</a>
+                <div><a href="{% url 'perfil_usuario' pk=request.user.id %}"><img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px"><h3>Mi Perfil</h3></a></div>
             </div>
             
         </nav>

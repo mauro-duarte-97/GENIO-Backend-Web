@@ -7,3 +7,22 @@ IDEAS:
 - Ver de implementar en otras instituciones.
 
 - Ver si tiene un buen flujo de gente y a las autoridades les agrada la idea, agregar una seccion para solicitudes de mejora a la institucion.
+
+Preguntas:
+
+Como vincular el css al proyecto? mediante:
+<link href="../static/style.css" rel="stylesheet" type="text/css">
+o {% load static %}.
+
+Como trabajar con la libreria de Auth? Se necesita algo mas que el {% csrf_token %} para que este seguro el form?
+
+Como cambiar la pagina principal de login a index pero el login formando parte de index.
+
+Como crear el usuario con una contraseña valida (sin hashear, para poder probar el boton de register)
+
+Investigar como crear un ChatBot
+
+Investigar como usar la API de Google Maps
+
+Investigar como usar el Auth de Google
+

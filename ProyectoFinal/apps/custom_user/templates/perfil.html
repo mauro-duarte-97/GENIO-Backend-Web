@@ -1,15 +1,18 @@
 {% extends "template_base.html" %}
-
+{% load static %}
 {% block title %} Perfil {% endblock %}
 
 {% block content %}
+<img src="{% if usuario.img_perfil %}{% static usuario.img_perfil %}{% else %}{% static 'path/to/default/image.jpg' %}{% endif %}" alt="Imagen de perfil">
 
-<h2>{{ custom_user.nombre }}</h2>
-<p>Su email es: {{custom_user.email}}</p>
-
-<ul>
-<li><a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a></li>
-<li><a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar Usuario</a></li>
-</ul>
+<h1>Mi Perfil</h1>
+<br>
+<h2>Hola!, {{ usuario.nombre }}</h2>
+<menu>
+    <ul>
+    <li><a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a></li>
+    <li><a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar Usuario</a></li>
+    </ul>
+</menu>
 
 {% endblock %}
