@@ -1,0 +1,205 @@
+/* /////////////////////////  TEMPLATE_BASE HTML  ////////////////////////// */
+footer{
+    background-color: #3498db;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#menu-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-principal {
+    max-height: 150px; /* Ajusta según sea necesario */
+    background-color: #3498db;
+}
+
+#navegador-principal-color {
+    background-color: #3498db; /* Cambia el color a azul */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 10px; /* Espacio entre botones */
+}
+
+li a {
+    display: block;
+    padding: 10px 15px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* /////////////////////////  HOME HTML  ////////////////////////// */
+/* Estilos para el cuerpo de la página */
+body {
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el relleno por defecto */
+    overflow: hidden; /* Deshabilita el desplazamiento */
+}
+
+/* Estilos para ocupar todo el espacio disponible */
+html, body {
+    width: 100%; /* Ocupa el 100% del ancho del viewport */
+    height: 100%; /* Ocupa el 100% del alto del viewport */
+}
+
+.login-space{
+    display: flex;
+    flex: 1;
+    background-color: #3d8af7;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 15vh;
+    
+}
+
+.container-img-register{
+    display: flex;
+    flex: 4;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 10px; */
+    width: 100%;
+    height: 90vh;
+    margin: 10px;
+
+}
+
+.portada-space{
+    display: flex;
+    padding: 10px;
+    width: 85vh;
+    height: 100%;
+    margin: 10px;
+}
+
+.register-space{
+    display: flex;
+    flex-direction: column;
+    background-color: #e692f8;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 70vh;
+    height: 100%;
+    margin: 10px;
+}
+
+.sing-in-btn{
+    position: fixed;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 10px; /* Ajusta la distancia desde el borde derecho */
+    padding: 10px 20px; /* Ajusta el relleno del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #8b8282; /* Color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    cursor: pointer;
+}
+    
+.sign-in-btn:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón por encima */
+}
+    
+.sign-in-btn:active {
+    background-color: #0056b3; /* Cambia el color de fondo al hacer clic */
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.register-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.register-form-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+}
+
+
+.cat-register-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10vh;
+    margin: 10vh;
+    width: 100%;
+}
+
+.register-form-1-labels{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    width: 100%;
+
+}
+
+.register-type-user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 18vh;
+    margin: 0 auto;
+}
+
+
+
+
+/* /////////////////////////  HOME-USER HTML  ////////////////////////// */
+
+
+
+/* /////////////////////////  LOGIN HTML  ////////////////////////// */
+
+::-webkit-input-placeholder {
+    color: #aca9a9; /* Color de texto aclarado */
+ }
+.mb-3 {
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+/* /////////////////////////  REGISTER HTML  ////////////////////////// */
+
+

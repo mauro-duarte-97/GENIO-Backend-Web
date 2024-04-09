@@ -1,0 +1,66 @@
+{% extends "template_base.html" %}
+
+{% block title %} Registrar Usuario {% endblock %}
+
+<!-- <head>
+    <link rel="stylesheet" href="/ProyectoFinal/static/style.css">
+</head> -->
+{% block content %}
+
+
+<h1>Registrar Usuario</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <label>Ingrese nombre de usuario</label>
+        <input type="text" name="username" required placeholder="Dummy">
+        <br><br>
+
+        <label>Ingrese a la institucion a la cual pertenece</label>
+        <select title="Instituciones">
+            <option value="opcion1">I.F.T.S N°1</option>
+            <option value="opcion2">I.F.T.S N°2</option>
+            <option value="opcion3">I.F.T.S N°3</option>
+            <option value="opcion3">I.F.T.S N°4</option>
+            <option value="opcion3">I.F.T.S N°5</option>
+            <option value="opcion3">I.F.T.S N°6</option>
+            <option value="opcion3">I.F.T.S N°7</option>
+            <option value="opcion3">I.F.T.S N°8</option>
+            <option value="opcion3">I.F.T.S N°9</option>
+            <option value="opcion3">I.F.T.S N°10</option>
+            <option value="opcion3">I.F.T.S N°11</option>
+            <option value="opcion3">I.F.T.S N°12</option>
+            <option value="opcion3">I.F.T.S N°13</option>
+            <option value="opcion3">I.F.T.S N°14</option>
+            <option value="opcion3">I.F.T.S N°15</option>
+            <option value="opcion3">I.F.T.S N°16</option>
+            <option value="opcion3">I.F.T.S N°17</option>
+            <option value="opcion3">I.F.T.S N°18</option>
+            <option value="opcion3">I.F.T.S N°19</option>
+            <option value="opcion3">I.F.T.S N°20</option>
+            <option value="opcion3">I.F.T.S N°21</option>
+            <option value="opcion3">I.F.T.S N°22</option>
+            <option value="opcion3">I.F.T.S N°23</option>
+            <option value="opcion3">I.F.T.S N°24</option>
+            <option value="opcion3">I.F.T.S N°25</option>
+            <option value="opcion3">I.F.T.S N°26</option>
+            <option value="opcion3">I.F.T.S N°27</option>
+            <option value="opcion3">I.F.T.S N°28</option>
+            <option value="opcion3">I.F.T.S N°29</option>
+            <option value="opcion3">I.F.T.S N°30</option>
+            <option value="opcion3">I.F.T.S N°31</option>
+        </select>
+        <br>
+        <label>Ingrese su genero</label>
+        <select title="Genero">
+            <option value="opcion1">Masculino</option>
+            <option value="opcion2">Femenino</option>
+            <option value="opcion3">Otro</option>
+        </select>
+        <br>
+        <label>Ingrese su fecha de cumpleaños</label>
+        <input placeholder="MM/DD/YYYY" type="date" name="fecha" required>
+        <br>
+        <button type="submit" value="registrar">Registrar</button>
+    </form>
+{% endblock %}

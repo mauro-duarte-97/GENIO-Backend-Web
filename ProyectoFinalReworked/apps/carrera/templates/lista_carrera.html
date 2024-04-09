@@ -1,0 +1,18 @@
+{% extends "template_base.html" %}
+
+{% block title %} Lista de carreras {% endblock %}
+
+{% block content %}
+
+<h1>Lista de carreras</h1>
+
+<ul>
+    {% for carrera in carreras %}
+
+        <li><a href="{% url 'detalle_carrera' pk=carrera.pk %}">{{ carrera.titulo }}</a></li>
+        
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

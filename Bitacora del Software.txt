@@ -30,6 +30,9 @@ http://127.0.0.1:8000/materia/lista/
 http://127.0.0.1:8000/auth/home/
 http://127.0.0.1:8000/auth/perfil/1/
 
+###################################################### 07/04/2024 ######################################################
+Pedir DNI para que opinen / DNI para cuenta verificada.
+
 ###################################################### 05/04/2024 ######################################################
 Mejoras al Login / Home / Register
 
@@ -230,10 +233,10 @@ class CustomLoginView(LoginView):
 
 --------------------------------------------------------------------------------------------------------------------
 
-Elementos varios utiles de la pagina que use como referencia:
 
 
-<!--  ################################## CODIGO UTIL ############################################ -->
+
+<!--  ################################## Elementos varios utiles de la pagina que use como referencia: ############################################ -->
 
 <!-- Codigo de conexion a facebook -->
 
@@ -307,3 +310,39 @@ Elementos varios utiles de la pagina que use como referencia:
         window.history.back();
     }
 </script> -->
+
+
+<!--  ################################## VIEWS.PY ############################################ -->
+
+# # FUNCION INDEPENDIENTE PARA VER LOS DATOS DEL USUARIO EN EL PERFIL
+# def mi_vista(request):
+#     # Obtener el CustomUser correspondiente al usuario actualmente autenticado
+#     custom_user = CustomUser.objects.get(id=request.user.id)
+    
+#     # Renderizar la plantilla 'perfil.html' y pasarle el objeto CustomUser como contexto
+#     return render(request, 'perfil.html', {'custom_user': custom_user})
+
+# # FUNCION INDEPENDIENTE PARA GUARDAR LA FOTO DE PERFIL
+# def guardar_imagen(request):
+#     if request.method == 'POST' and request.FILES.get('image'):
+#         imagen = request.FILES['image']
+#         # Aquí puedes procesar y guardar la imagen en el servidor
+#         # Por ejemplo, guardarla en la carpeta de medios de Django
+#         # o en un servicio de almacenamiento en la nube como AWS S3.
+#         return HttpResponse('Imagen guardada correctamente.')
+#     else:
+#         return HttpResponseBadRequest('Se esperaba una solicitud POST con una imagen.')
+
+# # FUNCION INDEPENDIENTE PARA REGISTRAR UN USUARIO
+# def registro_usuario(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreateForm(request.POST)
+#         if form.is_valid():
+#             # Guardar el nuevo usuario en la base de datos
+#             form.save()
+#             # Redirigir al usuario a una página de inicio de sesión, por ejemplo
+#             return redirect('index')
+#     else:
+#         form = CustomUserCreateForm()
+#     return render(request, 'registro_usuario.html', {'form': form})
+

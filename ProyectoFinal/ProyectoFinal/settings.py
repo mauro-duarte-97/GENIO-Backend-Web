@@ -144,6 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #AGREGADO MIO
 AUTH_USER_MODEL = "custom_user.CustomUser"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/auth/userHome/"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/auth/login/"

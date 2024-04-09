@@ -30,10 +30,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
      #../static/imagenes/Iconos/UserProfile.png
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    edad = models.IntegerField(blank=True, null=True, default=None)
     institucion = models.CharField(max_length=100, blank=True, null=True, default=None)
-    genero = models.CharField(max_length=20, blank=True, null=True, default=None)
+    fecha_de_nacimiento = models.DateField(default=None, blank=True, null=True)
 
+    GENERO_CHOICES = (
+        ('M', 'Masculino'),
+        ('F', 'Femenino'),
+        ('O', 'Otro'),
+    )
+    genero = models.CharField(max_length=1, choices=GENERO_CHOICES, default='O', blank=True, null=True)
     
     TIPO_USUARIO_CHOICES = [
         (ALUMNO, 'Alumno'),
