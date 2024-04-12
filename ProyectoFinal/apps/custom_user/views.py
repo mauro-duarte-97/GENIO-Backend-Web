@@ -1,49 +1,12 @@
 from django.contrib.auth import authenticate,login
-from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.base import TemplateView
-from .models import CustomUser
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import RegistrationForm, CustomUserUpdateForm, CustomUserDeleteForm
+from apps.custom_user.forms import CustomUserDeleteForm, CustomUserUpdateForm
+from apps.custom_user.models import CustomUser
+from django.views.generic.edit import UpdateView, DeleteView
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from django.http import HttpResponseBadRequest
 from django.contrib import messages
 
 
-class RegisterUsuarioView(CreateView):
-    model = CustomUser
-    form_class = RegistrationForm
-    template_name = 'index.html'
-    success_url = '/auth/login'
-
-    def form_valid(self, form):
-        # Procesar el formulario si es válido
-        user = form.save(commit=False)
-        user.save()
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        # Agregar mensajes de error a la lista de mensajes
-        for field, errors in form.errors.items():
-            for error in errors:
-                messages.error(self.request, f"{field}: {error}")
-        return super().form_invalid(form)
-
-class CustomLoginView(LoginView):
-    template_name = 'index.html'  # Especifica el nombre del template de inicio de sesión
-
-    def form_invalid(self, form):
-        messages.error(
-            self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
-        )  # Mensaje de error
-        return super().form_invalid(form)
-
-class CustomLogoutView(LogoutView):
-    template_name = "index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 class UserHomeView(TemplateView):
     template_name = "userHome.html"
@@ -68,7 +31,7 @@ class EditarUsuarioView(UpdateView):
     model = CustomUser
     form_class = CustomUserUpdateForm
     template_name = 'editar_usuario.html'
-    success_url = 'perfil_usuario/'
+    success_url = '/'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -76,6 +39,19 @@ class EditarUsuarioView(UpdateView):
         user = CustomUser.objects.get(pk=user_id)
         context['usuario'] = user
         return context
+    
+    def form_valid(self, form):
+        # Procesar el formulario si es válido
+        user = form.save(commit=False)
+        user.save()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        # Agregar mensajes de error a la lista de mensajes
+        for field, errors in form.errors.items():
+            for error in errors:
+                messages.error(self.request, f"{field}: {error}")
+        return super().form_invalid(form)
     
 class EliminarUsuarioView(DeleteView):
     model = CustomUser

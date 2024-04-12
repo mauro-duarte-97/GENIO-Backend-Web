@@ -30,8 +30,23 @@ http://127.0.0.1:8000/materia/lista/
 http://127.0.0.1:8000/auth/home/
 http://127.0.0.1:8000/auth/perfil/1/
 
+
+###################################################### 12/04/2024 ######################################################
+Apuntar a todo lo que sea home y perfil que se pueda ver correctamente. Buscar como editar y mostrar datos del usuario.
+
+###################################################### 11/04/2024 ######################################################
+Crear la app Auth para todo lo que sea loggear y register. Vere de implementar el login con google. Tambien de implementar
+el envio de email para confirmar la cuenta.
+
+###################################################### 09/04/2024 ######################################################
+Instalando mejoras del profe al login y register pt2.
+Modificar el editar usuario.
+Eliminar usuario funciona bien.
+Desde el login se puede registrar y loggear
+
 ###################################################### 07/04/2024 ######################################################
 Pedir DNI para que opinen / DNI para cuenta verificada.
+Instalando mejoras del profe al login y register pt1
 
 ###################################################### 05/04/2024 ######################################################
 Mejoras al Login / Home / Register

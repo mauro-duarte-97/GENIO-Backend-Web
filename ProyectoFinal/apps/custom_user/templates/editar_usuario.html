@@ -33,62 +33,28 @@
 </style>
 <!-- {{ form.as_p }} -->
     <h1>Editar Usuario</h1>
-    <form method="post" action="perfil_usuario" enctype="multipart/form-data">
+    <form method="post" action="{% url 'editar_usuario' usuario.id %}" enctype="multipart/form-data">
         {% csrf_token %}
 
         <label for="edit-user">Editar nombre</label>
-        <input type="text"  id="updEmail" name="updEmail" value="{{ usuario.nombre }}" required>
+        <input type="text"  id="updName" name="updName" value="{{ usuario.nombre }}" required>
 
         <label for="edit-pwd">Editar contraseña</label>
         <input type="password"  id="updPassword" name="updPassword" value="{{ usuario.password }}" required>
 
         <label for="edit-img">Editar foto de perfil</label>
         <input type="file" id="image" name="image" accept="image/*" required>
-        <img src="{{ usuario.img_perfil }}" alt="Foto de perfil actual">
+        <img src={% static usuario.img_perfil %} alt="Foto de perfil actual">
         
 
         <input type="submit" value="Guardar cambios">
     </form>
 
-    <!-- JS code -->
-<!-- <script>
-document.getElementById('image').addEventListener('click', function() {
-    // Mostrar un formulario para que el usuario cargue una nueva imagen
-    var formHTML = `
-        <form id="image-form" enctype="multipart/form-data">
-            <input type="file" id="image-input" accept="image/*">
-            <button type="submit">Subir imagen</button>
-        </form>
-    `;
-    // Agregar el formulario al contenedor de imagen
-    document.getElementById('image-container').innerHTML = formHTML;
-
-    // Manejar la presentación del formulario de carga de imagen
-    document.getElementById('image-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        var formData = new FormData();
-        var imageFile = document.getElementById('image-input').files[0];
-        formData.append('image', imageFile);
-
-        // Enviar la imagen al servidor mediante una solicitud AJAX
-        fetch('/guardar-imagen', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Actualizar el cuadro de imagen con la nueva imagen cargada
-            document.getElementById('image-container').innerHTML = `
-                <img src="${data.image_url}" alt="Nueva imagen">
-            `;
-        })
-        .catch(error => {
-            console.error('Error al cargar la imagen:', error);
-        });
-    });
-});
-</script> -->
-
+    {% for message in messages %}
+    <div class="mdl-textfield">
+        <p class="error-message">{{ message }}</p>
+    </div>
+    {% endfor %}
 
     
 {% endblock %}

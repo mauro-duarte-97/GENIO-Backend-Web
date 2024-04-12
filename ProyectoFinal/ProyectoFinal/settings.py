@@ -29,11 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOCAL_APPS = [
+    'apps.auth_user',
+    'apps.custom_user',
     'apps.alumno',
     'apps.calificacion',
     'apps.carrera',
     'apps.cursada',
-    'apps.custom_user',
     'apps.detalle_calificacion',
     'apps.institucion',
     'apps.materia',
@@ -144,6 +145,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #AGREGADO MIO
 AUTH_USER_MODEL = "custom_user.CustomUser"
-LOGIN_REDIRECT_URL = "/auth/userHome/"
-LOGOUT_REDIRECT_URL = "/"
-LOGIN_URL = "/auth/login/"
+LOGIN_REDIRECT_URL = "/userHome/"
+LOGOUT_REDIRECT_URL = "/auth/login"
+LOGIN_URL = '/auth/login'
+
+
+####### Configuración para enviar correos electrónicos #######
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'your-email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your-email-password'
+# EMAIL_USE_TLS = True

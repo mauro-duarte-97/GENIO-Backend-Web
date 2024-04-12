@@ -18,11 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include("apps.custom_user.urls")),
+    path('', RedirectView.as_view(url='/auth/login')),
+    path('auth/', include("apps.auth_user.urls")),
+    path('', include("apps.custom_user.urls")),
     path('alumno/', include("apps.alumno.urls")),
     path('calificacion/', include("apps.calificacion.urls")),
     path('carrera/', include("apps.carrera.urls")),
@@ -32,9 +34,6 @@ urlpatterns = [
     path('materia/', include("apps.materia.urls")),
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
-    # path('auth/', include("apps.registration.urls")),
-    
-
 ]
 # ... tus otras rutas ...
 

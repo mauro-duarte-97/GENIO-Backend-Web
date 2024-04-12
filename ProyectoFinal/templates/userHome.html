@@ -1,5 +1,5 @@
 {% extends "template_base.html" %}
-
+{% load static %}
 {% block title %}Home {% endblock %}
 
 {% block content %}
@@ -15,13 +15,13 @@
         <div id="flex-columns">
             <ul class="listBasic">
             <div class="formularios-2col especial">
-                <a href="../apps/institucion/templates/institucion_list.html"><img src="../static/imagenes/Logo/logo-web.jpg"></a>
+                <a href="../apps/institucion/templates/institucion_list.html"><img src="{% static 'imagenes/Logo/logo-web.jpg' %}"></a>
                 <dt><span class="features-carrera">Calificaciones</span></dt>
                 <dd><span class="features-especificas-carrera">Institutos</span></dd>
             </div>
     
             <div class="formularios-2col especial">        
-                <a href="../apps/institucion/templates/institucion_list.html"><img src="../static/imagenes/Logo/logo-web.jpg"></a>
+                <a href="../apps/institucion/templates/institucion_list.html"><img src="{% static 'imagenes/Logo/logo-web.jpg' %}"></a>
                 <dt><span class="features-carrera">Opiniones</span></dt>
                 <span class="features-especificas-carrera"><dd>Institutos</dd></span>
             </div>
