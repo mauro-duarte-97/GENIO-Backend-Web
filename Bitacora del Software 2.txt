@@ -1,5 +1,7 @@
 IDEAS:
 
+- Que el usuario pueda poner en favs institutos/carreras/profesores/materias y haya un apartado para eso en el home
+
 - Que el usuario pueda pedir un cambio de tipo de usuario de visitante a Alumno u Profesor.
 
 - Crear un sistema de foro.

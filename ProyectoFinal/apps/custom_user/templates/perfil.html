@@ -3,7 +3,10 @@
 {% block title %} Perfil {% endblock %}
 
 {% block content %}
-<img src="{% if usuario.img_perfil %}{% static usuario.img_perfil %}{% else %}{% static 'path/to/default/image.jpg' %}{% endif %}" alt="Imagen de perfil">
+<div style="height: 500px; width: 500px;">
+    <img style="max-height: 100%; max-width: 100%;" src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
+</div>
+
 
 <h1>Mi Perfil</h1>
 <br>

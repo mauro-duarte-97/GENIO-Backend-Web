@@ -31,22 +31,36 @@
         cursor: pointer;
     }
 </style>
-<!-- {{ form.as_p }} -->
+
     <h1>Editar Usuario</h1>
+
     <form method="post" action="{% url 'editar_usuario' usuario.id %}" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <label for="edit-user">Editar nombre</label>
-        <input type="text"  id="updName" name="updName" value="{{ usuario.nombre }}" required>
+        <div>
+            <label for="edit-user">Editar nombre</label>
+            <input type="text" id="updName" name="nombre" value="{{ usuario.nombre }}" required>
+        </div>
 
-        <label for="edit-pwd">Editar contraseña</label>
-        <input type="password"  id="updPassword" name="updPassword" value="{{ usuario.password }}" required>
+        <div>
+            <label for="edit-pwd">Editar contraseña</label>
+            <input type="password" id="updPassword" name="password" placeholder="Nueva contraseña" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$" title="La contraseña debe tener al menos 8 caracteres y contener al menos una letra y un número" required>
+        </div>
 
-        <label for="edit-img">Editar foto de perfil</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
-        <img src={% static usuario.img_perfil %} alt="Foto de perfil actual">
+        <div>
+            <label for="edit-pwd">Repetir contraseña</label>
+            <input type="password" id="updPassword2" name="password2" placeholder="Nueva contraseña" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$" title="La contraseña debe tener al menos 8 caracteres y contener al menos una letra y un número" required>
+        </div>
+        <!-- <div><a href="{% url 'cambiar_contraseña' %}">Cambiar contraseña</a></div> -->
+
         
-
+        <div>
+            <label for="edit-img">Editar foto de perfil</label>
+            <div>           
+                <input type="file" name="img_perfil" id="img_perfil_input"><img src="{{ usuario.img_perfil.url }}" id="preview_img" alt="Foto de perfil actual" style="max-height: 200px; max-width: 200px;"></input>
+            </div>
+        </div>
+        
         <input type="submit" value="Guardar cambios">
     </form>
 
@@ -56,5 +70,18 @@
     </div>
     {% endfor %}
 
+    <script>
+        document.getElementById('img_perfil_input').addEventListener('change', function() {
+            var preview = document.getElementById('preview_img');
+            var file = this.files[0];
+            var reader = new FileReader();
+            
+            reader.onload = function() {
+                preview.src = reader.result;
+            }
+            
+            reader.readAsDataURL(file);
+        });
+    </script>
     
 {% endblock %}

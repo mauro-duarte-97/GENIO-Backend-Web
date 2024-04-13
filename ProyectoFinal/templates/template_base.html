@@ -16,15 +16,6 @@
     </head>
 
     <body>
-        <!-- Este script jQuery está diseñado para responder al clic en un elemento con el ID "activador-avanzadas". Cuando se hace clic en este elemento, se desvanecerá gradualmente un elemento con ID "advancedSearch" y se ocultarán los elementos con la clase "contenedor-opciones" -->
-        <script type="text/javascript">
-            $(document).ready(function(){
-            $("#activador-avanzadas").click(function(){
-                $("#advancedSearch").fadeIn (500);
-                $(".contenedor-opciones").hide (500);
-                }); 
-            }); 
-        </script>
 
         <!-- ################ BODY ############################## -->
         <header>
@@ -43,7 +34,34 @@
                     
                 </ul>
 
-                <div><a href="{% url 'perfil_usuario' pk=request.user.id %}"><img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px"><h3>Mi Perfil</h3></a></div>
+
+                <div>
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.img_perfil %}
+                            <a href="{% url 'perfil_usuario' pk=request.user.id %}">
+                                <img src="{{ request.user.img_perfil.url }}" alt="profile" width="50px" height="50px">
+                                <h3>Mi Perfil</h3>
+                            </a>
+                        {% else %}
+                            <!-- Si el usuario no tiene imagen de perfil, mostrar una imagen predeterminada -->
+                            <a href="{% url 'perfil_usuario' pk=request.user.id %}">
+                                <img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px">
+                                <h3>Mi Perfil</h3>
+                            </a>
+                        {% endif %}
+                    {% else %}
+                        <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    {% endif %}
+                </div>
+                
+
+
+
+                <!-- <div>
+                    <a href="{% url 'perfil_usuario' pk=request.user.id %}"><img src="{{ usuario.img_perfil.url }}" alt="profile" width="50px" height="50px"><h3>Mi Perfil</h3></a>
+                </div> -->
+
             </div>
             
         </nav>

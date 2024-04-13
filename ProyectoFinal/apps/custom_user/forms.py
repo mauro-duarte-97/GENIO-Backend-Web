@@ -16,10 +16,10 @@ class CustomUserForm(forms.ModelForm):
 class CustomUserUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['nombre', 'email', 'img_perfil']
+        fields = ['nombre', 'password', 'img_perfil']
         widgets = {
             'nombre': forms.TextInput(attrs={'placeholder': 'Nombre del alumno'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Correo electrónico'}),
+            'password': forms.PasswordInput(attrs={'placeholder': 'Nueva contraseña'}),
             'img_perfil': forms.FileInput()
         }
 

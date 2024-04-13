@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import CreateView
 from apps.custom_user.models import CustomUser
 from .forms import RegistrationForm
-from pyexpat.errors import messages
+from django.contrib import messages
 
 class RegisterUsuarioView(CreateView):
     model = CustomUser

@@ -7,5 +7,5 @@ urlpatterns = [
     path("perfil/<int:pk>/", CustomProfileView.as_view(), name="perfil_usuario"),
     path('editar/<int:pk>/', EditarUsuarioView.as_view(), name='editar_usuario'),
     path('eliminar/<int:pk>/', EliminarUsuarioView.as_view(), name='eliminar_usuario'),
-    
+
 ]

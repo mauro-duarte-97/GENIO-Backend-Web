@@ -5,6 +5,7 @@ from apps.custom_user.models import CustomUser
 from django.views.generic.edit import UpdateView, DeleteView
 from django.shortcuts import redirect, render
 from django.contrib import messages
+from django.urls import reverse_lazy
 
 
 
@@ -31,7 +32,6 @@ class EditarUsuarioView(UpdateView):
     model = CustomUser
     form_class = CustomUserUpdateForm
     template_name = 'editar_usuario.html'
-    success_url = '/'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,6 +44,8 @@ class EditarUsuarioView(UpdateView):
         # Procesar el formulario si es válido
         user = form.save(commit=False)
         user.save()
+        # Agregar mensaje de éxito a la lista de mensajes
+        messages.success(self.request, 'Usuario actualizado correctamente')
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -52,6 +54,12 @@ class EditarUsuarioView(UpdateView):
             for error in errors:
                 messages.error(self.request, f"{field}: {error}")
         return super().form_invalid(form)
+    
+    def get_success_url(self):
+        # Obtener el ID del usuario que se ha actualizado
+        user_id = self.object.pk
+        # Construir la URL del perfil del usuario usando reverse_lazy
+        return reverse_lazy('perfil_usuario', kwargs={'pk': user_id})
     
 class EliminarUsuarioView(DeleteView):
     model = CustomUser
