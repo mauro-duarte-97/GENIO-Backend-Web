@@ -2,38 +2,8 @@
 {% load static %}
 {% block title %}Home {% endblock %}
 
+<h1>IFTS EXPLORER</h1>
 {% block content %}
+    
 
-    <h1>IFTS EXPLORER</h1>
-    
-    <div id="contenedor-principal">
-
-        <section class="mainSection">
-    
-        <div class="header-de-universidad"><h2>IFTS Explorer</h2></div>
-    
-        <div id="flex-columns">
-            <ul class="listBasic">
-            <div class="formularios-2col especial">
-                <a href="../apps/institucion/templates/institucion_list.html"><img src="{% static 'imagenes/Logo/logo-web.jpg' %}"></a>
-                <dt><span class="features-carrera">Calificaciones</span></dt>
-                <dd><span class="features-especificas-carrera">Institutos</span></dd>
-            </div>
-    
-            <div class="formularios-2col especial">        
-                <a href="../apps/institucion/templates/institucion_list.html"><img src="{% static 'imagenes/Logo/logo-web.jpg' %}"></a>
-                <dt><span class="features-carrera">Opiniones</span></dt>
-                <span class="features-especificas-carrera"><dd>Institutos</dd></span>
-            </div>
-            </ul>
-        </div>
-        
-        </section>
-    </div> 
-    <!-- Fin de contenedor principal -->
-
-    <div>
-        <br>
-        <div class="boton-fullwidth"><a class="btnBig" href="opinion_home.html">Ver todas las opiniones del I.F.T.S.</a></div>
-    </div>
 {% endblock %}
