@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import CreateView
 from apps.custom_user.models import CustomUser
+# from .models import AuthUserProfile
 from .forms import RegistrationForm
 from django.contrib import messages
 
@@ -40,3 +41,14 @@ class CustomLogoutView(LogoutView):
         context = super().get_context_data(**kwargs)
         return context
 
+# def verify_dni(request):
+#     if request.method == 'POST':
+#         dni = request.POST.get('dni')
+#         # Verifica el DNI del usuario aquí
+#         # Si el DNI es válido, actualiza el estado de verificación
+#         user_profile = request.user.AuthUserProfile
+#         user_profile.dni = dni
+#         user_profile.is_verified = True
+#         user_profile.save()
+#         return redirect('perfil_usuario')
+#     return render(request, 'verify_dni.html')

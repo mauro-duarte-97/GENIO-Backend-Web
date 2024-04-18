@@ -16,10 +16,9 @@ class CustomUserForm(forms.ModelForm):
 class CustomUserUpdateForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['nombre', 'password', 'img_perfil']
+        fields = ['nombre', 'img_perfil']
         widgets = {
             'nombre': forms.TextInput(attrs={'placeholder': 'Nombre del alumno'}),
-            'password': forms.PasswordInput(attrs={'placeholder': 'Nueva contraseña'}),
             'img_perfil': forms.FileInput()
         }
 

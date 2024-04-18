@@ -1,21 +1,59 @@
-{% extends "template_base.html" %}
-{% load static %}
-{% block title %} Perfil {% endblock %}
-
-{% block content %}
-<div style="height: 500px; width: 500px;">
-    <img style="max-height: 100%; max-width: 100%;" src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link href="/css/perfilGenerico.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- header.html -->
+<header>
+    <div class="menuGlobal">
+    <div class="logo">
+        <img src="/medios/Logo-web-IFTS.png" alt="Logo" width="25%">
+    </div>
+    
+    <nav class="container">
+          <ul>
+            <li>IFTS</li>
+            <li>Carreras</li>
+            <li>Materias</li>
+            <li>Profesor</li>
+          </ul>
+     </nav>
+      
+    <div class="profile">
+        <img src="/medios/perfil3.jpg" alt="Foto de perfil">
+    </div>
+    <div class="mobile-menu">
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </div>
+</header>
+
+<!-- footer.html -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <p>Tu texto aquí</p>
+        </div>
+        <div class="footer-section">
+            <img src="ruta-a-tu-logo.png" alt="Logo">
+        </div>
+        <div class="footer-section">
+            <p>Tu texto aquí</p>
+            <div class="social-icons">
+                <!-- Aquí irían tus iconos de redes sociales -->
+            </div>
+        </div>
+    </div>
+</footer>
 
 
-<h1>Mi Perfil</h1>
-<br>
-<h2>Hola!, {{ usuario.nombre }}</h2>
-<menu>
-    <ul>
-    <li><a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a></li>
-    <li><a href="{% url 'eliminar_usuario' usuario.id %}">Eliminar Usuario</a></li>
-    </ul>
-</menu>
-
-{% endblock %}
+</body>
+</html>

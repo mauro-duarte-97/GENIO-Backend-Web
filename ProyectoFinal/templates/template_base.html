@@ -38,29 +38,33 @@
                 <div>
                     {% if request.user.is_authenticated %}
                         {% if request.user.img_perfil %}
-                            <a href="{% url 'perfil_usuario' pk=request.user.id %}">
+                            <div class="perfil-container">
                                 <img src="{{ request.user.img_perfil.url }}" alt="profile" width="50px" height="50px">
-                                <h3>Mi Perfil</h3>
-                            </a>
+                                
+
+                                    <ul class="menu-perfil">
+                                        <p><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></p>
+                                        <p><a href="#">Enviar Feedback</a></p>
+                                        <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
+                                    </ul>
+                            </div>
+                                
                         {% else %}
                             <!-- Si el usuario no tiene imagen de perfil, mostrar una imagen predeterminada -->
-                            <a href="{% url 'perfil_usuario' pk=request.user.id %}">
+                            <div class="perfil-container">
                                 <img src="{% static 'imagenes/Iconos/UserProfile.png' %}" alt="profile" width="50px" height="50px">
-                                <h3>Mi Perfil</h3>
-                            </a>
+                                <div class="dropdown-content">
+                                    <a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a>
+                                    <a href="#">Enviar Feedback</a>
+                                    <a href="{% url 'logout' %}">Cerrar Sesión</a>
+                                </div>
+                            </div>
                         {% endif %}
                     {% else %}
                         <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
                         <a href="{% url 'login' %}">Iniciar sesión</a>
                     {% endif %}
                 </div>
-                
-
-
-
-                <!-- <div>
-                    <a href="{% url 'perfil_usuario' pk=request.user.id %}"><img src="{{ usuario.img_perfil.url }}" alt="profile" width="50px" height="50px"><h3>Mi Perfil</h3></a>
-                </div> -->
 
             </div>
             

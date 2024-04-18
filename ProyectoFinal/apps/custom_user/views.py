@@ -1,4 +1,3 @@
-from django.contrib.auth import authenticate,login
 from django.views.generic.base import TemplateView
 from apps.custom_user.forms import CustomUserDeleteForm, CustomUserUpdateForm
 from apps.custom_user.models import CustomUser

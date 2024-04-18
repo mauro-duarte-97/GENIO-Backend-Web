@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+#Verificación de usuario por DNI  --> 'auth_user.middleware.VerificationMiddleware'
 
 ROOT_URLCONF = 'ProyectoFinal.urls'
 
@@ -135,7 +136,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Configuración para archivos de medios (imágenes de perfil, archivos subidos por los usuarios, etc.)
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/perfiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type

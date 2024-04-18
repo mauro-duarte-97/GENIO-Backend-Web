@@ -20,7 +20,6 @@ class CustomLoginView(LoginView):
 class CustomLogoutView(LogoutView):
     pass
 
-
 class LogoutConfirmationView(LogoutView):
     template_name = "index.html"
 
@@ -37,15 +36,6 @@ class RegistrationForm(UserCreationForm):
         model = CustomUser
         fields = ("email", "password1", "password2")
 
-
-# class CustomUserLoginForm(forms.Form):
-#     class Meta:
-#         model = AuthUser
-#         fields = ['email', 'password']
-#         widgets = {
-#             'email': forms.EmailInput(attrs={'placeholder': 'Correo electrónico'}),
-#             'password': forms.PasswordInput(attrs={'placeholder': 'Contraseña'}),
-#         }
 
 # class CustomUserCreateForm(forms.ModelForm):
     # class Meta:
