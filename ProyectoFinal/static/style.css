@@ -7,6 +7,15 @@ main{
   
 }
 
+.contenedor-principal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 90%;
+
+}
 .divImagenyForm{
   display: flex;
   height: 100vh;
@@ -91,8 +100,11 @@ input:checked + .slider:before {
   margin-bottom: 20px;
 }
 
-input[type="text"],
+input[type="email"],
+
+
 input[type="password"],
+
 select {
   width: calc(100% - 20px);
   padding: 10px;
@@ -171,13 +183,9 @@ animation: divImg 5s ease 0s infinite normal none;
 #registerCard form button{
   background-color: #ef8996;
 }
-#googleboton1{
+#googleboton{
 background-color: darkgray;
 }
-
-#googleboton2{
-  background-color: darkgray;
-  }
 
 /* animacion img*/
 @keyframes divImg {

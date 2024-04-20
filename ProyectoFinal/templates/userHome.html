@@ -1,9 +1,91 @@
 {% extends "template_base.html" %}
 {% load static %}
-{% block title %}Home {% endblock %}
 
-<h1>IFTS EXPLORER</h1>
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/userHome.css' %}">
+{% endblock %}
+
+{% block title %}Home {% endblock %}
 {% block content %}
-    
+
+<div class="containers">
+    <button class="tab-button" data-target="localizaciones">Localizaciones</button>
+    <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
+
+    <section id="localizaciones" class="divLocalizaciones seccion">
+        <div class="listaYmapa">
+            <ul class="lista">
+              
+                <li>IFTS 18</li>
+                <li>IFTS 18</li>
+                <li>IFTS 18</li>
+                <li>IFTS 18</li>
+                <li>IFTS 18</li>
+                <li>IFTS 18</li>
+        
+            </ul>
+            <div class="mapa">
+            <p>Mapa</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="opiniones" class="divOpinionesRecientes seccion">
+
+        <div class="tarjetaOpinion">               
+             <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+             <div class="textosOpinion">
+                    <p>Titulo</p>
+                    <p>fecha</p>                        
+             </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
+               <div id="votacion"></div>
+         </div>
+         
+         <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="textosOpinion">
+                   <p>Titulo</p>
+                   <p>fecha</p>                        
+            </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
+              <div id="votacion"></div>
+        </div> 
+
+        <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="textosOpinion">
+                   <p>Titulo</p>
+                   <p>fecha</p>                        
+            </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
+              <div id="votacion"></div>
+        </div> 
+
+        <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="textosOpinion">
+                   <p>Titulo</p>
+                   <p>fecha</p>                        
+            </div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
+              <div id="votacion"></div>
+        </div> 
+
+        <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="textosOpinion">
+                   <p>Titulo</p>
+                   <p>fecha</p>                        
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
+            <div id="votacion"></div>
+        </div> 
+    </section>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/localizacionesScripts.js' %}"></script>
 
 {% endblock %}

@@ -6,7 +6,7 @@ body {
     padding: 30px;
     margin: 0;
     color: #224;
-    background: url("./imagenes/Portada/backgroundWeb.png") center/cover; 
+    background: url("../imagenes/Portada/backgroundWeb.png") center/cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }

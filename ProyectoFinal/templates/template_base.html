@@ -6,7 +6,10 @@
         <meta name="keywords" content="I.F.T.S. reseñas, ayuda a los estudiantes con su decision a tomar de institucion y carrera">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'perfilGenerico.css' %}">
+        <link rel="stylesheet" href="{% static 'css/template_base.css' %}">
+        {% block extra_head %}
+
+        {% endblock %}
         <title>{% block title %} {% endblock %}</title>
 
     <body>
@@ -60,6 +63,9 @@
             <a href="{% url 'login' %}">Iniciar sesión</a>
         {% endif %}
     </div>
+
+
+
 
 
         <!-- ################ NAVEGADOR MOVIL ######################## -->
