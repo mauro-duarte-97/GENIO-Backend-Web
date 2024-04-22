@@ -25,6 +25,12 @@ header {
     backdrop-filter: blur(15px);
 }
 
+#contenedor-principal {
+    display: flex;        /* Activa Flexbox */
+    flex-direction: column; /* Alinea los hijos verticalmente */
+}
+
+
 .logo  {
     border-radius: 10px;
     width: 8%; 

@@ -1,4 +1,7 @@
 .containers {
+    display: flex;
+    flex-direction: column; /* Asegura que los hijos se apilen verticalmente */
+    align-items: center; /* Centra los hijos horizontalmente si hay espacio */
     width: 95%;
     height: auto;
     margin: 0 auto;
@@ -6,8 +9,8 @@
     border-bottom: 1px solid #D88C9A;
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 20px;
-     background-color: rgba(255, 255, 255, 0.45);
-     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(15px);
     align-content: center;
     justify-content: center;
@@ -28,7 +31,8 @@
 .divLocalizaciones{
   display: flex;
   flex-direction: row;
-  
+  display: block; /* o flex con dirección de columna si necesitas más control */
+  width: 100%;
   
 }
 
@@ -38,19 +42,9 @@
   justify-content: center;
   align-content: center;
   text-align: center;
-  width: 90%;
+  width: 100vh;
   padding: 20px;}
   
-.lista {
-  width: 20%;
-    flex: 1;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 20px;
-    margin: 5%;
-}
   
 .mapa {
   width: 50%;
@@ -59,9 +53,12 @@
     padding: 20px;
   }
 
-buttton{
-  border-radius: 10px;
-  
+
+
+.iftsBtn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 2px;
 }
 
   /* tarjeta opiniones */

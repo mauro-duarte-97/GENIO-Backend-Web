@@ -3,7 +3,25 @@
 
 {% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/userHome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/maps.css' %}">
 {% endblock %}
+
+<!-- <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    .mapa {
+      max-height: 50vh;
+      max-width: 50vh;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    iframe{
+      max-height: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style> -->
 
 {% block title %}Home {% endblock %}
 {% block content %}
@@ -13,22 +31,22 @@
     <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
 
     <section id="localizaciones" class="divLocalizaciones seccion">
+
         <div class="listaYmapa">
-            <ul class="lista">
-              
-                <li>IFTS 18</li>
-                <li>IFTS 18</li>
-                <li>IFTS 18</li>
-                <li>IFTS 18</li>
-                <li>IFTS 18</li>
-                <li>IFTS 18</li>
-        
-            </ul>
-            <div class="mapa">
-            <p>Mapa</p>
+                <!-- Lista de botones para cada IFTS -->
+                <ul class="lista">
+                    <li><button class="iftsBtn" type="button" onclick="setLocation(-34.60003829137177, -58.37381593083792)">IFTS N° 1</button></li>
+                    <li><button class="iftsBtn" type="button" onclick="setLocation(-34.675541961545036, -58.486718288507994)">IFTS N° 2</button></li>
+                    <li><button class="iftsBtn" type="button" onclick="setLocation(-34.57957920383144, -58.434477502528935)">IFTS N° 3</button></li>
+                    <li><button class="iftsBtn" type="button" onclick="setLocation(-34.61237656344417, -58.3749644080847)">IFTS N° 12</button></li>
+                    <li><button class="iftsBtn" type="button" onclick="setLocation(-34.590747, -58.4174746)">IFTS N° 18</button></li>
+                </ul>
+
+            <div id="map">
+
             </div>
-        </div>
         
+        </div>    
     </section>
 
     <section id="opiniones" class="divOpinionesRecientes seccion">
@@ -87,5 +105,13 @@
 
 <script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/localizacionesScripts.js' %}"></script>
+<script src="{% static 'js/maps.js' %}"></script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZRk7EP-YT7g6TSpnAcKdai5QGzi1VJpw&callback=initMap">
+</script>
+
+
+
+
 
 {% endblock %}

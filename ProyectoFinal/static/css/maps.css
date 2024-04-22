@@ -1,0 +1,21 @@
+
+#map {
+    height: 400px;
+    width: 80%;
+    float: right;
+}
+
+.lista {
+    overflow-y: scroll;
+    height: 20vh;
+    width: 20%;
+    float: left;
+    border-radius: 20px;
+    list-style: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 2px;
+}
