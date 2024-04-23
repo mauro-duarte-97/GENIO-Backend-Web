@@ -17,7 +17,7 @@
     <header>
     <div class="menuGlobal">
         <div class="logo">
-            <a href="{% url 'user_home'%}"   type="image/png"><img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo" width="25%"></a>
+            <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo" width="25%"></a>
         </div>
     
     <nav class="container">
@@ -104,15 +104,23 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <p>Tu texto aquí</p>
+                <p>¡Sumate a la comunidad IFTS!
+
+
+                    Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
             </div>
             <div class="footer-section">
-                <img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" style="max-width: 100px; max-height: 100px;" alt="Logo">
+                <img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo">
             </div>
             <div class="footer-section">
-                <p>Tu texto aquí</p>
+                <p>Mantengamos el contacto!</p>
+                <p>Seguinos en todas nuestras redes:</p>
                 <div class="social-icons">
-                    <!-- Aquí irían tus iconos de redes sociales -->
+                    <ul style="list-style: none; display: flex; flex-direction: row;">
+                        <li><img src="{% static 'imagenes/Iconos/discord-ico.png' %}" alt="Logo"></li>
+                        <li><img src="{% static 'imagenes/Iconos/facebook-ico.png' %}" alt="Logo"></li>
+                        <li><img src="{% static 'imagenes/Iconos/gmail-ico.png' %}" alt="Logo"></li>
+                    </ul>
                 </div>
             </div>
         </div>
