@@ -1,6 +1,7 @@
+# urls.py
 from django.urls import path
-from apps.opinion.views import OpinionTemplateView
-
+from .views import OpinionListView
 
 urlpatterns = [
-    path("", OpinionTemplateView.as_view(), name="opinion")]
+    path('opiniones/<str:model_name>/<int:entity_id>/', OpinionListView.as_view(), name='opiniones_por_entidad'),
+]

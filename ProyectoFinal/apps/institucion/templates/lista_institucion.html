@@ -1,21 +1,23 @@
 {% extends "template_base.html" %}
+{% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    {% block title %} Lista de Instituciones {% endblock %}
-</head>
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/institucion.css' %}">
+{% endblock %}
 
-    {% block content %}
+{% block title %} Lista de Instituciones {% endblock %}
+
+
+{% block content %}
     <h1>Lista de Instituciones</h1>
     <ul>
-
         {% for objeto in objetos %}
 
-                <li><a href="{{objeto.url}}">{{ objeto.nombre }}</a></li>
+            <li><a href="{{objeto.url}}">{{ objeto.nombre }}</a></li>
+            <li><a href="{% url 'opiniones_institucion' entity_id=institucion.id %}">Ver opiniones de esta institución</a></li>
 
         {% endfor %}
     </ul>
-    {% endblock %}
+{% endblock %}
 
-</html>
+
