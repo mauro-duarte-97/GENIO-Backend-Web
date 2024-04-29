@@ -1,7 +1,9 @@
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse_lazy
-from .models import Opinion, get_model
+from .models import Opinion
+from django.apps import apps
+
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import redirect
 from .forms import OpinionForm
@@ -16,7 +18,7 @@ class OpinionListView(FormMixin, ListView):
     def get_queryset(self):
         model_name = self.kwargs['model_name']
         entity_id = self.kwargs['entity_id']
-        Model = get_model('app_name', model_name)
+        Model = apps.get_model('app_name', model_name)
         if Model is None:
             raise Http404("Modelo no encontrado")
         content_type = ContentType.objects.get_for_model(Model)
@@ -40,7 +42,7 @@ class OpinionListView(FormMixin, ListView):
     def form_valid(self, form):
         model_name = self.kwargs['model_name']
         entity_id = self.kwargs['entity_id']
-        Model = get_model('app_name', model_name)
+        Model = apps.get_model('app_name', model_name)
         if Model is None:
             raise Http404("Modelo no encontrado")
         

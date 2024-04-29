@@ -3,9 +3,6 @@ html, body{
   padding: 0;
   
 }
-main{
-  
-}
 
 .contenedor-principal{
   display: flex;
@@ -177,9 +174,7 @@ animation: divImg 5s ease 0s infinite normal none;
   width:70%;
 }
 
-#loginCard{
 
-}
 #registerCard form button{
   background-color: #ef8996;
 }

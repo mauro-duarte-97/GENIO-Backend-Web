@@ -1,21 +1,37 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Calificacion(models.Model):
-
-    calificacion_num = models.PositiveIntegerField(default=None)  # Puntuación de 1 a 5 estrellas
-    fk_id_usuario = models.ForeignKey('custom_user.CustomUser', on_delete=models.CASCADE, related_name='calificacion', default=None)  # Usuario que realizó la calificación
-    fk_id_cursada = models.ForeignKey('cursada.Cursada', on_delete=models.CASCADE, related_name='calificacion', default=None)
-    fecha = models.DateTimeField(auto_now_add=True)  # Fecha de la calificación
-    
-    # Otros campos o atributos relacionados con la calificación, como comentario, etc.
+    calificacion_num = models.PositiveIntegerField(
+        default=5,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(5)
+        ],
+        help_text="Puntuación de 1 a 5 estrellas"
+    )
+    autor = models.ForeignKey(
+        'custom_user.CustomUser', 
+        on_delete=models.CASCADE, 
+        related_name='calificacion_autor_id',
+        null=True # Permitir nulos temporalmente
+    )  
+    curso = models.ForeignKey(
+        'cursada.Cursada', 
+        on_delete=models.CASCADE, 
+        related_name='calificacion_curso',
+        null=True,
+        default=None
+    )
+    fecha = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-fecha']  # Para obtener las últimas 10 votaciones
+        ordering = ['-fecha']
 
     def __str__(self):
-        return f'Calificación de {self.fk_id_usuario}'
-
+        return f'Calificación de {self.autor_id}'
+    
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        # Lógica para calcular el promedio de calificación y la cantidad de estrellas
+
 

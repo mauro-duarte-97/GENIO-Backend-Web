@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/template_base.css' %}">
+        <link rel="stylesheet" href="{% static 'css/querys.css' %}">
         {% block extra_head %}
 
         {% endblock %}
@@ -17,18 +18,18 @@
     <header>
     <div class="menuGlobal">
         <div class="logo">
-            <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo" width="25%"></a>
+            <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo"></a>
         </div>
     
     <nav class="container">
           <ul>
-            <li><a href="{% url 'lista_institucion'%}">Buscar Instituciones</a></li>
+            <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
                     
-            <li><a href="{% url 'lista_carrera'%}">Buscar Carreras</a></li>
+            <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
             
-            <li><a href="{% url 'lista_profesor'%}">Buscar Profesor</a></li>
+            <li><a href="{% url 'lista_profesores'%}">Profesor</a></li>
             
-            <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
+            <li><a href="{% url 'lista_materias'%}">Materias</a></li>
           </ul>
      </nav>
       
@@ -40,11 +41,11 @@
                     <img src="{{ request.user.img_perfil.url }}" alt="profile" width="50px" height="50px">
                     
 
-                        <ul class="menu-perfil">
+                        <!-- <ul class="menu-perfil">
                             <p><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></p>
                             <p><a href="#">Enviar Feedback</a></p>
                             <p><a href="{% url 'logout' %}">Cerrar Sesión</a></p>
-                        </ul>
+                        </ul> -->
                 </div>
                     
             {% else %}
@@ -73,10 +74,10 @@
 
             <div class="menu-button">GUÍA DEL ESTUDIANTE DE IFTS<span class="touch-button"><i class="navicon">▼</i></span></div>
             <ul class="flexnav with-js opacity sm-screen" data-breakpoint="800">
-                <li><a href="{% url 'lista_institucion'%}">Buscador de Instituciones</a></li>
-                <li><a href="{% url 'lista_carrera'%}">Buscador de Carreras</a></li>
-                <li><a href="{% url 'lista_profesor'%}">Buscador Profesores</a></li>
-                <li><a href="{% url 'lista_materia'%}">Buscador Materias</a></li>
+                <li><a href="{% url 'lista_instituciones'%}">Buscador de Instituciones</a></li>
+                <li><a href="{% url 'lista_carreras'%}">Buscador de Carreras</a></li>
+                <li><a href="{% url 'lista_profesores'%}">Buscador Profesores</a></li>
+                <li><a href="{% url 'lista_materias'%}">Buscador Materias</a></li>
             </ul>
         </nav> -->
         <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
