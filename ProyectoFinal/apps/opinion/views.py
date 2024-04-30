@@ -1,13 +1,14 @@
+from django.contrib.contenttypes.models import ContentType
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse_lazy
-from .models import Opinion
 from django.apps import apps
-
-from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import redirect
-from .forms import OpinionForm
 from django.http import Http404
+from .forms import OpinionForm
+from .models import Opinion
+
+
 
 class OpinionListView(FormMixin, ListView):
     model = Opinion
@@ -18,21 +19,34 @@ class OpinionListView(FormMixin, ListView):
     def get_queryset(self):
         model_name = self.kwargs['model_name']
         entity_id = self.kwargs['entity_id']
-        Model = apps.get_model('app_name', model_name)
+
+        # Mapeo de modelo a nombre de aplicación
+        app_model_map = {
+            'institucion': 'institucion',
+            'carrera': 'carrera',
+            'materia': 'materia',
+            'profesor': 'profesor',
+        }
+        app_name = app_model_map.get(model_name)
+        if not app_name:
+            raise Http404(f"No application found for model {model_name}")
+        
+        Model = apps.get_model(app_name, model_name)
         if Model is None:
             raise Http404("Modelo no encontrado")
+        
         content_type = ContentType.objects.get_for_model(Model)
         return Opinion.objects.filter(content_type=content_type, object_id=entity_id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.get_form()  # Añade el formulario al contexto
+        context['form'] = self.get_form()
         context['model_name'] = self.kwargs['model_name']
         context['entity_id'] = self.kwargs['entity_id']
         return context
 
     def post(self, request, *args, **kwargs):
-        self.object_list = self.get_queryset()  # Necesario para que ListView maneje POST
+        self.object_list = self.get_queryset()
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)
@@ -42,18 +56,17 @@ class OpinionListView(FormMixin, ListView):
     def form_valid(self, form):
         model_name = self.kwargs['model_name']
         entity_id = self.kwargs['entity_id']
-        Model = apps.get_model('app_name', model_name)
+        app_name = self.kwargs.get('app_name', 'default_app')  # Default app if not specified
+        Model = apps.get_model(app_name, model_name)
         if Model is None:
             raise Http404("Modelo no encontrado")
         
-        # Crear la nueva opinión
         opinion = form.save(commit=False)
         opinion.content_object = Model.objects.get(id=entity_id)
         opinion.save()
         return redirect(self.get_success_url())
 
     def get_success_url(self):
-        # Redirige a la misma página para ver la nueva opinión publicada
         return reverse_lazy('opiniones_por_entidad', kwargs={'model_name': self.kwargs['model_name'], 'entity_id': self.kwargs['entity_id']})
 
 

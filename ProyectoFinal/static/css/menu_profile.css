@@ -1,0 +1,37 @@
+.nav-menu-principal{ 
+    width: min-content;
+    position: relative;
+    z-index: 99; /* posiciona un elemento por encima de otro */
+
+}
+
+.div-menu-desplegable{
+    width: min-content;
+    position: relative;
+    margin: 0;
+}
+
+#menu_desplegable{
+    /* Alineamos el contenido en forma de fila */
+    display: none;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    align-items: center;
+    flex-direction: column;
+
+}
+#menu_desplegable ul li a{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.div-menu-desplegable:hover #menu_desplegable{ /* esto permite que al navegar en un sub menu el item se mantenga con su estilo de seleccion*/
+    background-color: rgb(183, 165, 196);
+    display: block;
+}
+
+.img_perfil{
+    width: 10vb;
+}

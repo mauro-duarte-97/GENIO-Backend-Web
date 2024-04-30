@@ -1,48 +1,56 @@
-
 {% extends "template_base.html" %}
 {% load static %}
 
 {% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/opinion.css' %}">
-
 {% endblock %}
 
-{% block title %}Opinion Historica de {{ entity_type|capfirst }}{% endblock %}
-{% block content %}
+{% block title %}Opinión Histórica de {{ model_name|capfirst }}{% endblock %}
 
-    <h1>Opiniones Historicas sobre {{ entity_type|capfirst }}</h1>
-    <table>
-        <tr>
-            <th>Usuario</th>
-            <th>Opinion</th>
-            <th>Puntaje</th>
-        </tr>
-        {% for opinion in opiniones %}
+{% block content %}
+<div class="opiniones-historicas">
+    <h1>Opiniones Históricas sobre {{ model_name|capfirst }}</h1>
+
+    <section>
+        <table class="tabla-opiniones">
+            <tr>
+                <th>Usuario</th>
+                <th>Opinión</th>
+                <th>Calificación</th>
+            </tr>
+            {% for opinion in opiniones %}
             <tr>
                 <td>{{ opinion.autor }}</td>
                 <td>{{ opinion.contenido }}</td>
-                <td>{{ opinion.puntaje }}</td>
+                <td>{{ opinion.calificacion }}</td>
             </tr>
-        {% endfor %}
-    </table>
+            {% endfor %}
+        </table>
+    </section>
 
-    <div class="seccion-opinion-usuario">
-        <form method="post" action="{% url 'opiniones_por_entidad' model_name=entity_type entity_id=entity_id %}">
-            {% csrf_token %}
-            <div>
-                <label>Titulo</label>
-                <input name="opinion-titulo" type="text"/>
+    <section>
+        <div class="seccion-opinion-usuario">
+            <form method="post" action="{% url 'opiniones_por_entidad' model_name=model_name entity_id=entity_id %}">
+                {% csrf_token %}
+                <div class="opinion-usuario">
+                <div class="titulo-y-Box">
+                    <label>Título</label>
+                    <input name="opinion-titulo" type="text" class="input-tit"/>
 
-                <label>Escribe tu opinion</label>
-                <input name="opinion-usuario" type="text" class="opinion-box"/>
-            </div>
-            <div>
-                <label>Vota</label>
-                <div>
-                    <input name="puntaje-usuario" type="number" class="puntaje-star" />
+                    <label>Escribe tu opinión</label>
+                    <input name="opinion-usuario" type="text" class="opinion-box"/>
                 </div>
-                <button type="submit">Enviar</button>
-            </div>
-        </form>
-    </div>
+
+                <div class="calificacion-y-submit">
+                    <div>
+                        <label>Califica</label>
+                        <input name="calificacion-usuario" type="number" class="calificacion-star" />
+                    </div>
+                    <button type="submit">Enviar</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
 {% endblock content %}
