@@ -3,7 +3,7 @@ from apps.cursada.models import Cursada
 
 @admin.register(Cursada)
 class CursadaAdmin(admin.ModelAdmin):
-    list_display = ("fecha_inicio", "get_id_profesor", "get_id_materia")
+    list_display = ("titulo", "fecha_inicio", "get_id_profesor", "get_id_materia")
 
     def get_id_profesor(self, obj):
         return obj.fk_id_profesor.id

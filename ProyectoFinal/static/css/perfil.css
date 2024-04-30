@@ -1,0 +1,104 @@
+/* Estilos para el contenedor flex */
+.contenedor-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    text-align: center;
+}
+
+/* Estilos para el contenedor del perfil */
+.perfilContainer {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo transparente con blur */
+    border-radius: 10px;
+    width: 60%;
+    overflow: hidden;
+}
+
+/* Estilos para el menú */
+.perfilContainer menu {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 0%;
+}
+
+/* Estilos para los elementos del menú */
+.perfilContainer menu a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Estilos para la lista del menú */
+.perfilContainer menu ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+
+/* Estilos para los elementos de la lista del menú */
+.perfilContainer menu ul li {
+    padding: 15px 0;
+    width: 100%;
+}
+
+/* Estilos para el botón */
+.perfilContainer button {
+    background-color: rgb(221, 74, 74);
+    height: 50px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.imgProfileEdit{
+    border-radius: 20%;
+    max-width: 400px;
+    /* Copy code to element you want to animate */
+animation: imgProfileEdit 4s ease 2s infinite normal none;
+}
+
+.imgProfileEdit img{
+    width: 60%;
+    border-radius: 20px;
+}
+
+/* Copy this code after the above code */
+@keyframes imgProfileEdit {
+    0%,
+    100% {
+      transform: rotate(0deg);
+      transform-origin: 50% 0;
+    }
+  
+    10% {
+      transform: rotate(2deg);
+    }
+  
+    20%,
+    40%,
+    60% {
+      transform: rotate(-4deg);
+    }
+  
+    30%,
+    50%,
+    70% {
+      transform: rotate(4deg);
+    }
+  
+    80% {
+      transform: rotate(-2deg);
+    }
+  
+    90% {
+      transform: rotate(2deg);
+    }
+  }
+  
