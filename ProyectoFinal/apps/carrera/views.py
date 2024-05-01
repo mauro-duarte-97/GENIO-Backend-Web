@@ -1,19 +1,14 @@
-from django.views.generic import TemplateView
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from .models import Carrera
 
-class CarreraTemplateView(TemplateView):
-    template_name = "carrera_home.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 class CarreraListView(ListView):
     model = Carrera
     template_name = "lista_carrera.html"
     context_object_name = "carreras"
+
+    
 
 class CarreraDetailView(DetailView):
     model = Carrera

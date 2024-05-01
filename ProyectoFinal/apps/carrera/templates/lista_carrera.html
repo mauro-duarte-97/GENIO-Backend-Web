@@ -1,18 +1,40 @@
 {% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_carreras.css' %}">
+{% endblock %}
+{% block title %} Lista de Carreras {% endblock %}
 
-{% block title %} Lista de carreras {% endblock %}
 
 {% block content %}
+   
+    
+    <section class="SeccionIfts">
+         <h1>Lista de Carreras</h1>
+        <div class="ifts">
 
-<h1>Lista de carreras</h1>
+        {% for carrera in carreras %}
 
-<ul>
-    {% for carrera in carreras %}
+            <ul class="ulIfts">
+                <li><a href="{{carrera.url}}">{{ carrera.nombre }}</a>
 
-        <li><a href="{% url 'detalle_carrera' pk=carrera.pk %}">{{ carrera.titulo }}</a></li>
+                <div class="tarjetaIfts">
+                    <div class="imgTarjetaIfts"><img src="{{ carrera.img_perfil.url }}" alt=""></div>
+                    <div class="divBotonesTarjeta">
+                        <a href="{% url 'carreras' %}"><button id="btnIftsCarreras">Carreras</button></a>
+                        <a href="{% url 'materias' %}"><button id="btnIftsMaterias">Materias</button></a>
+                        <a href="{% url 'profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='carrera' entity_id=carrera.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <div>Puntaje</div>
+                    </div>
+                </div>
+                </li>
+            </ul>
+        {% endfor %}
+
+        </div>
+    </section>
+
         
-    {% endfor %}
-</ul>
-
 {% endblock %}
 

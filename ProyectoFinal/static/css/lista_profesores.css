@@ -1,0 +1,79 @@
+.SeccionIfts{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.ifts{
+    min-height: 20vh;
+    max-height: 55vh;
+    display: grid;
+    width: 65vw;
+    gap: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;  
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+.tarjetaIfts{ 
+   
+    height: 20vh;
+    display: flex;
+    flex: 0 0 24%; /* Asegura que solo 4 tarjetas caben en una fila */
+    background-color: #F2D0A9;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.tarjetaIfts:hover {
+    transform: scale(1.05);
+}
+
+.imgTarjetaIfts{
+    width: 45%;
+    height: 15vh;
+    margin: auto;
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.imgTarjetaIfts img{
+    width: 100%;
+}
+
+.divBotonesTarjeta{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 2px;
+    justify-content: center;
+    align-content: space-around;
+    }
+
+.divBotonesTarjeta button{
+    border-radius: 5px;
+    background-color: zrgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    font-size: 100%;
+
+}
+
+.ulIfts{
+    list-style: none;
+    text-decoration: none;
+}

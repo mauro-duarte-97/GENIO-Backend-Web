@@ -1,19 +1,36 @@
 {% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/lista_materias.css' %}">
+{% endblock %}
+{% block title %} Lista de Materias {% endblock %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    {% block title %} Lista de Materias {% endblock %}
-</head>
 
 {% block content %}
-<h1>Lista de Materias</h1>
-    <ul>
+   
+    
+    <section class="SeccionIfts">
+         <h1>Lista de Materias</h1>
+        <div class="ifts">
+
         {% for materia in materias %}
 
-                <li><a href="{% url 'detalle_materia' pk=materia.pk %}">{{ materia.nombre }}</a></li>
+            <ul class="ulIfts">
+                <li><a href="{{materia.url}}">{{ materia.nombre }}</a>
 
+                <div class="tarjetaIfts">
+                    <div class="imgTarjetaIfts"><img src="{{ materia.img_perfil.url }}" alt=""></div>
+                    <div class="divBotonesTarjeta">
+                        <a href="{% url 'materias' %}"><button id="btnIftsmaterias">materias</button></a>
+                        <a href="{% url 'materias' %}"><button id="btnIftsMaterias">Materias</button></a>
+                        <a href="{% url 'profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='materia' entity_id=materia.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <div>Puntaje</div>
+                    </div>
+                </div>
+                </li>
+            </ul>
         {% endfor %}
-    </ul>
-{% endblock %}
-</html>
+
+        </div>
+    </section>

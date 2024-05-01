@@ -1,15 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from .models import Profesor
-
-class ProfesorTemplateView(TemplateView):
-    template_name = "profesor_home.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 class ProfesorListView(ListView):
     model = Profesor

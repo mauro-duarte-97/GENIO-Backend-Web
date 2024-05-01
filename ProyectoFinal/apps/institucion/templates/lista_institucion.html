@@ -21,9 +21,9 @@
                 <div class="tarjetaIfts">
                     <div class="imgTarjetaIfts"><img src="{{ institucion.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
-                        <button id="btnIftsCarreras">Carreras</button>
-                        <button id="btnIftsMaterias">Materias</button>
-                        <button id="btnIftsProfesores">Profesores</button>
+                        <a href="{% url 'carreras' %}"><button id="btnIftsCarreras">Carreras</button></a>
+                        <a href="{% url 'materias' %}"><button id="btnIftsMaterias">Materias</button></a>
+                        <a href="{% url 'profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
                         <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=institucion.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                         <div>Puntaje</div>
                     </div>
@@ -34,6 +34,12 @@
 
         </div>
     </section>
+
+                                                                    <!-- NO FUNCIONA TODAVIA EL SCRIPT -->
+    <div class="container">
+        <!-- Aquí se cargarán las nuevas tarjetas de instituciones -->
+    </div>
+
     <script>
         window.addEventListener('scroll', function() {
             // Verifica si el usuario ha llegado al final de la ventana
@@ -63,7 +69,7 @@
                     cargando = false;
                 });
         }
-        </script>
+    </script>
         
 {% endblock %}
 
