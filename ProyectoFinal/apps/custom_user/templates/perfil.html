@@ -1,30 +1,35 @@
 {% extends "template_base.html" %}
 {% load static %}
 {% block title %} Perfil {% endblock %}
-<link rel="stylesheet" href="{% static 'style2.css' %}">
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}">
+{% endblock %}
 {% block content %}
 
-    <h1>Mi Perfil</h1>
-    <br>
-    <h2>Hola!, {{ usuario.nombre }}</h2>
+   
     <div class="contenedor-flex">
-        <div style="height: 500px; width: 500px;">
-            <img style="max-height: 100%; max-width: 100%;" src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
+        <h1>Mi Perfil</h1>
+        <br>
+        <h2>Hola!, {{ usuario.nombre }}</h2>
+        <div class="imgProfileEdit">
+            <img src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
         </div>
-
-
-        <div>
-            <menu style="display: block;">
-                <a href="{% url 'editar_usuario' usuario.id %}">Editar Usuario</a>
-                <ul style="display: block;">
-                    <li style="display: block; padding: 20px;">Nombre:{{ usuario.nombre }}</li>
-                    <li style="display: block; padding: 20px;">Email: {{ usuario.email }}</li>
-                    <li style="display: block; padding: 20px;">Edad: {{usuario.fecha_de_nacimiento}}</li>
+    
+        <div class="perfilContainer">
+            <menu>
+                <a href="{% url 'editar_usuario' usuario.id %}"><button type="button" class="btn-editar">Editar Usuario</button></a>
+                <ul>
+                    <li>Nombre:{{ usuario.nombre }}</li>
+                    <li>Email: {{ usuario.email }}</li>
+                    <li>Edad: {{usuario.fecha_de_nacimiento}}</li>
                 </ul>
             </menu>
-            <a href="{% url 'eliminar_usuario' usuario.id %}"><button type="button" style="background-color: rgb(221, 74, 74); height: 50px; width: 150px;">Eliminar Usuario</button></a>
+            <a href="{% url 'eliminar_usuario' usuario.id %}">
+                <button type="button" class="btn-eliminar">Eliminar Usuario</button>
+            </a>
         </div>
     </div>
+    
     
 {% endblock %}

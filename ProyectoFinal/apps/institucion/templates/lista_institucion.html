@@ -13,27 +13,58 @@
          <h1>Lista de Instituciones</h1>
         <div class="ifts">
 
-        {% for objeto in objetos %}
+        {% for institucion in instituciones %}
 
             <ul class="ulIfts">
-                <li><a href="{{objeto.url}}">{{ objeto.nombre }}</a></li>
+                <li><a href="{{institucion.url}}">{{ institucion.nombre }}</a>
 
                 <div class="tarjetaIfts">
-                    <div class="imgTarjetaIfts"><img src="{{ objeto.img_perfil.url }}" alt=""></div>
+                    <div class="imgTarjetaIfts"><img src="{{ institucion.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
                         <button id="btnIftsCarreras">Carreras</button>
                         <button id="btnIftsMaterias">Materias</button>
                         <button id="btnIftsProfesores">Profesores</button>
-                        <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=objeto.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                        <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=institucion.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                         <div>Puntaje</div>
                     </div>
                 </div>
-                   
+                </li>
             </ul>
         {% endfor %}
 
         </div>
     </section>
+    <script>
+        window.addEventListener('scroll', function() {
+            // Verifica si el usuario ha llegado al final de la ventana
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                cargarMasDatos();
+            }
+        });
+        
+        let cargando = false;
+        let paginaActual = 1;
+        const totalPaginas = 5; // Replace '5' with the actual value of the total number of pages
+        
+        function cargarMasDatos() {
+            if (cargando || paginaActual >= totalPaginas) return;
+            cargando = true;
+            paginaActual++;
+        
+            fetch(`?page=${paginaActual}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.querySelector('.container');
+                    container.innerHTML += data.html; // Asume que la respuesta incluye HTML de las nuevas tarjetas
+                    cargando = false;
+                })
+                .catch(error => {
+                    console.error('Error al cargar más datos:', error);
+                    cargando = false;
+                });
+        }
+        </script>
+        
 {% endblock %}
 
 

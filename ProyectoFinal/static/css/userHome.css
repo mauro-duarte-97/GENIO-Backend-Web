@@ -4,7 +4,7 @@
     align-items: center; /* Centra los hijos horizontalmente si hay espacio */
     width: 95%;
     height: auto;
-    margin: 0 auto;
+   
     text-align: center;
     border-bottom: 1px solid #D88C9A;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -40,13 +40,14 @@
 }
 
 .listaYmapa{
-  margin: auto;
+  margin: 5px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-content: space-between;
   text-align: center;
-  width: 100vh;
-  padding: 20px;}
+  width: 100%;
+ 
+}
   
   
 .mapa {

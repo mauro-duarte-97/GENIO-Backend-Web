@@ -44,8 +44,22 @@
     width: 100%;
 }
 
+.btn-editar{
+  background-color: rgb(38, 23, 170);
+  height: 50px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+
+}
+
 /* Estilos para el botón */
-.perfilContainer button {
+/* .perfilContainer button  */
+.btn-eliminar{
     background-color: rgb(221, 74, 74);
     height: 50px;
     width: 120px;
@@ -56,6 +70,8 @@
     cursor: pointer;
     margin: 5px;
 }
+
+
 
 .imgProfileEdit{
     border-radius: 20%;

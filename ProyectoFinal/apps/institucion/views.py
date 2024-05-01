@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.views.generic import ListView
 from django.views.generic import DetailView
 from .models import Institucion
+from django.core.paginator import Paginator
 
 class InstitucionTemplateView(TemplateView):
     template_name = "institucion_home.html"
@@ -14,7 +15,9 @@ class InstitucionTemplateView(TemplateView):
 class InstitucionListView(ListView):
     model = Institucion
     template_name = "lista_institucion.html"
-    context_object_name = "objetos"
+    context_object_name = "instituciones"
+
+
 
 class InstitucionDetailView(DetailView):
     model = Institucion

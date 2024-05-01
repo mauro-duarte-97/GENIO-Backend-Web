@@ -11,22 +11,31 @@
 <div class="opiniones-historicas">
     <h1>Opiniones Históricas sobre {{ model_name|capfirst }}</h1>
 
-    <section>
+    <section class="seccion-tabla-opinion">
         <table class="tabla-opiniones">
-            <tr>
-                <th>Usuario</th>
-                <th>Opinión</th>
-                <th>Calificación</th>
-            </tr>
-            {% for opinion in opiniones %}
-            <tr>
-                <td>{{ opinion.autor }}</td>
-                <td>{{ opinion.contenido }}</td>
-                <td>{{ opinion.calificacion }}</td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Opinión</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for opinion in opiniones %}
+                <tr>
+                    <td>{{ opinion.autor }}</td>
+                    <td>{{ opinion.contenido }}</td>
+                    <td>{{ opinion.calificacion }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
+
+        {% if opinion.has_next %}
+            <div id="loadMore" style="cursor: pointer; text-align: center;">Cargar más...</div>
+        {% endif %}
     </section>
+
 
     <section>
         <div class="seccion-opinion-usuario">
@@ -34,17 +43,17 @@
                 {% csrf_token %}
                 <div class="opinion-usuario">
                 <div class="titulo-y-Box">
-                    <label>Título</label>
-                    <input name="opinion-titulo" type="text" class="input-tit"/>
+                    <label for="opinion-titulo">Título</label>
+                    <input title="opinion-titulo" name="opinion-titulo" type="text" class="input-tit"/>
 
                     <label>Escribe tu opinión</label>
-                    <input name="opinion-usuario" type="text" class="opinion-box"/>
+                    <input title="opinion-usuario" name="opinion-usuario" type="text" class="opinion-box"/>
                 </div>
 
                 <div class="calificacion-y-submit">
                     <div>
                         <label>Califica</label>
-                        <input name="calificacion-usuario" type="number" class="calificacion-star" />
+                        <input title="calificacion-usuario" name="calificacion-usuario" type="number" class="calificacion-star" />
                     </div>
                     <button type="submit">Enviar</button>
                 </div>
