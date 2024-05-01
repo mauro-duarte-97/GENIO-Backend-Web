@@ -1,11 +1,11 @@
 from django.views.generic.base import TemplateView
-from apps.custom_user.forms import CustomUserDeleteForm, CustomUserUpdateForm
-from apps.custom_user.models import CustomUser
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.shortcuts import redirect, render
-from django.contrib import messages
 from django.urls import reverse_lazy
-
+from django.contrib import messages
+from .forms import CustomUserDeleteForm, CustomUserUpdateForm
+from .models import CustomUser
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class UserHomeView(TemplateView):
@@ -15,7 +15,7 @@ class UserHomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         return context
     
-class CustomProfileView(TemplateView):
+class CustomProfileView(TemplateView, LoginRequiredMixin):
     model = CustomUser 
     template_name = 'perfil.html'  # Nombre del template
     context_object_name = 'usuario'  # Nombre del objeto en el contexto
@@ -65,6 +65,24 @@ class EliminarUsuarioView(DeleteView):
     form_class = CustomUserDeleteForm
     template_name = 'eliminar_usuario.html'
     success_url = '/'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def google_auth(request):

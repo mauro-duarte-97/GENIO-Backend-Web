@@ -1,0 +1,30 @@
+{% extends "template_base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/feedback_box.css' %}">
+{% endblock %}
+{% block title %} Feedback {% endblock %}
+
+
+{% block content %}
+    <h1>Feedback</h1>
+    <p>Dejanos tu opinion</p>
+    <form method="post">
+        <div class="formulario-feedback">
+            <table>
+                {% csrf_token %}
+                {{ form.as_table }}
+                
+            </table>
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+{% endblock %}

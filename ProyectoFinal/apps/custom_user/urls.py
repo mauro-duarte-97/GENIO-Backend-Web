@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CustomProfileView, EditarUsuarioView, EliminarUsuarioView, UserHomeView 
+from .views import CustomProfileView, EditarUsuarioView, EliminarUsuarioView, UserHomeView
 
 
 urlpatterns = [

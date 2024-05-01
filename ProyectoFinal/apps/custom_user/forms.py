@@ -1,6 +1,5 @@
 from django import forms
 from .models import CustomUser
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
 
@@ -34,4 +33,3 @@ class CustomUserDeleteForm(forms.ModelForm):
             label='Confirmar eliminación',
             help_text='Marca esta casilla para confirmar que deseas eliminar este usuario.',
         )
-

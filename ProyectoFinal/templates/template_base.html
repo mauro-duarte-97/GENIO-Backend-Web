@@ -49,7 +49,7 @@
                     <!-- class="menu-perfil" -->
                     <ul id="menu_desplegable">
                         <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
-                        <li><a href="#">Enviar Feedback</a></li>
+                        <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
                         <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
                     </ul>
 

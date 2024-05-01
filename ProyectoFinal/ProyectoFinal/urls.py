@@ -34,6 +34,7 @@ urlpatterns = [
     path('materia/', include("apps.materia.urls")),
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
+    path('feedback/', include("apps.feedback.urls")),
 ]
 # ... tus otras rutas ...
 
