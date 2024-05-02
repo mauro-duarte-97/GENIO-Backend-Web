@@ -20,9 +20,10 @@
                 <div class="tarjetaIfts">
                     <div class="imgTarjetaIfts"><img src="{{ profesor.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
-                        <a href="{% url 'profesores' %}"><button id="btnIftsprofesores">profesores</button></a>
-                        <a href="{% url 'materias' %}"><button id="btnIftsMaterias">Materias</button></a>
-                        <a href="{% url 'profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <p>{{ profesor.nombre }}</p>
+                        <p>{{ profesor.materia }}</p>
+                        <p>{{ profesor.materia.carrera }}</p>
+                        <p>{{ profesor.materia.carrera.institucion }}</p>
                         <a href="{% url 'opiniones_por_entidad' model_name='profesor' entity_id=profesor.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                         <div>Puntaje</div>
                     </div>
@@ -33,3 +34,5 @@
 
         </div>
     </section>
+
+{% endblock %}

@@ -6,7 +6,7 @@ class MateriaAdmin(admin.ModelAdmin):
     list_display = ("nombre", "get_id_carrera", "dificultad")
 
     def get_id_carrera(self, obj):
-        return obj.fk_id_carrera.id
+        return obj.carrera.id
 
     def dificultad(self, obj):
         votaciones = obj.votaciones.all()

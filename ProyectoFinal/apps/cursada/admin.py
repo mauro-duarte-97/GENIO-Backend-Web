@@ -6,10 +6,10 @@ class CursadaAdmin(admin.ModelAdmin):
     list_display = ("titulo", "fecha_inicio", "get_id_profesor", "get_id_materia")
 
     def get_id_profesor(self, obj):
-        return obj.fk_id_profesor.id
+        return obj.profesor.id
 
     def get_id_materia(self, obj):
-        return obj.fk_id_materia.id
+        return obj.materia.id
 
     get_id_profesor.short_description = "ID Profesor"
     get_id_materia.short_description = "ID Materia"

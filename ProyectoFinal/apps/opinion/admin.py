@@ -6,7 +6,7 @@ class OpinionAdmin(admin.ModelAdmin):
     list_display = ("titulo", "contenido", "get_autor", "get_curso", "fecha", "calificacion")
 
     def get_autor(self, obj):
-        return obj.autor.username
+        return obj.autor.nombre if obj.autor.nombre else None
 
     def get_curso(self, obj):
         return obj.curso.id if obj.curso.id else None

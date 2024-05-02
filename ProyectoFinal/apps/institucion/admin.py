@@ -6,6 +6,6 @@ class InstitucionAdmin(admin.ModelAdmin):
     list_display = ("nombre", "ubicacion", "get_id_usuario")
 
     def get_id_usuario(self, obj):
-        return obj.fk_id_usuario.id
+        return obj.usuario.id
 
     get_id_usuario.short_description = "ID Usuario"

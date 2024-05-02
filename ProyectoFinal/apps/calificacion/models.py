@@ -13,8 +13,8 @@ class Calificacion(models.Model):
     autor = models.ForeignKey(
         'custom_user.CustomUser', 
         on_delete=models.CASCADE, 
-        related_name='calificacion_autor_id',
-        null=True # Permitir nulos temporalmente
+        related_name='calificacion_autor',
+        null=True,
     )  
     curso = models.ForeignKey(
         'cursada.Cursada', 
@@ -29,7 +29,7 @@ class Calificacion(models.Model):
         ordering = ['-fecha']
 
     def __str__(self):
-        return f'Calificación de {self.autor_id}'
+        return f'Tiene una Calificación de {self.calificacion_num} estrellas por {self.autor.nombre}'
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

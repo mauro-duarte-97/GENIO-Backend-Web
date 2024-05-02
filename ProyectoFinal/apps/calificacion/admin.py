@@ -6,7 +6,7 @@ class CalificacionAdmin(admin.ModelAdmin):
     list_display = ("calificacion_num", "get_autor_id", "get_curso", "fecha")
 
     def get_autor_id(self, obj):
-        return obj.autor.id if obj.autor else None
+        return obj.autor.id if obj.autor else "Sin Autor"
 
     def get_curso(self, obj):
         return obj.curso.id if obj.curso.id else None

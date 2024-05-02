@@ -8,29 +8,27 @@
 
 {% block content %}
    
-    
     <section class="SeccionIfts">
-         <h1>Lista de Materias</h1>
+        <h1>Lista de Materias</h1>
         <div class="ifts">
 
         {% for materia in materias %}
 
-            <ul class="ulIfts">
-                <li><a href="{{materia.url}}">{{ materia.nombre }}</a>
-
+            <div>
                 <div class="tarjetaIfts">
-                    <div class="imgTarjetaIfts"><img src="{{ materia.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
-                        <a href="{% url 'materias' %}"><button id="btnIftsmaterias">materias</button></a>
-                        <a href="{% url 'materias' %}"><button id="btnIftsMaterias">Materias</button></a>
-                        <a href="{% url 'profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
+                        <p> {{ materia.nombre }} </p>
+                        <p> {{materia.carrera.institucion }} </p>
+                        <p> {{materia.carrera}} </p>
+                        <a href="{% url 'lista_profesores' %}"><button id="btnIftsProfesores">Profesores</button></a>
                         <a href="{% url 'opiniones_por_entidad' model_name='materia' entity_id=materia.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                         <div>Puntaje</div>
                     </div>
                 </div>
-                </li>
-            </ul>
+            </div>
         {% endfor %}
 
         </div>
     </section>
+
+{% endblock %}
