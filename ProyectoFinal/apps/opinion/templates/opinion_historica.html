@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="opiniones-historicas">
-    <h1>Opiniones Históricas sobre {{ model_name|capfirst }}</h1>
+    <h1>Opiniones Históricas sobre {{ object_instance.nombre }}</h1>
 
     <section class="seccion-tabla-opinion">
         <table class="tabla-opiniones">
@@ -43,22 +43,26 @@
                 {% csrf_token %}
                 <div class="opinion-usuario">
                 <div class="titulo-y-Box">
-                    <label for="opinion-titulo">Título</label>
-                    <input title="opinion-titulo" name="opinion-titulo" type="text" class="input-tit"/>
+                    <label>Título</label>
+                    <input title="titulo" name="titulo" type="text" class="input-tit"/>
 
                     <label>Escribe tu opinión</label>
-                    <input title="opinion-usuario" name="opinion-usuario" type="text" class="opinion-box"/>
+                    <input title="contenido" name="contenido" type="text" class="opinion-box"/>
                 </div>
 
                 <div class="calificacion-y-submit">
                     <div>
                         <label>Califica</label>
-                        <input title="calificacion-usuario" name="calificacion-usuario" type="number" class="calificacion-star" />
+                        <input title="calificacion" name="calificacion" type="number" class="calificacion-star" />
                     </div>
                     <button type="submit">Enviar</button>
                 </div>
                 </div>
             </form>
+
+            
+                
+                
         </div>
     </section>
 </div>

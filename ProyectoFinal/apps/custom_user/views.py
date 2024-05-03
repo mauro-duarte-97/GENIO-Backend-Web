@@ -8,7 +8,7 @@ from .models import CustomUser
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class UserHomeView(TemplateView):
+class UserHomeView(LoginRequiredMixin, TemplateView):
     template_name = "userHome.html"
 
     def get_context_data(self, **kwargs):
@@ -27,7 +27,7 @@ class CustomProfileView(TemplateView, LoginRequiredMixin):
         context['usuario'] = user
         return context
 
-class EditarUsuarioView(UpdateView):
+class EditarUsuarioView(LoginRequiredMixin, UpdateView):
     model = CustomUser
     form_class = CustomUserUpdateForm
     template_name = 'editar_usuario.html'
@@ -60,7 +60,7 @@ class EditarUsuarioView(UpdateView):
         # Construir la URL del perfil del usuario usando reverse_lazy
         return reverse_lazy('perfil_usuario', kwargs={'pk': user_id})
     
-class EliminarUsuarioView(DeleteView):
+class EliminarUsuarioView(LoginRequiredMixin, DeleteView):
     model = CustomUser
     form_class = CustomUserDeleteForm
     template_name = 'eliminar_usuario.html'

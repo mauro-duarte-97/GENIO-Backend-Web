@@ -3,7 +3,7 @@ from apps.carrera.models import Carrera
 
 @admin.register(Carrera)
 class carreraAdmin(admin.ModelAdmin):
-    list_display = ("titulo","duracion", "get_id_institucion",)
+    list_display = ("nombre","duracion", "get_id_institucion",)
 
     def get_id_institucion(self, obj):
         return obj.institucion.id

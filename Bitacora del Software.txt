@@ -4,19 +4,21 @@ Pwd: admin
 
 COMANDOS IMPORTANTES:
 
+- Nuevo Entorno {
+virtualenv EntornoProyectoIntegrador
+
+EntornoProyectoIntegrador\Scripts\activate
+}
+
  -ABRIR PROYECTO {
-cd EntornoDePrueba
+cd EntornoProyectoIntegrador
 Scripts\activate
 cd..
 cd ProyectoFinal
 python manage.py runserver
 }
 
-- Nuevo Entorno {
-virtualenv EntornoProyectoIntegrador
 
-EntornoProyectoIntegrador\Scripts\activate
-}
 
 
 URLS ACTUALES:
@@ -29,8 +31,12 @@ http://127.0.0.1:8000/profesor/
 http://127.0.0.1:8000/materia/
 
 
-
-
+###################################################### 2/05/2024 ######################################################
+Fijarse si es necesario el atributo cursada para calificacion y si llegase a ser asi, ver como darselo automaticamente al estar loggeado y poner una calificacion
+###################################################### 1/05/2024 ######################################################
+Complete los datos de los profesores y materias del IFTS 18, y cree el template minimo para que sea funcional carrera, materia y profesor.
+###################################################### 30/04/2024 ######################################################
+Merge de front y Back, llenado de datos de instituciones de la 1 a 18 y carreras de 1 a 9
 ###################################################### 29/04/2024 ######################################################
 Fix Class Opinion, Lista_institucion, img instituto
 ###################################################### 28/04/2024 ######################################################

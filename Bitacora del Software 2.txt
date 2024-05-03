@@ -44,11 +44,12 @@ IDEAS:
 
 
 
-
-
-
-
 Preguntas:
+
+Que pasa si un profesor se va? se quedan las opiniones de el? se elimina su cursada? se resetea la materia?
+
+
+
 
 Como vincular el css al proyecto? mediante:
 <link href="../static/style.css" rel="stylesheet" type="text/css">

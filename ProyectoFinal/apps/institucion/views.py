@@ -3,9 +3,10 @@ from django.views.generic import ListView
 from django.views.generic import DetailView
 from .models import Institucion
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class InstitucionListView(ListView):
+class InstitucionListView(ListView, LoginRequiredMixin):
     model = Institucion
     template_name = "lista_institucion.html"
     context_object_name = "instituciones"
