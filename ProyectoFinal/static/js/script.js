@@ -1,18 +1,41 @@
-function switchForm() {
-    var switchButton = document.getElementById("switchButton");
-    var loginCard = document.getElementById("loginCard");
-    var registerCard = document.getElementById("registerCard");
+// Función para mostrar el recuadro de registro al hacer clic en el botón "O registrate acá"
+document.getElementById('toggleButton').addEventListener('click', function() {
+  var formContainer = document.getElementById('conteinerRegistro');
+  var registerCard = document.getElementById('registerCard');
+  var overlay = document.getElementById('overlay');
+
+  formContainer.classList.remove('hidden'); // Eliminar la clase hidden
+  registerCard.style.display = 'block'; // Mostrar el cuadro de registro encima
+  overlay.style.display = 'block'; // Mostrar el overlay
+  document.body.classList.add('blur'); // Aplicar el efecto de blur a los elementos debajo del overlay
   
-    if (switchButton.checked) {
+  // Función para cerrar el panel de registro cuando se hace clic fuera de él
+  overlay.addEventListener('click', function() {
+    formContainer.classList.add('hidden'); // Ocultar el panel de registro
+    overlay.style.display = 'none'; // Ocultar el overlay
+    registerCard.style.display = 'none';
+    document.body.classList.remove('blur'); // Quitar el efecto de blur
+  });
+});
+
+
+
+
+// function switchForm() {
+//     var switchButton = document.getElementById("switchButton");
+//     var loginCard = document.getElementById("loginCard");
+//     var registerCard = document.getElementById("registerCard");
+  
+//     if (switchButton.checked) {
      
-      loginCard.style.display = "none";
-      registerCard.style.display = "block";
-    } else {
+//       loginCard.style.display = "none";
+//       registerCard.style.display = "block";
+//     } else {
     
-      loginCard.style.display = "block";
-      registerCard.style.display = "none";
-    }
-}
+//       loginCard.style.display = "block";
+//       registerCard.style.display = "none";
+//     }
+// }
   
   document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();

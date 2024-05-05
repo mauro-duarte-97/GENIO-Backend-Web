@@ -11,9 +11,17 @@
 
   <body>
     <main>
-      <div class="divImagenyForm">
         <section class="loginHome">  
-          <div class="container">
+          <div class="encabezado">
+              <div class="logoLogin">
+                <img src="/static/imagenes/Logo/genioLogo.jpg" alt="">
+              </div>
+              <div class="textoLogin">
+                <h1>G.E.N.I.O</h1>
+                <h2>Guía de Estudiantes Nuevos de IFTS para Orientación</h2>
+              </div>
+            </div>
+<!--             
           <div class="switch-container">
             <p id="leftLabel">Ingresar</p>
             <label class="switch">
@@ -22,14 +30,13 @@
             </label>
             <p id="rightLabel">Cuenta Nueva</p>
           </div>
-        
+           -->
+         
         <!-- ///////////////////////////////////// LOGIN /////////////////////////////////////////////-->
             <div class="form-container">
               <div class="card" id="loginCard">
                   <h2>Iniciar Sesión</h2>
-
-
-                  <form method="post">
+                  <form method="post" class="formLogin">
                       {% csrf_token %}
                       <input
                           type="email"
@@ -56,21 +63,24 @@
                   </div>
                   {% endfor %}
 
-                  <p>O inicia sesión con</p>
+                 
                   
-                  <button type="button" onclick="google_auth()" id="googleboton1">Google</button>
+                  <button type="button" onclick="google_auth()" id="googleboton1">Ingresá con Google</button>
                   <div id="g_id_onload"
                     data-client_id="YOUR_GOOGLE_CLIENT_ID"
                     data-login_uri="https://your.domain/your_login_endpoint"
                     data-your_own_param_1_to_login="any_value"
                     data-your_own_param_2_to_login="any_value">
-                  </div>
+                  </div> 
+                  <button id="toggleButton">O registrate <b>acá</b></button>
               </div>
             </div>
 
       <!-- ///////////////////////////////////// REGISTRO /////////////////////////////////////////////-->
-            <div class="form-container">
-                <div class="card" id="registerCard" style="display: none">
+            <div class="form-container2" id="conteinerRegistro">
+                 <div class="overlay" id="overlay"></div>
+                 <div class="card" id="registerCard">
+                 
                     <h2>Registro</h2>
                     <form id="registerForm" method="post" action="/auth/register/">
                         {% csrf_token %}
@@ -112,19 +122,10 @@
                     {% endfor %}
                     
                     <p>O regístrate con</p>
-                    <button onclick="google_auth()" id="googleboton2">Google</button>
+                    <button onclick="google_auth()" id="googleboton2">Ingresá con Google</button>
                 </div>
             </div>
-
-          </div>   
         </section>
-
-        <section class="seccionImagen">
-          <div class="divImg">
-            <img src="{% static 'imagenes/Portada/login.jpeg' %}" alt="Imagen de Login" class="form-image">
-          </div>
-        </section>
-      </div>
     </main>
     <script src="{% static 'js/script.js' %}"></script>
   </body>
