@@ -1,19 +1,50 @@
 /* Estilos para el contenedor flex */
 .contenedor-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width:100%;
+    display: flex;   
+    justify-content: space-around;   
+    width:70%;
     text-align: center;
+    min-width: 300px;
+    background-color: #043652 ;
+    min-height: 600px;
+    align-items: center;
+
+}
+/* img de perfil del contenedor */
+.imgProfileEdit{
+  width: 40%;
+  min-width: 300px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:white;
+  transform: translateY(-25%);
 }
 
+.imgProfileEdit img{
+  width: 400px;
+  height: auto;
+  border-radius: 50%;
+  max-height: 50vh;
+  max-width: 60vw;
+}
+.imgProfileEdit a{
+  min-width: 100%;
+}
 /* Estilos para el contenedor del perfil */
 .perfilContainer {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo transparente con blur */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     border-radius: 10px;
     width: 60%;
-    overflow: hidden;
+    margin: 0%;
+    padding: 0%;
+    color: white;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* Estilos para el menú */
@@ -21,14 +52,16 @@
     display: block;
     justify-content: center;
     text-align: center;
-    width: 100%;
-    padding: 0%;
+    width: 90%;
+    padding: 10px;
+    background-color: #001826;
 }
 
 /* Estilos para los elementos del menú */
 .perfilContainer menu a {
     text-decoration: none;
     color: black;
+   
 }
 
 /* Estilos para la lista del menú */
@@ -45,7 +78,7 @@
 }
 
 .btn-editar{
-  background-color: rgb(38, 23, 170);
+  background-color: #fc7731;
   height: 50px;
   width: 120px;
   border: none;
@@ -68,53 +101,17 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
-    margin: 5px;
+   
+    align-items: center;
 }
 
-
-
-.imgProfileEdit{
-    border-radius: 20%;
-    max-width: 400px;
-    /* Copy code to element you want to animate */
-animation: imgProfileEdit 4s ease 2s infinite normal none;
-}
-
-.imgProfileEdit img{
-    width: 60%;
-    border-radius: 20px;
-}
-
-/* Copy this code after the above code */
-@keyframes imgProfileEdit {
-    0%,
-    100% {
-      transform: rotate(0deg);
-      transform-origin: 50% 0;
-    }
-  
-    10% {
-      transform: rotate(2deg);
-    }
-  
-    20%,
-    40%,
-    60% {
-      transform: rotate(-4deg);
-    }
-  
-    30%,
-    50%,
-    70% {
-      transform: rotate(4deg);
-    }
-  
-    80% {
-      transform: rotate(-2deg);
-    }
-  
-    90% {
-      transform: rotate(2deg);
-    }
+@media (max-width: 925px){
+  .contenedor-flex{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
+  .imgProfileEdit{
+    justify-content: center;
+  }
+}

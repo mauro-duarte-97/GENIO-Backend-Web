@@ -27,13 +27,80 @@
 {% block content %}
 
 <div class="containers">
-  <div class="containers-btn">
-    <button class="tab-button" data-target="localizaciones">Localizaciones</button>
-    <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
+  <div class="divNoticiasOpiniones">
+    <div class="divNoticias">
+
+    </div>
+    <div class="containerOpiniones">
+      <div class="containers-btn">
+        <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
+      </div>
+      <section id="opiniones" class="divOpinionesRecientes seccion">
+
+        <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="divTituloyopinion">
+              <div class="textosOpinion">
+                    <p>Titulo</p>
+                    <div id="votacion">✭</div>
+                    <p>fecha</p>                        
+              </div>
+              <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
+            </div>
+           
+        </div>
+
+        <div class="tarjetaOpinion">               
+          <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+          <div class="divTituloyopinion">
+            <div class="textosOpinion">
+                  <p>Titulo</p>
+                  <div id="votacion">✭</div>
+                  <p>fecha</p>                        
+            </div>
+            <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
+          </div>
+          <div id="votacion"></div>
+      </div>
+
+      <div class="tarjetaOpinion">               
+        <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+        <div class="divTituloyopinion">
+          <div class="textosOpinion">
+                <p>Titulo</p>
+                <div id="votacion">✭</div>
+                <p>fecha</p>                        
+          </div>
+          <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
+        </div>
+        <div id="votacion"></div>
+    </div>
+
+    <div class="tarjetaOpinion">               
+      <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+      <div class="divTituloyopinion">
+        <div class="textosOpinion">
+              <p>Titulo</p>
+              <div id="votacion">✭</div>
+              <p>fecha</p>                        
+        </div>
+        <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
+      </div>
+      <div id="votacion"></div>
+  </div>
+        
+        
+    
+    </section>
+  </div>
+
   </div>
     
-    <section id="localizaciones" class="divLocalizaciones seccion">
 
+    <section id="localizaciones" class="divLocalizaciones seccion">
+        <div>
+          <button class="tab-button" data-target="localizaciones">Localizaciones</button>
+        </div>
         <div class="listaYmapa">
                 <!-- Lista de botones para cada IFTS -->
                 <ul class="lista">
@@ -51,58 +118,7 @@
         </div>    
     </section>
 
-    <section id="opiniones" class="divOpinionesRecientes seccion">
-
-        <div class="tarjetaOpinion">               
-             <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-             <div class="textosOpinion">
-                    <p>Titulo</p>
-                    <p>fecha</p>                        
-             </div>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
-               <div id="votacion"></div>
-         </div>
-         
-         <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-            <div class="textosOpinion">
-                   <p>Titulo</p>
-                   <p>fecha</p>                        
-            </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
-              <div id="votacion"></div>
-        </div> 
-
-        <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-            <div class="textosOpinion">
-                   <p>Titulo</p>
-                   <p>fecha</p>                        
-            </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
-              <div id="votacion"></div>
-        </div> 
-
-        <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-            <div class="textosOpinion">
-                   <p>Titulo</p>
-                   <p>fecha</p>                        
-            </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
-              <div id="votacion"></div>
-        </div> 
-
-        <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-            <div class="textosOpinion">
-                   <p>Titulo</p>
-                   <p>fecha</p>                        
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p>
-            <div id="votacion"></div>
-        </div> 
-    </section>
+    
 </div>
 
 <script src="{% static 'js/script.js' %}"></script>

@@ -31,6 +31,8 @@ http://127.0.0.1:8000/profesor/
 http://127.0.0.1:8000/materia/
 
 
+###################################################### 6/05/2024 ######################################################
+Remodelacion de Front
 ###################################################### 2/05/2024 ######################################################
 Fijarse si es necesario el atributo cursada para calificacion y si llegase a ser asi, ver como darselo automaticamente al estar loggeado y poner una calificacion
 ###################################################### 1/05/2024 ######################################################

@@ -3,38 +3,45 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    width: 100%;
+    height: auto;
+    border: 5px solid red;
+    justify-content: center;
 }
 
 .ifts{
-    min-height: 20vh;
-    max-height: 55vh;
     display: grid;
-    width: 65vw;
-    gap: 15px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    width: 95%;
     border-radius: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     grid-gap: 20px;  
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
     justify-content: center;
-    box-sizing: border-box;
+    border: 5px solid blue;
+   
+}
+.ulIfts{
+    width: 300px;
+    height: auto;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: 5px solid yellow;
 }
 
 
+
 .tarjetaIfts{ 
-   
-    height: 20vh;
+   width: 100%;
+    height: auto;
     display: flex;
-    flex: 0 0 24%; /* Asegura que solo 4 tarjetas caben en una fila */
-    background-color: #F2D0A9;
+    background-color: #043652;
     border-radius: 10px;
-    margin: 10px auto;
+
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    border: 5px solid green;
 }
 
 .tarjetaIfts:hover {
@@ -42,15 +49,16 @@
 }
 
 .imgTarjetaIfts{
-    width: 45%;
-    height: 15vh;
+    width: 150px;
+    height: 150px;
     margin: auto;
     background-color: aquamarine;
     border-radius: 10px;
 }
 
 .imgTarjetaIfts img{
-    width: 100%;
+    width: 150px;
+    height: 150px;
 }
 
 .divBotonesTarjeta{
@@ -73,9 +81,5 @@
 
 }
 
-.ulIfts{
-    list-style: none;
-    text-decoration: none;
-}
 
 
