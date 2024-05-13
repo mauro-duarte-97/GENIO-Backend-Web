@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.edit import CreateView
+from django import forms
 from apps.custom_user.models import CustomUser
-# from .models import AuthUserProfile
 from .forms import RegistrationForm
 from django.contrib import messages
 
@@ -28,6 +28,13 @@ class RegisterUsuarioView(CreateView):
 class CustomLoginView(LoginView):
     template_name = 'index.html'  # Especifica el nombre del template de inicio de sesión
 
+    class Meta:
+        model = CustomUser
+        fields = ["email", "password"]
+        widgets = {
+            "email": forms.EmailInput(attrs={"placeholder": "Correo electrónico"}),
+            "password": forms.PasswordInput(attrs={"placeholder": "Contraseña"}),
+        }
     def form_invalid(self, form):
         messages.error(
             self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
@@ -40,6 +47,12 @@ class CustomLogoutView(LogoutView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+class LogoutConfirmationView(LogoutView):
+    template_name = "index.html"
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
 class GoogleAuthView(LoginView):
     template_name = 'g_auth.html'  # Especifica el nombre del template de inicio de sesión
@@ -50,6 +63,8 @@ class GoogleAuthView(LoginView):
         )  # Mensaje de error
         return super().form_invalid(form)
     
+ 
+
 
 
 # def verify_dni(request):

@@ -6,25 +6,6 @@ from django import forms
 from apps.custom_user.models import CustomUser 
 
 
-# Login
-class CustomLoginView(LoginView):
-    class Meta:
-        model = CustomUser
-        fields = ["email", "password"]
-        widgets = {
-            "email": forms.EmailInput(attrs={"placeholder": "Correo electrónico"}),
-            "password": forms.PasswordInput(attrs={"placeholder": "Contraseña"}),
-        }
-
-# Logout con boton confirmar:
-class CustomLogoutView(LogoutView):
-    pass
-
-class LogoutConfirmationView(LogoutView):
-    template_name = "index.html"
-
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
 
 # REGISTER   
 class RegistrationForm(UserCreationForm):
