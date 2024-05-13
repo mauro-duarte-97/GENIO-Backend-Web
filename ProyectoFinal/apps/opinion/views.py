@@ -1,11 +1,13 @@
 from django.contrib.contenttypes.models import ContentType
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.apps import apps
 from django.shortcuts import redirect
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from .forms import OpinionForm
 from .models import Opinion
 from django.http import JsonResponse
@@ -92,57 +94,36 @@ class OpinionListView(LoginRequiredMixin, FormMixin, ListView):
         return reverse_lazy('opiniones_por_entidad', kwargs={'model_name': self.kwargs['model_name'], 'entity_id': self.kwargs['entity_id']})
 
 
+class OpinionDetailView(LoginRequiredMixin, DetailView):
+    model = Opinion
+    template_name = 'opinion_detail.html'
+    context_object_name = 'opinion'
 
+    def get_queryset(self):
+        Model = apps.get_model(self.kwargs['model_name'], self.kwargs['model_name'])
+        if Model is None:
+            raise Http404("Modelo no encontrado")
 
+        content_type = ContentType.objects.get_for_model(Model)
+        return Opinion.objects.filter(content_type=content_type, object_id=self.kwargs['entity_id'], id=self.kwargs['pk'])
 
+    def post(self, request, *args, **kwargs):
+        opinion = self.get_object()
 
+        if request.user == opinion.autor:
+            opinion.delete()
+         # Redirigir a la página de opiniones por entidad
+        return redirect('opiniones_por_entidad', model_name=self.kwargs['model_name'], entity_id=self.kwargs['entity_id'])
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        Model = apps.get_model(self.kwargs['model_name'], self.kwargs['model_name'])
+        if Model is None:
+            raise Http404("Modelo no encontrado")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# class OpinionFormView(FormView):
-#     template_name = "opinion_historica.html"
-#     form_class = OpinionForm
-#     success_url = reverse_lazy('/opinion_historica/')
-
-#     def form_valid(self, form):
-#         # Esta función se llama cuando el formulario es válido
-#         form.save()
-#         return super().form_valid(form)
-
-# class OpinionListView(ListView):
-#     model = Opinion
-#     template_name = 'opinion_historica.html'
-#     context_object_name = 'opiniones'
-
-#     # Si necesitas filtrar opiniones por alguna entidad específica, puedes sobrescribir el método get_queryset
-#     def get_queryset(self):
-#         # Aquí puedes filtrar las opiniones según una condición específica
-#         # Por ejemplo, solo opiniones de un cierto tipo de entidad
-#         return Opinion.objects.filter(alguna_condicion=True)
-
-
-#     # Esta funcion sera para Opiniones recientes que se mostraran en la pagina principal
-#     def get_opiniones_por_entidad(model_class, entity_id):
-#         content_type = ContentType.objects.get_for_model(model_class)
-#         return Opinion.objects.filter(content_type=content_type, object_id=entity_id)
-
+        # Pasar model_name y entity_id al contexto
+        context['model_name'] = self.kwargs['model_name']
+        context['entity_id'] = self.kwargs['entity_id']
+        
+        return context
+    

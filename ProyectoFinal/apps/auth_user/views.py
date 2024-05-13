@@ -41,6 +41,17 @@ class CustomLogoutView(LogoutView):
         context = super().get_context_data(**kwargs)
         return context
 
+class GoogleAuthView(LoginView):
+    template_name = 'g_auth.html'  # Especifica el nombre del template de inicio de sesión
+
+    def form_invalid(self, form):
+        messages.error(
+            self.request, "Credenciales incorrectas. Por favor, inténtalo de nuevo."
+        )  # Mensaje de error
+        return super().form_invalid(form)
+    
+
+
 # def verify_dni(request):
 #     if request.method == 'POST':
 #         dni = request.POST.get('dni')

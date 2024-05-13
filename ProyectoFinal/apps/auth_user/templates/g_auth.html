@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Auth</title>
+</head>
+<body>
+    <h1 style="text-align: center;"> My google OAuth Project </h1>
+    {% if user.authenticate %}
+    <p>Welcome</p>
+    <a href="/auth/">Logout</a>
+    {% else %}
+    <a href="{{ user.auth_url }}">Login with Google</a>
+    {% endif %}
+    
+
+</body></html>

@@ -1,0 +1,33 @@
+{% extends "template_base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/opinion.css' %}">
+{% endblock %}
+
+{% block title %}Opinión de {{opinion.autor }}{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>{{ opinion.autor }}</h1>
+    <p>{{ opinion.contenido }}</p>
+    <p>Calificacion: {{ opinion.calificacion }}</p>
+    <p>Fecha: {{ opinion.fecha }}</p>
+    <div>
+        {% if request.user == opinion.autor %}
+        <div>
+            <form action="{% url 'opinion_detalle' model_name=model_name entity_id=entity_id pk=opinion.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="eliminar_opinion">
+                <button type="submit">
+                    Eliminar
+                </button>
+            </form>
+            
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

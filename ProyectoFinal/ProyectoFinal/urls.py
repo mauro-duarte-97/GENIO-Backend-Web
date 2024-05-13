@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/auth/login')),
     path('auth/', include("apps.auth_user.urls")),
+    path('auth/', include("allauth.urls")),
     path('', include("apps.custom_user.urls")),
     path('alumno/', include("apps.alumno.urls")),
     path('carrera/', include("apps.carrera.urls")),
