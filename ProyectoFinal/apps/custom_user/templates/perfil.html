@@ -9,15 +9,15 @@
 
    
     <div class="contenedor-flex">
-        <h1>Mi Perfil</h1>
-        <br>
-        <h2>Hola!, {{ usuario.nombre }}</h2>
         <div class="imgProfileEdit">
             <img src="{% if usuario.img_perfil %}{{ usuario.img_perfil.url }}{% else %}{% static 'imagenes/Iconos/UserProfile.png' %}{% endif %}" alt="Imagen de perfil">
+                        <h2>Hola!, {{ usuario.nombre }}</h2>
         </div>
-    
         <div class="perfilContainer">
-            <menu>
+            <div class="textoPerfilUsuario">
+                <h1>Mi Perfil</h1>
+            </div>           
+            <menu class="menuPerfilUsuario">
                 <a href="{% url 'editar_usuario' usuario.id %}"><button type="button" class="btn-editar">Editar Usuario</button></a>
                 <ul>
                     <li>Nombre:{{ usuario.nombre }}</li>

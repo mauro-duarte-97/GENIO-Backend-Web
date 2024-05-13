@@ -20,71 +20,73 @@
     <body>
         <!-- header.html -->
         <header>
-        <div class="menuGlobal">
-            <div class="logo">
-                <a href="{% url 'user_home'%}" type="image/png"><img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo"></a>
-            </div>
-        
-        <nav class="container">
-            <ul>
-                <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
-                        
-                <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+             <div class="menuGlobal">
+                <div class="logo">
+                    <a href="{% url 'user_home'%}" type="image/png">
+                        <img id="logoUserHome1" src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="Logo">
+                        <img id="logoUserHome2" src="{% static 'imagenes/Logo/genioLogo2.png' %}" alt="Logo">
+                    </a>
+                   
+                </div>
                 
-                <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+                <nav class="menuDiv">
+                    <ul>
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
 
-                <li><a href="{% url 'lista_profesores'%}">Profesor</a></li>    
-            </ul>
-        </nav>
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
+                    </ul>
+                </nav>
+        
+ <!-- ################ NAVEGADOR MOVIL ######################## -->
+ 
+                <details>
+                    <summary class="divSummary"></summary>
+                
+                    <nav class="menuMobile">
+                        <li><a href="{% url 'lista_instituciones'%}">Instituciones</a></li>
+                                
+                        <li><a href="{% url 'lista_carreras'%}">Carreras</a></li>
+                        
+                        <li><a href="{% url 'lista_materias'%}">Materias</a></li>
+
+                        <li><a href="{% url 'lista_profesores'%}">Docentes</a></li> 
+                    </nav>
+                </details>
+  
+            <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
         
 
 
 
-
-        <div>
-            <!-- IMG DE PERFIL -->           
-            {% if request.user.is_authenticated %}
-
-                <nav class="nav-menu-principal">
-                    <div class="div-menu-desplegable">
-
-                        <img src="{{ request.user.img_perfil.url }}" alt="profile" class="img_perfil">
-                        <!-- class="menu-perfil" -->
-                        <ul id="menu_desplegable">
-                            <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
-                            <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
-                            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-                            
-
-            {% else %}
-                <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
-                <a href="{% url 'login' %}">Iniciar sesión</a>
-            {% endif %}
-        </div>
-
-
-
-
-
-            <!-- ################ NAVEGADOR MOVIL ######################## -->
-            <!-- <nav id="menu-movil">
-
-                <div class="menu-button">GUÍA DEL ESTUDIANTE DE IFTS<span class="touch-button"><i class="navicon">▼</i></span></div>
-                <ul class="flexnav with-js opacity sm-screen" data-breakpoint="800">
-                    <li><a href="{% url 'lista_instituciones'%}">Buscador de Instituciones</a></li>
-                    <li><a href="{% url 'lista_carreras'%}">Buscador de Carreras</a></li>
-                    <li><a href="{% url 'lista_materias'%}">Buscador Materias</a></li>
-                    <li><a href="{% url 'lista_profesores'%}">Buscador Profesores</a></li>
-                </ul>
-            </nav> -->
-            <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
-
+                <div>
+                <!-- IMG DE PERFIL -->           
+                    {% if request.user.is_authenticated %}
+                        <nav class="nav-menu-principal">
+                            <img src="{{ request.user.img_perfil.url }}" alt="profile" class="img_perfil">
+                            <div class="div-menu-desplegable">                        
+                                <!-- class="menu-perfil" -->
+                                <ul id="menu_desplegable">
+                                    <li><a href="{% url 'perfil_usuario' pk=request.user.id %}">Mi perfil</a></li>
+                                    <li><a href="{% url 'feedback' %}">Enviar Feedback</a></li>
+                                    <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
+                    </nav>               
+                    {% else %}
+                        <!-- Si el usuario no está autenticado, mostrar un enlace de inicio de sesión -->
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    {% endif %}
+                </div>
             </div>
+            
         </header>
+        <div class="bannerVideo">
+            <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
+        </div>
 
     <!-- ################ FIN HEADER ############################## -->
 
@@ -106,18 +108,12 @@
             <div class="footer-container">
                 <div class="footer-section">
                     <p>¡Sumate a la comunidad IFTS!
-
-
-                        Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
+                      Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
                 </div>
-                <div class="footer-section">
-                    <img src="{% static 'imagenes/Logo/Logo-web-IFTS.png' %}" alt="Logo">
-                </div>
-                <div class="footer-section">
-                    <p>Mantengamos el contacto!</p>
+                <div class="footer-section2">
                     <p>Seguinos en todas nuestras redes:</p>
                     <div class="social-icons">
-                        <ul style="list-style: none; display: flex; flex-direction: row;">
+                        <ul class="listaRedes">
                             <li><a href="https://discord.gg/3EkEuBr5"><img src="{% static 'imagenes/Iconos/discord-ico.png' %}" alt="Discord-ico"></a></li>
                             <li><a href="https://www.facebook.com/profile.php?id=61558876926447&notif_id=1714537805990917&notif_t=follower_invite_accept&ref=notif"><img src="{% static 'imagenes/Iconos/facebook-ico.png' %}" alt="Facebook-ico"></a></li>
                             <li><a href="mailto:m.e.b.d.0904@ifts18.edu.ar?subject=Consulta%20desde%20la%20Web&body=Hola,%20vi%20tu%20sitio%20web%20y%20me%20gustaría%20saber..."><img src="{% static 'imagenes/Iconos/gmail-ico.png' %}" alt="Gmail-ico"></a></li>

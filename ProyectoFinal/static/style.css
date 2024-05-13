@@ -9,6 +9,7 @@ html, body{
 .loginHome{
   width: 100%;
   height: 100vh;
+  background-attachment: fixed;
   background-image:url("/static/imagenes/Portada/portadaLogin.jpg");
   background-size: cover;
 }
@@ -27,10 +28,18 @@ html, body{
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
-.logoLogin img{
+#imgLogin1{
   width: 120px;
+  position: absolute;
 }
+#imgLogin2{
+  width: 120px;
+  position: absolute;
+  animation: titileo 2s linear infinite;
+}
+
 .textoLogin{
   display: flex;
   flex-direction: column;
@@ -60,20 +69,39 @@ html, body{
   height: calc(100% - 200px);
   display: flex;
   align-items: center;
+  align-content: center;
+}
+.loginCardFondo{
+  width: 800px;
+  background-color: #043652b3;
+  color: white;
+  display: flex;
+  margin-left:60px ;
+  padding-left: 60px;
+
+
+}
+.loginFondoTexto{
+  width:40%;
+
+  text-align: center;
+  margin: auto;
 }
 
+.textoNaranja{
+  color:#fc7731
+}
 .card{
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 400px;
-  margin:0 5%;
+  height: 500px;
   padding: 5px;
   justify-content: space-evenly;
   align-items: center;
   background-color: #043652;
   position: relative;
-  box-shadow:-25px 25px 0 0 rgb(4, 54, 82, 0.7);
+  transform: translateY(-60px);
 }
 
   .card h2{
@@ -93,7 +121,7 @@ html, body{
 .formLogin input,
 #registerForm input{
   height: 35px;
-  width: 60%; 
+  width: 70%; 
   overflow: hidden;
   background-color: #001826; /* Utilizando !important */
   border:none;
@@ -143,6 +171,7 @@ html, body{
   border:none;
   box-shadow: none;
   outline: none;
+  cursor: pointer;
 }
 #googleboton1, #googleboton2{
   width: 61%;
@@ -153,6 +182,7 @@ html, body{
   box-shadow: none;
   outline: none;
   color:white;
+  cursor: pointer;
 }
 .card p{
   color: white;
@@ -205,13 +235,29 @@ html, body{
   font-size: 14px;
 }
 
+@keyframes titileo{
+  from, 50%, to{
+    opacity: 1;
+  }
+  25%, 75%{
+    opacity: 0;
+  }
+}
+
 
 /* //querys */
 @media only screen and (max-width: 767px) {
+  .form-container{
+    height: 100vh;
+  }
+  .loginHome{
+    height: 100%;
 
+  }
   .encabezado{
     
   }
+  
   .textoLogin{
     text-align: right;
   }
@@ -221,5 +267,14 @@ html, body{
   
   .textoLogin h2{
     font-size: 18px;
+  }
+  .loginCardFondo{
+    flex-direction: column;
+    width: 250px;
+  }
+  .loginFondoTexto{
+    width:80%;
+    text-align: center;
+    margin-left:0 ;
   }
 }

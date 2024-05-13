@@ -1,119 +1,225 @@
 .containers {
-    display: flex;
-    flex-direction: column; /* Asegura que los hijos se apilen verticalmente */
-    align-items: center; /* Centra los hijos horizontalmente si hay espacio */
-    width: 95%;
-    height: auto;
-   
-    text-align: center;
-    border-bottom: 1px solid #D88C9A;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    align-content: center;
-    justify-content: center;
-    padding: 15px;
-  }
-.containers-btn{
   display: flex;
-  flex-direction: row;
-}
-.titulo-seccion {
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-.seccion {
-    display: none;
-    width: 100%;
-    
-  }
-
-.divLocalizaciones{
-  display: flex;
-  flex-direction: row;
-  display: block; /* o flex con dirección de columna si necesitas más control */
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  
-}
-
-.listaYmapa{
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-content: space-between;
+  padding: 30px 0;
+  height: auto;
   text-align: center;
+  /* border: 2px solid green; */
+  background-color: #bbc3c6;
+  align-content: center;
+  justify-content: center;
+  margin: 0%;
+}
+
+.tab-button {
+  background-color: #002c54;
+  color: #bbc3c6;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 15px;
+  width: 220px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.divNoticiasOpiniones {
+  display: flex;
+  /* border: 2px solid blue; */
+}
+
+.divNoticias {
+  width: 50%;
+  height: auto;
+  /* border: 2px solid red; */
+  background-color: grey;
+}
+
+.containerOpiniones {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* border:2px solid yellow; */
+  padding-top: 15px;
+}
+
+.titulo-seccion {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.seccion {
   width: 100%;
+}
+
+.tarjetaOpinion {
+  margin: 2%;
+  display: flex;
+  max-height: 150px; 
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: #1e656d;
+
+}
+
+.imgOpinion {
+  width: 18%;
+
+  align-items: center;
+display: flex;
+justify-content: center;
+align-content: center;
+  border-radius: 20px;
+
+}
+
+.tarjetaOpinion img {
+  width: 90%;
+  height: auto;
+  min-width: 50px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.divTituloyopinion{
+  width:80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+}
+p{
+  color:#bbc3c6;
+}
+.textosOpinion {
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+justify-content: space-around;
+
+}
+.parrafoOpinion{
+  height: 100%;
+  width: 98%;
+  overflow: scroll;
+  overflow-x: hidden;
+  box-shadow: 0 0 5px #bdb7b480 inset;
+  padding: 2px;
+  background-color: #002c54;
  
 }
+.parrafoOpinion::-webkit-scrollbar{
+  background-color: transparent;
+  width: 8px;
   
   
+}
+.parrafoOpinion::-webkit-scrollbar-thumb{
+  background-color: #fc7731;
+  border-radius: 5px;
+ 
+}
+
+.divLocalizaciones {
+  /* border: 3px solid #001826; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.listaYmapa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+}
+
+.lista {
+  overflow-y: scroll;
+  height: 200px;
+  width: 200px;
+padding: 5px;
+  border-radius: 10px;
+  list-style: none;
+}
+.lista li button{
+  margin-top: 5px;
+  cursor: pointer;
+  border: none;
+}
+.lista::-webkit-scrollbar{
+  background-color: transparent;
+  width: 8px;  
+}
+.lista::-webkit-scrollbar-thumb{
+  background-color: #fc7731;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.iftsBtn {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 2px;
+  transition: 0.8s ease;
+}
+.iftsBtn:hover{
+  border: 2px solid #fc7731 ;
+  transform: scale(1.1);
+}
+
+
+iftsBtn
 .mapa {
   width: 50%;
   border-radius: 20px;
-    background-color: lightgray;
-    padding: 20px;
-  }
-
-
-
-.iftsBtn {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 2px;
+  background-color: lightgray;
+  padding: 20px;
+}
+#map {
+  height: 400px;
+  width: 400px;
+  float: right;
 }
 
-  /* tarjeta opiniones */
-  
-.tarjetaOpinion{
-    margin: 2%;
-    display: flex;
-    max-height: 150px;
-    border-bottom: 1px solid #D88C9A;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-     background-color: rgba(255, 255, 255, 0.45);
-     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-
-  }
-
-.imgOpinion{
-  width: 5%;
-  height: auto;
-  margin: auto;
-
-}
-.tarjetaOpinion img{
-width: 100%;
-border-radius: 20px;
-padding: 10px;
+#votacion{
+  font-size: 25px;
+  color: aliceblue;
+  /* border: 1px solid yellow */
 }
 
-.textosOpinion{
-  width: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  
-  align-items: center;
-  align-content: center;
-  text-align: center;
 
-}
-.tarjetaOpinion p{
-  font-size: 0.8em;
-  justify-content: center;
-  align-content: center;
-  padding: 5px;
-}
-
-  @media (max-width: 768px) {
-    .container {
+@media (max-width: 768px) {
+  .container {
       flex-direction: column;
       align-items: center;
-    }
+  }
+  .divNoticiasOpiniones{
+    flex-direction: column;
+  }
+  #map {
+    height: 250px;
+    width: 250px;
+    
+  }
+  .divNoticias {
+    width: 100%;
+    height: 50%;
   }
   
+  .containerOpiniones {
+    width: 100%;
+    
+  }
+}

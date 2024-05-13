@@ -14,7 +14,9 @@
         <section class="loginHome">  
           <div class="encabezado">
               <div class="logoLogin">
-                <img src="/static/imagenes/Logo/genioLogo.jpg" alt="">
+                <img id="imgLogin1" src="/static/imagenes/Logo/genioLogo.png" alt="">
+                <img id="imgLogin2" src="/static/imagenes/Logo/genioLogo2.png" alt="">
+
               </div>
               <div class="textoLogin">
                 <h1>G.E.N.I.O</h1>
@@ -34,45 +36,50 @@
          
         <!-- ///////////////////////////////////// LOGIN /////////////////////////////////////////////-->
             <div class="form-container">
-              <div class="card" id="loginCard">
-                  <h2>Iniciar Sesión</h2>
-                  <form method="post" class="formLogin">
-                      {% csrf_token %}
-                      <input
-                          type="email"
-                          class="form-control"
-                          id="{{ form.username.id_for_label }}"
-                          name="{{ form.username.name }}"
-                          placeholder="Email"
-                          required
-                      />
-                      <input
-                          type="password"
-                          class="form-control"
-                          id="{{ form.password.id_for_label }}"
-                          name="password"
-                          placeholder="Contraseña"
-                          required
-                      />
-                      <button type="submit" id="loginButton">Ingresar</button>
-                  </form>
+              <div class="loginCardFondo">
+                <div class="card" id="loginCard">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="LoginForm" method="post" class="formLogin">
+                        {% csrf_token %}
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="{{ form.username.id_for_label }}"
+                            name="{{ form.username.name }}"
+                            placeholder="Email"
+                            required
+                        />
+                        <input
+                            type="password"
+                            class="form-control"
+                            id="{{ form.password.id_for_label }}"
+                            name="password"
+                            placeholder="Contraseña"
+                            required
+                        />
+                        <button type="submit" id="loginButton">Ingresar</button>
+                    </form>
 
-                  {% for message in messages %}
-                  <div class="mdl-textfield">
-                      <p class="error-message">{{ message }}</p>
-                  </div>
-                  {% endfor %}
+                    {% for message in messages %}
+                    <div class="mdl-textfield">
+                        <p class="error-message">{{ message }}</p>
+                    </div>
+                    {% endfor %}
 
-                 
                   
-                  <button type="button" onclick="google_auth()" id="googleboton1">Ingresá con Google</button>
-                  <div id="g_id_onload"
-                    data-client_id="YOUR_GOOGLE_CLIENT_ID"
-                    data-login_uri="https://your.domain/your_login_endpoint"
-                    data-your_own_param_1_to_login="any_value"
-                    data-your_own_param_2_to_login="any_value">
-                  </div> 
-                  <button id="toggleButton">O registrate <b>acá</b></button>
+                    
+                    <button type="button" onclick="google_auth()" id="googleboton1">Ingresá con Google</button>
+                    <div id="g_id_onload"
+                      data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                      data-login_uri="https://your.domain/your_login_endpoint"
+                      data-your_own_param_1_to_login="any_value"
+                      data-your_own_param_2_to_login="any_value">
+                    </div> 
+                    <button id="toggleButton">O registrate <b>acá</b></button>
+                </div>
+                <div class="loginFondoTexto">
+                  <h1>Toda la informaciòn sobre las <span class="textoNaranja">Instituciones de Formaciòn Tècnica Superior</span> al alcance de tus manos</h1>
+                </div>
               </div>
             </div>
 
