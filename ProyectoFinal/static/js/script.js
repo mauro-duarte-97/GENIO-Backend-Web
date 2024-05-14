@@ -17,25 +17,6 @@ document.getElementById('toggleButton').addEventListener('click', function() {
     document.body.classList.remove('blur'); // Quitar el efecto de blur
   });
 });
-
-
-
-
-// function switchForm() {
-//     var switchButton = document.getElementById("switchButton");
-//     var loginCard = document.getElementById("loginCard");
-//     var registerCard = document.getElementById("registerCard");
-  
-//     if (switchButton.checked) {
-     
-//       loginCard.style.display = "none";
-//       registerCard.style.display = "block";
-//     } else {
-    
-//       loginCard.style.display = "block";
-//       registerCard.style.display = "none";
-//     }
-// }
   
   document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
