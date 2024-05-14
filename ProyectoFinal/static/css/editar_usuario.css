@@ -41,13 +41,12 @@
     margin: auto;
 }
 
-.editImagenProfile label{
-    /* border: 5px solid yellow; */
-}
+/* .editImagenProfile label{
+    /* border: 5px solid yellow; } */
 
-#img_perfil_input{
+/* #img_perfil_input{
  
-}
+} */
 
 .guardarCambios{
     background-color: #fc7731;
