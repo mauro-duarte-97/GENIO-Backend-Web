@@ -8,6 +8,13 @@ class ProfesorListView(ListView):
     template_name = "lista_profesor.html"
     context_object_name = "profesores"
 
+    # Sobreescribimos el método get_queryset para filtrar los profesores por instituto
+    def get_queryset(self):
+        institucion_id = self.kwargs.get('institucion_id')
+        if institucion_id:
+            return Profesor.objects.filter(institucion_id=institucion_id)
+        return Profesor.objects.all()
+
 class ProfesorDetailView(DetailView):
     model = Profesor
     template_name = 'detalle_profesor.html'  # Nombre del template

@@ -9,6 +9,13 @@ class MateriaListView(ListView):
     template_name = "lista_materia.html"
     context_object_name = "materias"
 
+    # Sobreescribimos el método get_queryset para filtrar las materias por carrera
+    def get_queryset(self):
+        carrera_id = self.kwargs.get('carrera_id')
+        if carrera_id:
+            return Materia.objects.filter(institucion_id=carrera_id)
+        return Materia.objects.all()
+
 class MateriaDetailView(DetailView):
     model = Materia
     template_name = 'detalle_materia.html'  # Nombre del template

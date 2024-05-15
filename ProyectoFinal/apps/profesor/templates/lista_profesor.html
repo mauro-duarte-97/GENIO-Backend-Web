@@ -14,22 +14,19 @@
 
         {% for profesor in profesores %}
 
-            <ul class="ulIfts">
-                <li><a href="{{profesor.url}}">{{ profesor.nombre }}</a>
 
                 <div class="tarjetaIfts">
                     <div class="imgTarjetaIfts"><img src="{{ profesor.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
-                        <p>{{ profesor.nombre }}</p>
-                        <p>{{ profesor.materia }}</p>
-                        <p>{{ profesor.materia.carrera }}</p>
-                        <p>{{ profesor.materia.carrera.institucion }}</p>
+                        <h2><b>{{ profesor.nombre }}</b></h2>
+                        <p>Enseña: <b>{{ profesor.materia }}</b></p>
+                        <p>De la carrera {{ profesor.materia.carrera }}</p>
+                        <p>En el {{ profesor.institucion }}</p>
                         <a href="{% url 'opiniones_por_entidad' model_name='profesor' entity_id=profesor.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                         <div>Puntaje</div>
                     </div>
                 </div>
-                </li>
-            </ul>
+
         {% endfor %}
 
         </div>

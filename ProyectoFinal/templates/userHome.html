@@ -31,64 +31,29 @@
 
     </div>
     <div class="containerOpiniones">
+
       <div class="containers-btn">
         <button class="tab-button" data-target="opiniones">Opiniones Recientes</button>
       </div>
-      <section id="opiniones" class="divOpinionesRecientes seccion">
 
+      <section id="opiniones" class="divOpinionesRecientes seccion">
+        
+        {% for opinion in opiniones %}
         <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
+            <div class="imgOpinion"><img src="{{ opinion.user.img_perfil.url }}" alt="" ></div>
             <div class="divTituloyopinion">
               <div class="textosOpinion">
-                    <p>Titulo</p>
-                    <div id="votacion">✭</div>
-                    <p>fecha</p>                        
-              </div>
-              <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
-            </div>
-           
-        </div>
-
-        <div class="tarjetaOpinion">               
-          <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-          <div class="divTituloyopinion">
-            <div class="textosOpinion">
-                  <p>Titulo</p>
-                  <div id="votacion">✭</div>
-                  <p>fecha</p>                        
-            </div>
-            <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
-          </div>
-          <div id="votacion"></div>
-      </div>
-
-      <div class="tarjetaOpinion">               
-        <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-        <div class="divTituloyopinion">
-          <div class="textosOpinion">
-                <p>Titulo</p>
+                <p>{{ opinion.titulo }}</p>
                 <div id="votacion">✭</div>
-                <p>fecha</p>                        
-          </div>
-          <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
+                <p>{{ opinion.fecha }}</p>                        
+              </div>
+              <div class="parrafoOpinion">
+                <p>{{ opinion.opinion }}</p>
+              </div>
+            </div>
         </div>
-        <div id="votacion"></div>
-    </div>
+        {% endfor %}
 
-    <div class="tarjetaOpinion">               
-      <div class="imgOpinion"><img src="{{ request.user.img_perfil.url }}" alt="" ></div>
-      <div class="divTituloyopinion">
-        <div class="textosOpinion">
-              <p>Titulo</p>
-              <div id="votacion">✭</div>
-              <p>fecha</p>                        
-        </div>
-        <div class="parrafoOpinion"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quia odio, unde ex inventore sint ullam? Placeat deleniti nam exercitationem, quia a odit accusamus laboriosam commodi obcaecati! Rerum, saepe praesentium.</p></div>
-      </div>
-      <div id="votacion"></div>
-  </div>
-        
-        
     
     </section>
   </div>
