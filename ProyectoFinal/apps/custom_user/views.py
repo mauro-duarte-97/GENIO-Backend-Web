@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from .forms import CustomUserDeleteForm, CustomUserUpdateForm
 from .models import CustomUser
+from apps.opinion.models import Opinion
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -13,6 +14,7 @@ class UserHomeView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['opiniones'] = Opinion.objects.order_by('-fecha')[:5]  # Obtener las últimas 5 opiniones
         return context
     
 class CustomProfileView(TemplateView, LoginRequiredMixin):

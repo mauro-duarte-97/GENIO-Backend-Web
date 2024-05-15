@@ -39,16 +39,16 @@
       <section id="opiniones" class="divOpinionesRecientes seccion">
         
         {% for opinion in opiniones %}
-        <div class="tarjetaOpinion">               
-            <div class="imgOpinion"><img src="{{ opinion.user.img_perfil.url }}" alt="" ></div>
-            <div class="divTituloyopinion">
-              <div class="textosOpinion">
+        <div class="tarjetaOpinion" style="height: 40vh; width: 80vw;">               
+            <div class="imgOpinion"><img src="{{ opinion.user.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></div>
+            <div class="divTituloyopinion" style="height: 10vh; width: 60vw;">
+              <div class="textosOpinion" style="width: 60vw; height: 50px;">
                 <p>{{ opinion.titulo }}</p>
                 <div id="votacion">✭</div>
                 <p>{{ opinion.fecha }}</p>                        
               </div>
-              <div class="parrafoOpinion">
-                <p>{{ opinion.opinion }}</p>
+              <div class="parrafoOpinion" style="width: 55vw; height: 25vh;">
+                <p>{{ opinion.contenido }}</p>
               </div>
             </div>
         </div>
