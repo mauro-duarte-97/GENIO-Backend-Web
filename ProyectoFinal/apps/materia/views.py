@@ -13,7 +13,7 @@ class MateriaListView(ListView):
     def get_queryset(self):
         carrera_id = self.kwargs.get('carrera_id')
         if carrera_id:
-            return Materia.objects.filter(institucion_id=carrera_id)
+            return Materia.objects.filter(carrera_id=carrera_id)
         return Materia.objects.all()
 
 class MateriaDetailView(DetailView):

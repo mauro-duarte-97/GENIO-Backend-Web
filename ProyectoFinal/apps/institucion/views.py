@@ -12,6 +12,12 @@ class InstitucionListView(ListView, LoginRequiredMixin):
     context_object_name = "instituciones"
     #paginate_by = 8
 
+    def get_queryset(self):
+        institucion_id = self.kwargs.get('institucion_id')
+        if institucion_id:
+            return Institucion.objects.filter(institucion_id=institucion_id)
+        return Institucion.objects.all()
+
 class InstitucionDetailView(DetailView):
     model = Institucion
     template_name = 'detalle_institucion.html'  # Nombre del template
