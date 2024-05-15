@@ -33,42 +33,6 @@
 
         </div>
     </section>
-
-                                                                    <!-- NO FUNCIONA TODAVIA EL SCRIPT -->
-    <div class="container">
-        <!-- Aquí se cargarán las nuevas tarjetas de instituciones -->
-    </div>
-
-    <script>
-        window.addEventListener('scroll', function() {
-            // Verifica si el usuario ha llegado al final de la ventana
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                cargarMasDatos();
-            }
-        });
-        
-        let cargando = false;
-        let paginaActual = 1;
-        const totalPaginas = 5; // Replace '5' with the actual value of the total number of pages
-        
-        function cargarMasDatos() {
-            if (cargando || paginaActual >= totalPaginas) return;
-            cargando = true;
-            paginaActual++;
-        
-            fetch(`?page=${paginaActual}`)
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.querySelector('.container');
-                    container.innerHTML += data.html; // Asume que la respuesta incluye HTML de las nuevas tarjetas
-                    cargando = false;
-                })
-                .catch(error => {
-                    console.error('Error al cargar más datos:', error);
-                    cargando = false;
-                });
-        }
-    </script>
         
 {% endblock %}
 
