@@ -40,7 +40,7 @@
         
         {% for opinion in opiniones %}
         <div class="tarjetaOpinion" style="height: 40vh; width: 80vw;">               
-            <div class="imgOpinion"><img src="{{ opinion.user.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></div>
+            <div class="imgOpinion"><img src="{{ opinion.autor.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></div>
             <div class="divTituloyopinion" style="height: 10vh; width: 60vw;">
               <div class="textosOpinion" style="width: 60vw; height: 50px;">
                 <p>{{ opinion.titulo }}</p>
