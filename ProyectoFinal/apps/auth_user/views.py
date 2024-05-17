@@ -41,6 +41,10 @@ class CustomLogoutView(LogoutView):
         context = super().get_context_data(**kwargs)
         return context
 
+
+
+
+
 # def verify_dni(request):
 #     if request.method == 'POST':
 #         dni = request.POST.get('dni')

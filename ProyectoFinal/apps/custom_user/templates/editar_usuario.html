@@ -5,11 +5,12 @@
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/editar_usuario.css' %}">
 {% endblock %}
-{% block content %}
 
+{% block content %}
 
 <div class="contenedorEditar">
     <h1>Editar Usuario</h1>
+    
     <form method="post" action="{% url 'editar_usuario' usuario.id %}" enctype="multipart/form-data">
         {% csrf_token %}
 
@@ -18,19 +19,10 @@
             <input type="text" id="updName" name="nombre" value="{{ usuario.nombre }}" required>
         </div>
 
-        <div class="inputEdit">
-            <label for="edit-pwd">Editar contraseña</label>
-            <input type="password" id="updPassword" name="password" placeholder="Nueva contraseña" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$" title="La contraseña debe tener al menos 8 caracteres y contener al menos una letra y un número" required>
-        </div>
-
-        <div class="inputEdit">
-            <label for="edit-pwd">Repetir contraseña</label>
-            <input type="password" id="updPassword2" name="password2" placeholder="Nueva contraseña" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$" title="La contraseña debe tener al menos 8 caracteres y contener al menos una letra y un número" required>
-        </div>
         <div class="editImagenProfile">
             <label for="edit-img">Editar foto de perfil</label>   
-                <input type="file" name="img_perfil" id="img_perfil_input"></input>
-                <img src="{{ usuario.img_perfil.url }}" id="preview_img" alt="Foto de perfil actual">
+            <img src="{{ usuario.img_perfil.url }}" id="preview_img" alt="Foto de perfil actual">
+            <input type="file" name="img_perfil" id="img_perfil_input"></input>
         </div>
         
         <input class="guardarCambios" type="submit" value="Guardar cambios">

@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import FeedbackView, GmailView
+from .views import FeedbackView
 
 
-urlpatterns = [path('', FeedbackView.as_view(), name='feedback'),
-               path('gmail_api/', GmailView.as_view(), name='gmail_api')]
+urlpatterns = [path('', FeedbackView.as_view(), name='feedback'),]

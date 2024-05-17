@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imagenes/Iconos/genioLogo.ico' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'css/querys.css' %}">
   </head>
@@ -16,8 +16,8 @@
         <section class="loginHome">  
           <div class="encabezado">
               <div class="logoLogin">
-                <img id="imgLogin1" src="/static/imagenes/Logo/genioLogo.png" alt="">
-                <img id="imgLogin2" src="/static/imagenes/Logo/genioLogo2.png" alt="">
+                <img id="imgLogin1" src="{% static 'imagenes/Logo/genioLogo.png' %}" alt="">
+                <img id="imgLogin2" src="{% static 'imagenes/Logo/genioLogo2.png' %}" alt="">
 
               </div>
               <div class="textoLogin">
@@ -62,6 +62,9 @@
                         <button type="submit" id="loginButton">Ingresar</button>
                     </form>
 
+                    {# Asume que configura la vista de restablecimiento de contraseña en su URLconf #}
+                    <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+
                     {% for message in messages %}
                     <div class="mdl-textfield">
                         <p class="error-message">{{ message }}</p>
@@ -80,7 +83,7 @@
                     <button id="toggleButton">O registrate <b>acá</b></button>
                 </div>
                 <div class="loginFondoTexto">
-                  <h1>Toda la informaciòn sobre las <span class="textoNaranja">Instituciones de Formaciòn Tècnica Superior</span> al alcance de tus manos</h1>
+                  <h1>Toda la información sobre las <span class="textoNaranja">Instituciones de Formación Técnica Superior</span> al alcance de tus manos</h1>
                 </div>
               </div>
             </div>

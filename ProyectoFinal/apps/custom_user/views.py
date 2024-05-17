@@ -3,7 +3,7 @@ from django.views.generic.edit import UpdateView, DeleteView, FormView
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import CustomUserDeleteForm, CustomUserUpdateForm
+from .forms import CustomUserDeleteForm, CustomUserUpdateForm, CustomUserChangePasswordForm
 from .models import CustomUser
 from apps.opinion.models import Opinion
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -62,6 +62,28 @@ class EditarUsuarioView(LoginRequiredMixin, UpdateView):
         # Construir la URL del perfil del usuario usando reverse_lazy
         return reverse_lazy('perfil_usuario', kwargs={'pk': user_id})
     
+
+# class CambiarPasswordView(LoginRequiredMixin, FormView):
+#     template_name = 'cambiar_password.html'
+#     form_class = CustomUserChangePasswordForm
+#     success_url = '/'
+
+#     def form_valid(self, form):
+#         # Procesar el formulario si es válido
+#         user = form.save(commit=False)
+#         user.set_password(form.cleaned_data['new_password'])
+#         user.save()
+#         # Agregar mensaje de éxito a la lista de mensajes
+#         messages.success(self.request, 'Contraseña cambiada correctamente')
+#         return super().form_valid(form)
+
+#     def form_invalid(self, form):
+#         # Agregar mensajes de error a la lista de mensajes
+#         for field, errors in form.errors.items():
+#             for error in errors:
+#                 messages.error(self.request, f"{field}: {error}")
+#         return super().form_invalid(form)
+
 class EliminarUsuarioView(LoginRequiredMixin, DeleteView):
     model = CustomUser
     form_class = CustomUserDeleteForm
