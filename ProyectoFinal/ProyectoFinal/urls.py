@@ -33,8 +33,9 @@ urlpatterns = [
     path('opinion/', include("apps.opinion.urls")),
     path('profesor/', include("apps.profesor.urls")),
     path('feedback/', include("apps.feedback.urls")),
+    path('', include('allauth.urls')),
 ]
-# ... tus otras rutas ...
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

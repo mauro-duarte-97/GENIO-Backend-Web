@@ -1,12 +1,17 @@
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import UpdateView, DeleteView, FormView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import CustomUserDeleteForm, CustomUserUpdateForm, CustomUserChangePasswordForm
-from .models import CustomUser
-from apps.opinion.models import Opinion
 from django.contrib.auth.mixins import LoginRequiredMixin
+from apps.institucion.models import Institucion
+from apps.profesor.models import Profesor
+from apps.opinion.models import Opinion
+from apps.carrera.models import Carrera
+from apps.materia.models import Materia
+from .forms import CustomUserDeleteForm, CustomUserUpdateForm, SearchForm
+from .models import CustomUser
+
 
 
 class UserHomeView(LoginRequiredMixin, TemplateView):
@@ -62,55 +67,38 @@ class EditarUsuarioView(LoginRequiredMixin, UpdateView):
         # Construir la URL del perfil del usuario usando reverse_lazy
         return reverse_lazy('perfil_usuario', kwargs={'pk': user_id})
     
-
-# class CambiarPasswordView(LoginRequiredMixin, FormView):
-#     template_name = 'cambiar_password.html'
-#     form_class = CustomUserChangePasswordForm
-#     success_url = '/'
-
-#     def form_valid(self, form):
-#         # Procesar el formulario si es válido
-#         user = form.save(commit=False)
-#         user.set_password(form.cleaned_data['new_password'])
-#         user.save()
-#         # Agregar mensaje de éxito a la lista de mensajes
-#         messages.success(self.request, 'Contraseña cambiada correctamente')
-#         return super().form_valid(form)
-
-#     def form_invalid(self, form):
-#         # Agregar mensajes de error a la lista de mensajes
-#         for field, errors in form.errors.items():
-#             for error in errors:
-#                 messages.error(self.request, f"{field}: {error}")
-#         return super().form_invalid(form)
-
 class EliminarUsuarioView(LoginRequiredMixin, DeleteView):
     model = CustomUser
     form_class = CustomUserDeleteForm
     template_name = 'eliminar_usuario.html'
     success_url = '/'
 
+class SearchView(TemplateView):
+    template_name = 'resultado_busqueda.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        form = SearchForm(self.request.GET or None)
+        query = None
+        results = {
+            'institutos': [],
+            'carreras': [],
+            'materias': [],
+            'profesores': []
+        }
+
+        if 'query' in self.request.GET:
+            if form.is_valid():
+                query = form.cleaned_data['query']
+                results['institutos'] = Institucion.objects.filter(nombre__icontains=query)
+                results['carreras'] = Carrera.objects.filter(nombre__icontains=query)
+                results['materias'] = Materia.objects.filter(nombre__icontains=query)
+                results['profesores'] = Profesor.objects.filter(nombre__icontains=query)
+
+        context['form'] = form
+        context['query'] = query
+        context['results'] = results
+        return context
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def google_auth(request):
-    # Aquí deberías manejar la lógica de autenticación de Google
-    # Esto puede implicar redirigir al usuario a la URL de autenticación de Google y luego procesar el token devuelto por Google.
-    # Aquí solo redirigimos al usuario a la página de inicio por ahora.
-    return redirect('userHome')  # Cambia 'inicio' por el nombre de la URL de tu página de inicio

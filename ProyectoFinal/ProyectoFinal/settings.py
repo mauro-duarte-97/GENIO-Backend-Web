@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(-acc@a&^9pe#-7v-^b1ii3evm!0sw&f2j*wz(7@c2)j5qewr$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #'7886-181-99-163-64.ngrok-free.app'
 
 LOCAL_APPS = [
     'apps.auth_user',
@@ -49,6 +49,10 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
@@ -61,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 #Verificación de usuario por DNI  --> 'auth_user.middleware.VerificationMiddleware'
 
@@ -158,3 +163,22 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'm.e.b.d.0904@ifts18.edu.ar'
 EMAIL_HOST_PASSWORD = 'mfmagitimpoxeybu'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)

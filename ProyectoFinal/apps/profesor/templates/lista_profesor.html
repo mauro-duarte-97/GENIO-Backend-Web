@@ -19,11 +19,11 @@
                     <div class="imgTarjetaIfts"><img src="{{ profesor.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
                         <h2><b>{{ profesor.nombre }}</b></h2>
-                        <p>Enseña: <b>{{ profesor.materia }}</b></p>
-                        <p>De la carrera {{ profesor.materia.carrera }}</p>
-                        <p>En el {{ profesor.institucion }}</p>
+                        <p><b>{{ profesor.materia }}</b></p>
+                        <div>2/5</div>
+                        <p>Carrera: {{ profesor.materia.carrera }} - {{ profesor.institucion }}</p>
+                        <!-- <p></p> -->
                         <a href="{% url 'opiniones_por_entidad' model_name='profesor' entity_id=profesor.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
-                        <div>Puntaje</div>
                     </div>
                 </div>
 

@@ -41,6 +41,14 @@
 
                         <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
                     </ul>
+
+                    <!-- Otras opciones de navegación -->
+                    <form action="{% url 'search_entity' %}" method="get">
+                        {% csrf_token %}
+                        <input type="text" name="query" placeholder="Buscar..." required>
+                        <button type="submit">Buscar</button>
+                    </form>
+                    
                 </nav>
         
  <!-- ################ NAVEGADOR MOVIL ######################## -->

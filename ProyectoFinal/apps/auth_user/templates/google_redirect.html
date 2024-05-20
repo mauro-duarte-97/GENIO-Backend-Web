@@ -64,22 +64,19 @@
                   
                                                                         <!--------------------- GOOGLE LOGIN -------------------------->
 
-                    
-                    <script src="https://accounts.google.com/gsi/client" async defer></script>
-                    <div id="g_id_onload"
-                        data-client_id="1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com"
-                        data-ux_mode="redirect"
-                        data-login_uri="https://localhost:8000/auth/login">
-                    </div>
-                    <div class="g_id_signin" data-type="standard"></div>
+                    <!-- <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id=1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/userinfo.profile&access_type=offline&redirect_uri=http://127.0.0.1:8000/auth/google/">Iniciar sesión con Google</a> -->
+                    <!-- <div id="g_id_onload"
+                      data-client_id="1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com"
+                      data-login_uri="http://127.0.0.1:8000/auth/google/">
+                    </div> -->
 
-                    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script>
                     <div id="g_id_onload"
                         data-client_id="1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com"
                         data-callback="handleCredentialResponse">
                     </div>
-                    <div class="g_id_signin" data-type="standard"></div> -->
-                  <button id="toggleButton">O registrate <b>acá</b></button>
+                    <div class="g_id_signin" data-type="standard"></div>
+
+                    <button id="toggleButton">O registrate <b>acá</b></button>
                 </div>
                 <div class="loginFondoTexto">
                   <h1>Toda la información sobre las <span class="textoNaranja">Instituciones de Formación Técnica Superior</span> al alcance de tus manos</h1>
@@ -138,7 +135,7 @@
             </div>
         </section>
     </main>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/script.js' %}">
+    </script>
   </body>
 </html>

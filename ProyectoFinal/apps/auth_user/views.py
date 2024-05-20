@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, LogoutView
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter # type: ignore
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client # type: ignore
 from django.views.generic.edit import CreateView
 from apps.custom_user.models import CustomUser
+from django.views import View
 # from .models import AuthUserProfile
 from .forms import RegistrationForm
 from django.contrib import messages
+import urllib.parse
 
 class RegisterUsuarioView(CreateView):
     model = CustomUser
@@ -41,7 +45,35 @@ class CustomLogoutView(LogoutView):
         context = super().get_context_data(**kwargs)
         return context
 
+class GoogleLoginView(LoginView):
+    template_name = "google_redirect.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    # class GoogleAdapter(GoogleOAuth2Adapter):
+    #     access_token_url = "https://oauth2.googleapis.com/token"
+    #     authorize_url = "https://accounts.google.com/o/oauth2/v2/auth"
+    #     profile_url = "https://www.googleapis.com/oauth2/v2/userinfo"
+
+    # adapter = GoogleAdapter
+    # callback_url = "http://127.0.0.1:8000/auth/google/"
+    # client = OAuth2Client
+
+    # # def get(self, request, *args, **kwargs):
+    #     # adapter = GoogleAdapter
+    #     # print(adapter)
+
+    #     # client = OAuth2Client
+    #     # authorization_url = self.client.get_redirect_uri(self.adapter.authorize_url)
+    #     # print(self.client)
+    #     # print(self.adapter)
+    #     # google_code = request.GET.get('code')
+    #     # print('google_code:', google_code)
+    #     # code_parsed = urllib.parse.unquote(google_code, safe='~()*!\'')
+    #     # print('code_parsed:', code_parsed)
+    #     # return redirect(self.adapter.authorize_url)
 
 
 

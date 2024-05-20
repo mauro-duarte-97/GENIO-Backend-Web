@@ -17,47 +17,16 @@ document.getElementById('toggleButton').addEventListener('click', function() {
     document.body.classList.remove('blur'); // Quitar el efecto de blur
   });
 });
-  
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    // Aquí debes enviar los datos de inicio de sesión al backend Django para autenticación
-    // Puedes usar AJAX para enviar la solicitud al servidor
-    // Por ejemplo, utilizando la biblioteca Axios: https://github.com/axios/axios
-    // axios.post('/login', { username: username, password: password })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    alert("Iniciando sesión con: " + username);
-  });
-  
-  document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var regUsername = document.getElementById("regUsername").value;
-    var regPassword = document.getElementById("regPassword").value;
-    var userType = document.getElementById("userType").value;
-    // Aquí debes enviar los datos de registro al backend Django para crear un nuevo usuario
-    // Puedes usar AJAX para enviar la solicitud al servidor
-    // Por ejemplo, utilizando la biblioteca Axios: https://github.com/axios/axios
-    // axios.post('/register', { username: regUsername, password: regPassword, userType: userType })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-    alert("Registrando usuario: " + regUsername + ", Contraseña: " + regPassword + ", Tipo: " + userType);
-  });
-  
-  function googleLogin() {
-    // Aquí puedes implementar la lógica para el inicio de sesión con Google
-    // Puedes usar el SDK de Google Sign-In para autenticar al usuario con Google
-    // https://developers.google.com/identity/sign-in/web
-    alert("Iniciando sesión con Google...");
-  }
-  
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+function handleCredentialResponse(resp) {
+  console.log('resp', resp);
+}
   
