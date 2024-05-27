@@ -11,6 +11,7 @@ from apps.carrera.models import Carrera
 from apps.materia.models import Materia
 from .forms import CustomUserDeleteForm, CustomUserUpdateForm, SearchForm
 from .models import CustomUser
+from django.conf import settings
 
 
 
@@ -20,9 +21,11 @@ class UserHomeView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['opiniones'] = Opinion.objects.order_by('-fecha')[:5]  # Obtener las últimas 5 opiniones
+        context['google_maps_api_key'] = settings.GOOGLE_API_KEY_1  # Añadir la clave API al contexto
+        context['instituciones'] = Institucion.objects.all()
         return context
     
-class CustomProfileView(TemplateView, LoginRequiredMixin):
+class CustomProfileView(LoginRequiredMixin, TemplateView):
     model = CustomUser 
     template_name = 'perfil.html'  # Nombre del template
     context_object_name = 'usuario'  # Nombre del objeto en el contexto

@@ -3,7 +3,7 @@ from apps.institucion.models import Institucion
 
 @admin.register(Institucion)
 class InstitucionAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "ubicacion", "get_id_usuario")
+    list_display = ("nombre", "direccion", "coordenadas", "get_id_usuario")
 
     def get_id_usuario(self, obj):
         return obj.usuario.id

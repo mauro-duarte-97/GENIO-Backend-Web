@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv # type: ignore
+
+# Ruta del archivo .env
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,11 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(-acc@a&^9pe#-7v-^b1ii3evm!0sw&f2j*wz(7@c2)j5qewr$'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = [] #'7886-181-99-163-64.ngrok-free.app'
 
@@ -140,7 +141,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Configuración para archivos de medios (imágenes de perfil, archivos subidos por los usuarios, etc.)
-MEDIA_URL = '/media/perfiles/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
@@ -155,14 +156,32 @@ LOGOUT_REDIRECT_URL = "/auth/login"
 LOGIN_URL = '/auth/login'
 
 
+
+
+# Uso de las variables de entorno
+DEBUG = os.getenv('DEBUG') == 'True'
+SECRET_KEY = os.getenv('SECRET_KEY')
+DATABASE_URL = os.getenv('DATABASE_URL')
+GOOGLE_API_KEY_1 = os.environ.get('GOOGLE_API_KEY')
+GOOGLE_API_KEY_2 = os.getenv('GOOGLE_API_KEY')
+DJANGO_GOOGLE_OAUTH2_CLIENT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_ID')
+DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DJANGO_GOOGLE_OAUTH2_CLIENT_SECRET')
+DJANGO_GOOGLE_OAUTH2_PROJECT_ID = os.getenv('DJANGO_GOOGLE_OAUTH2_PROJECT_ID')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Si estás usando DATABASE_URL, también necesitas dj-database-url
+# import dj_database_url # type: ignore
+# DATABASES = {
+#     'default': dj_database_url.config(default=DATABASE_URL)
+# }
+
 ####### Configuración para enviar correos electrónicos #######
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'm.e.b.d.0904@ifts18.edu.ar'
-EMAIL_HOST_PASSWORD = 'mfmagitimpoxeybu'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
