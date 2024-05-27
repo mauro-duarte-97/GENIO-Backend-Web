@@ -42,6 +42,7 @@ LOCAL_APPS = [
 ]
 
 # Application definition
+
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,10 +52,9 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-]
-
+] 
+    # 'django.contrib.sites','allauth.socialaccount','allauth.socialaccount.providers.google',
+    
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-us' #es-ar
 
 TIME_ZONE = 'UTC'
 

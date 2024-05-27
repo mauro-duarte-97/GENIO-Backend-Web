@@ -10,7 +10,7 @@ urlpatterns = [
     path("", CustomLogoutView.as_view(), name="logout"),
     #CAMBIO DE CONTRASEÑA
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="password_reset.html"), name='password_reset'),
-    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(template_name="notificacion_reset_pwd.html"), name='password_reset_done'),
+    path('reset_password_send/', auth_views.PasswordResetDoneView.as_view(template_name="password_notificacion_reset.html"), name='password_reset_done'),
     path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name="password_confirm.html"), name='password_reset_confirm'),
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="password_reset_complete.html"), name='password_reset_complete'),
     # GOOGLE AUTH

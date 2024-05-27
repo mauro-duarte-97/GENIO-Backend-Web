@@ -1,6 +1,5 @@
 from django.urls import path
 from apps.materia.views import MateriaDetailView, MateriaListView # Importa las vistas de materias
-from apps.opinion.views import OpinionListView # Importa la vista de opiniones
 from apps.profesor.views import ProfesorListView # Importa la vista de profesores
 
 urlpatterns = [
