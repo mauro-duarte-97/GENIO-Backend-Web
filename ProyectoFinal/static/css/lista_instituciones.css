@@ -1,3 +1,13 @@
+.tituloPrincipalInstituciones{
+    font-size: 34px;
+    color: #ffffff;
+    transform: translateY(-135px);
+    font-weight:600;
+    background-color: #00000060;
+    padding: 15px;
+    letter-spacing: 2px;
+}
+
 .SeccionIfts{
     display: flex;
     flex-direction: row;
@@ -7,25 +17,54 @@
     height: auto;
     /* border: 5px solid red; */
     justify-content: center;
-    padding-top: 50px;
+}
 
-}
-.textoSeccion{
-    width: 30%;
-    background-color: blueviolet;
-    border-radius: 15px;
-    color: white;
-}
-.iftsYopiniones{
-    width: 100%;
-    /* border: 5px solid green; */
+.tituloIFTS{
+    /* border: 3px solid blue; */
+    color: #EBF2FA ;
+    height: 100%;
+    text-align: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+.tituloIFTS h1{
+    background-color: #0e5204a1;
+    width: 90%;
+   font-size: 22px;
+   padding: 20px;
+   border-radius: 20px 0 0 20px;
+}
+.textoNaranja{
+    color: chocolate;
+}
+
+.listaYopinionesIFTS{
+    /* border: 5px solid rgb(253, 62, 9); */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tituloListaIFTS{
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #633252;
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+.tituloListaIFTS h2{
+    padding: 15px;
+    color:white;
 }
 
 .ifts{
     display: grid;
-    width: 70%;
+    width: 100%;
     border-radius: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
     grid-gap: 20px;  
@@ -37,33 +76,39 @@
     overflow-x: hidden;
     max-height: 500px;
     margin: auto;
+    /* border: 5px solid rgb(130, 238, 200); */
+    
 }
+
 .ulIfts{
     width: auto;
     height: auto;
     list-style: none;
     text-decoration: none;
     padding: 0;
-    margin: 0;
+    padding-top: 40px;
+  
     /* border: 1px solid yellow; */
     display: flex;
     justify-content: center;
+    /* border: 5px solid rgb(200, 137, 11); */
 }
 
 
-
 .tarjetaIfts{ 
-   width: 150px;
-   height: 250px;
-   
+
+   height: 250px;   
     display: flex;
     background-color: #043652;
     border-radius: 10px;
     flex-direction: column;
     margin: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
     transition: transform 0.2s;
-    /* border: 1px solid green; */
+    /* border: 3px solid rgb(128, 0, 64); */
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .tarjetaIfts:hover {
@@ -73,45 +118,105 @@
 .imgTarjetaIfts{
     width: 100px;
     height: 100px;
-    margin: auto;
-  
     border-radius: 10px;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-40px);
+    position: relative;
+    z-index: 1;
+    
 }
 
 .imgTarjetaIfts img{
     width: 80px;
     height: 80px;
+    
+}
+
+.tituloInstitucion {
+    /* border: 5px solid green; */
+    transform: translateY(-15px);
+ 
+}
+.tituloInstitucion a{
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+.puntaje{
+    /* border: red 2px solid; */
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.puntaje img{
+    width: 15px;
+    height: 15px;
+}
+.puntaje p{
+    font-size: 12px;
+    color: aliceblue;
+    padding: 4px;
 }
 
 .divBotonesTarjeta{
-    width: 75px;
+    width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     margin: auto;
-    gap: 2px;
+    gap: 8px;
     justify-content: center;
     align-content: space-around;
     }
 
 .divBotonesTarjeta button{
     border-radius: 5px;
-    background-color: zrgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
+    background-color: #17a33c80;
+    color: #ffffff;
     font-size: 100%;
-
+    box-shadow: none;
+    outline: none;
+    border: none;
+    transition: transform 0.5s ease;
+    padding: 5px;
+   
 }
 
-.seccionOpiniones{
+#btnIftsOpiniones{
+    background-color: #633252 ;
+}
+.divBotonesTarjeta button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.opinionesSeccion{
     height: 100%;
-    border: 5px solid violet;
+    width: 100%;
+    /* border: 5px solid violet; */
     height: 200px;
 }
 
 
 @media (max-width: 925px){
-  .SeccionIfts{
-    flex-direction: column;
-  }  
+    .tituloPrincipalInstituciones{
+        font-size: 28px;
+    }
+     .SeccionIfts{
+        flex-direction: column;
+    }  
+     .tituloIFTS{
+        width: 80%;
+    }
+    .tituloIFTS h1{
+        border-radius: 20px 20px 0 0;
+        font-size: 18px;
+    }
+
 } 

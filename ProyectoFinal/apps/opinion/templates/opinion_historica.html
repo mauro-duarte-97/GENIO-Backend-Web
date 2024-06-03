@@ -7,33 +7,34 @@
 
 {% block title %}Opinión Histórica de {{ model_name|capfirst }}{% endblock %}
 
-{% block content %}
+{% block content %} 
+<h1 class="textoTituloOpinion">Opiniones sobre {{ object_instance.nombre }}</h1>
 <div class="opiniones-historicas">
-    <h1>Opiniones Históricas sobre {{ object_instance.nombre }}</h1>
+   
 
     <section class="seccion-tabla-opinion">
-        <table class="tabla-opiniones">
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Opinión</th>
-                    <th>Calificación</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="tabla-opiniones">
+            <div>
+                <ul class="tituloSeccionesTarjeta">
+                    <li>Usuario</li>
+                    <li id="tituloOpinionGrilla">Opinión</li>
+                    <li>Calificación</li>
+                </ul>
+            </div>
+            <div class="grillaOpiniones">
                 {% for opinion in opiniones %}
-                <tr>
-                    <td>{{ opinion.autor }}</td>
-                    <td>{{ opinion.contenido }}</td>
-                    <td>{{ opinion.calificacion }}</td>
-                </tr>
+                <ul class="tarjetaOpinionesHistóricas">
+                    <li class="imgOpinion"><img src="{{ opinion.autor.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></li>
+                    <li id="contenidoOpinionGrilla">{{ opinion.contenido }}</li>
+                    <li>{{ opinion.calificacion }}</li>
+                </ul>
                 {% endfor %}
-            </tbody>
-        </table>
+            </div>
+        </div>
 
-        {% if opinion.has_next %}
+        <!-- {% if opinion.has_next %}
             <div id="loadMore" style="cursor: pointer; text-align: center;">Cargar más...</div>
-        {% endif %}
+        {% endif %} -->
     </section>
 
 
@@ -42,27 +43,44 @@
             <form method="post" action="{% url 'opiniones_por_entidad' model_name=model_name entity_id=entity_id %}">
                 {% csrf_token %}
                 <div class="opinion-usuario">
-                <div class="titulo-y-Box">
-                    <label>Título</label>
-                    <input title="titulo" name="titulo" type="text" class="input-tit"/>
-
-                    <label>Escribe tu opinión</label>
-                    <input title="contenido" name="contenido" type="text" class="opinion-box"/>
-                </div>
-
-                <div class="calificacion-y-submit">
-                    <div>
-                        <label>Califica</label>
-                        <input title="calificacion" name="calificacion" type="number" class="calificacion-star" />
+                    <div class="titulo-y-Box">
+                        <label>Título</label>
+                        <input title="titulo" name="titulo" type="text" class="input-tit"/>
                     </div>
-                    <button type="submit">Enviar</button>
-                </div>
+                    <div class="opinionYbox">
+                        <label>Escribe tu opinión</label>
+                        <input title="contenido" name="contenido" type="text" class="opinion-box"/>
+                    </div>
+                    <div class="calificacion-y-submit">
+                        <label>Califica</label>
+                        <p class="clasificacion">
+                            <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                            --><label for="radio1">★</label><!--
+                            --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                            --><label for="radio2">★</label><!--
+                            --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                            --><label for="radio3">★</label><!--
+                            --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                            --><label for="radio4">★</label><!--
+                            --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                            --><label for="radio5">★</label>
+                        </p>
+                        <input type="hidden" name="calificacion" id="valor_estrellas">
+                        <script>
+                            const radioButtons = document.querySelectorAll('input[name="estrellas"]');
+                            const valorEstrellasInput = document.getElementById('valor_estrellas');
+                            
+                            radioButtons.forEach(radioButton => {
+                                radioButton.addEventListener('click', () => {
+                                    valorEstrellasInput.value = radioButton.value;
+                                });
+                            });
+                        </script>
+                        <button type="submit">Enviar</button>
+                    </div>
                 </div>
             </form>
-
             
-                
-                
         </div>
     </section>
 </div>

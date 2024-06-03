@@ -69,7 +69,7 @@
     margin-top: 50px;
     z-index: 999;
     margin-right: 50px; 
-    box-shadow: 0px 0px 10px 0.5px #bbc3c6;
+   
 }
 
   summary {
@@ -84,6 +84,7 @@
     font-size: 32px;
     outline: none;
     transition: transform 200ms ease-in-out 0s;
+    font: 2em/1.618 Inter, sans-serif;
   }
   summary::before,
   summary::after {
@@ -117,7 +118,7 @@
     content: "";
   }
 .menuMobile{
-position: fixed;
+    position: fixed;
     display: flex;
     flex-direction: column;
     list-style: none;

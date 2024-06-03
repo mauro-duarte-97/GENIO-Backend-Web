@@ -8,33 +8,52 @@
 
 {% block content %}
    
-    
-    <div>
-        <h1>Lista de Carreras</h1>
-        <div class="ifts">
+<div class="tituloPrincipalCarreras">CARRERAS</div>
+   <main class="textoYcarreras">
+        <div class="textoCarreras">
+            <h1 class="textoCarreras">
+                Encontrá todas las ofertas académicas que te ofrecen los Institutos de Formación Técnica Superor de Capital Federal.
+            </h1>
+        </div> 
 
-        {% for carrera in carreras %}
+        <aside class="tituloTarjetaYTarjetas">
+            <div class="tituloTarjetaCarreras">
+                <h2>Lista de Carreras</h2>
+            </div> 
+            <div class="carrerasDiv">
+            
+                {% for carrera in carreras %}
 
-            <section class="sectionIfts">
-                <div class="tarjetaIfts">
-                    <div class="imgTarjetaIfts"><img src="{{ carrera.img_perfil.url }}" alt=""></div>
-                    <div class="divBotonesTarjeta">
-                        <h2><b>{{ carrera.nombre }}</b></h2>
-                        <p> Se encuentra en {{ carrera.institucion }} </p>
-                        <a href="{% url 'lista_materias_carrera' carrera_id=carrera.id %}"><button id="btnIftsMaterias">Materias</button></a>
-                        <a href="{% url 'lista_profesores_carrera' carrera_id=carrera.id %}"><button id="btnIftsProfesores">Profesores</button></a>
-                        <a href="{% url 'opiniones_por_entidad' model_name='carrera' entity_id=carrera.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
-                        <div>Puntaje</div>
-                    </div>
-                </div>
-                </li>
-            </section>
+                        <div class="tarjetaIfts">
+                            <div class="imgTarjetaIfts">
+                                <!-- <img src="{{ carrera.img_perfil.url }}" alt=""> -->
+                                <h2><b>{{ carrera.nombre }}</b></h2> 
+                            </div> 
+                            <div class="contenidoInferiorTarjerta">
+                                <div>
+                                   <p> Se encuentra en {{ carrera.institucion }} </p>
+                                </div> 
+                                <div class="puntaje">
+                                   
+                                    <img src="{% static 'imagenes/Iconos/estrella.png' %}" alt="">
+                                    <div>
+                                        <p class="Qualification">X/5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divBotonesTarjeta">
+                                <a href="{% url 'lista_materias_carrera' carrera_id=carrera.id %}"><button id="btnIftsMaterias">Materias</button></a>
+                                <a href="{% url 'lista_profesores_carrera' carrera_id=carrera.id %}"><button id="btnIftsProfesores">Profesores</button></a>
+                                <a href="{% url 'opiniones_por_entidad' model_name='carrera' entity_id=carrera.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>    
+                            </div>
+                        </div>   
+                                   
 
-        {% endfor %}
+                {% endfor %}
 
-        </div>
-    </div>
-
+            </div>
+        </aside>
+</main>
         
 {% endblock %}
 

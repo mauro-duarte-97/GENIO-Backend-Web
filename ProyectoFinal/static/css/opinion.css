@@ -1,86 +1,230 @@
+.textoTituloOpinion{
+    font-size: 34px;
+    color: #ffffff;
+    transform: translateY(-135px);
+    font-weight:600;
+    background-color: #00000060;
+    padding: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
 .opiniones-historicas{
-    width: 80%;
-    height: 70%;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+  
 }
 
-.seccion-tabla-opiniones{
-    min-height: 20vh;
-    max-height: 60vh;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #cbcc8d;
-    border-radius: 10px;
-    background-color: #e9ae55;
-    overflow-y: auto;
-}
 
-.seccion-opinion-usuario{
-    height: 25vh;
-    width: 75vw;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #1d3bc4;
-    border-radius: 10px;
-    background-color: #f8f9fa7a;
-    position: fixed;
+.seccion-tabla-opinion{
+    border-radius: 10px;   
+    width: 70%;
 }
 
 .tabla-opiniones{
+    /* border: 5px solid #4019c2; */
     width: 100%;
-    margin: 0 auto;
-    background-color: #e9ae55;
+    margin: 0;
+    /* background-color: #e9ae55; */
 }
 
-
-
-.seccion-tabla-opiniones th, .seccion-tabla-opiniones td {
-    min-width: 120px;
-    width: 33.3333%;
+.tituloSeccionesTarjeta{
+    color: white;
+    background-color: #002c54;
+    list-style: none;
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
+.tituloSeccionesTarjeta li {
+   padding: 15px;
+   margin: 0;
+   min-width: 15%;
+}
+#tituloOpinionGrilla{
+    width:70%;
+
+}
+.tarjetaOpinionesHistóricas{
+    background-color: #1e656d;
+    color: #ffffff;
+    list-style: none;
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+}
+#contenidoOpinionGrilla{
+    width:70%;
+
+}
+.tarjetaOpinionesHistóricas li{
+    padding: 15px;
+    min-width: 15%;
+}
+.grillaOpiniones{
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 70vh;
+}
 
 
+.seccion-opinion-usuario{
+    height: 500px;
+    width: auto;
+    display: flex;
+    padding: 20px;
+    background-color: #520436; 
+    border-radius: 10px;
+    color: #ffffff;
+
+   
+}
 
 .opinion-usuario{
+    /* border: 5px solid #19c23e; */
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
+
 
 }
 
 .titulo-y-Box{
     display: flex;
-    flex: 3;
-    justify-content: space-between;
-    align-items: left;
+    height: 20%;
+    align-items: center;
     flex-direction: column;
+    justify-content: space-evenly;
+    /* border: 5px solid #c219a3; */
+   
+
+}
+
+.seccion-opinion-usuario input {
+   border: none;
+   border-bottom: 4px solid #fc7731;
+   box-shadow: none;
+   background-color: #330221;
+   border-radius: 5px;
+   color: #ffffff;
 }
 
 .input-tit{
-    max-width: 30%;
+    max-width: 90%;
+}
+
+.opinionYbox{
+    /* border: 3px solid red; */
+    display: flex;
+    height: 40%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
 }
 
 .opinion-box{
-    width: 40%;
-    height: 15vh;
-    padding: 10px;
-    border: 1px solid #1d3bc4;
-    border-radius: 10px;
-    background-color: #f8f9fa7a;
+    min-height: 120px;
+    max-height: auto;
+}
+.calificacion-y-submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 30%;
+    /* border: 3px solid red; */
 }
 
-.calificacion-box{
-    width: 40%;
-    height: 100%;
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #1d3bc4;
-    border-radius: 10px;
-    background-color: #f8f9fa7a;
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+
+.calificacion-y-submit button{
+    background-color: transparent;
+    border: 2px solid #fc7731;
+    padding: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100px;
+}
+.calificacion-y-submit button:hover{
+    background-color: #ac267b80;
+    
+}
+
+.calificacion-star{
+  
+}
+
+@media (max-width: 925px){
+    .opiniones-historicas h1{
+      font-size: 28px;
+    }
+    .opinion-usuario{
+        flex-direction: column;
+    }
+    #tituloOpinionGrilla {
+        width: 42%;
+    }
+    .opiniones-historicas{
+        flex-direction: column-reverse;  
+    }
+    .seccion-tabla-opinion{
+        width: 100%;
+        justify-content: center;
+    }
+    .seccion-opinion-usuario {
+        height: 430px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    
 }

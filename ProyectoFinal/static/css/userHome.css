@@ -20,9 +20,11 @@
   box-shadow: none;
   outline: none;
   padding: 15px;
-  width: 220px;
+  width: 98%;
   font-size: 18px;
   font-weight: bold;
+  border-radius: 20px 20px 0 0;
+
 }
 
 .divNoticiasOpiniones {
@@ -34,7 +36,70 @@
   width: 50%;
   height: auto;
   /* border: 2px solid red; */
-  background-color: grey;
+  /* background-color: grey; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 1px #8d8d8d;
+  border-radius: 20px 20px 0 0;
+}
+.noticiasTitulo{
+  width: 98%;
+  font-size: 18px;
+  font-weight: bold;
+  
+  color: #bbc3c6;
+  background-color: #002c54;
+  border-radius: 20px 20px 0 0;
+  padding: 15px;
+}
+.noticiasContenido{
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  /* border:2px solid rgb(255, 0, 221); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.noticia1{
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  /* border:2px solid yellow; */
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+.noticia1 IMG{
+  width: 80%;
+
+}
+.marcador{
+  width: 5%;
+  height: auto;
+  font-size: 20px;
+  cursor: pointer;
+}
+.marcador:hover{
+  font-size: 25px
+}
+
+.buttonNoticia1{
+  border: none;
+  box-shadow: none;
+  background-color: #1e656d;
+  padding: 10px;
+  transition: background-color ease 0.5s;
+}
+.buttonNoticia1:hover{
+  background-color: #377a81;
+}
+.buttonNoticia1 a{
+  text-decoration: none;
+  color: white;
 }
 
 .containerOpiniones {
@@ -42,7 +107,7 @@
   flex-direction: column;
   width: 50%;
   /* border:2px solid yellow; */
-  padding-top: 15px;
+
 }
 
 .titulo-seccion {
@@ -58,7 +123,7 @@
   margin: 2%;
   display: flex;
   max-height: 150px; 
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 4px solid rgba(255, 255, 255, 0.25);
   background-color: #1e656d;
 
 }
@@ -70,18 +135,20 @@
   justify-content: center;
   align-content: center;
   border-radius: 20px;
+  border: 4px solid rgba(201, 8, 8, 0.25);
 
 }
 
 .tarjetaOpinion img {
-  width: 90%;
-  height: auto;
-  min-width: 50px;
-  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+ 
+  border-radius: 50%;
   padding: 10px;
 }
 
 .divTituloyopinion{
+  /* border: 4px solid #ff0505; */
   width:80%;
   display: flex;
   flex-direction: column;
@@ -89,10 +156,29 @@
 
 
 }
-p{
+.divTituloyopinion p{
   color:#bbc3c6;
-
+  font-size: 12px;
+  /* border: 4px solid #05ff6d; */
 }
+.puntaje{
+  /* border: red 2px solid; */
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.puntaje img{
+  width: 15px;
+  height: 15px;
+}
+.puntaje p{
+  font-size: 12px;
+  color: aliceblue;
+  padding: 4px;
+}
+
 .textosOpinion {
   height:100%;
   display: flex;
@@ -123,6 +209,36 @@ justify-content: space-around;
  
 }
 
+.seccionLinksUtiles{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  justify-content: space-evenly;
+}
+.linkUtil{
+  background-color:  #fc7731;
+  padding: 30px;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+  min-width: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color ease 1s;
+  transition: box-shadow ease 0.5s;
+}
+.linkUtil a{
+  color: #bbc3c6;
+  text-decoration: none;
+}
+.linkUtil:hover{
+  background-color:  #c44806;
+  box-shadow: 0 0 5px #002c54;
+ 
+}
+
 .divLocalizaciones {
   /* border: 3px solid #001826; */
   display: flex;
@@ -132,13 +248,28 @@ justify-content: space-around;
   align-items: center;
   text-align: center;
   margin-top: 50px;
+  background-color: #1e656d;
+  border-radius: 20px 20px 0 0;
+  padding-bottom: 20px;
+
 }
 
+.tituloLocalizaciones{
+  width: 100%;
+}
+.tituloLocalizaciones button{
+  width: 100%;
+}
+.tituloLocalizaciones h1{
+  font-size: 22px;
+  color: #fff;
+  padding: 10px;
+}
 
 .listaYmapa {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+  justify-content: space-evenly;
   margin: auto;
   align-content: center;
   text-align: center;
@@ -190,7 +321,7 @@ iftsBtn
 }
 #map {
   height: 400px;
-  width: 400px;
+  width: 700px;
   float: right;
 }
 
@@ -198,47 +329,8 @@ iftsBtn
 height: 10px;
 }
 
-/* puntaje emogis */
 
-.info {
-  margin-bottom: 1rem;
-}
-.emoji {
-  font-size: 1rem;
-  height: 20px;
-  margin-bottom: 1rem;
-}
-.status {
-  font-size: 2rem;
-  color: honeydew;
-}
-.stars {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-.star {
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-}
-.star svg {
-  fill: none;
-  width: 100%;
-  height: 100%;
-  stroke: none;
-  fill: gray;
-}
 
-.selected svg,
-.selected ~ .star svg {
-  fill: #ffc107;
-}
-.star:hover svg,
-.star:hover ~ .star svg {
-  fill: gold;
-}
 
 @media (max-width: 768px) {
   .container {

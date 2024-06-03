@@ -1,5 +1,4 @@
-body,html {
-    
+body,html {    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +6,7 @@ body,html {
     margin: 0;
     color: #224;
     background-color: #bbc3c6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
 }
 
 header {
@@ -139,7 +139,7 @@ footer {
     position: relative; 
     color: white;
    
-    background-color: #fc7731; 
+    background-color: #2083b4; 
     width: 100%;
     display: flex;
     flex-direction: column;

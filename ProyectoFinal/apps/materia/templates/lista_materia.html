@@ -7,7 +7,7 @@
 
 
 {% block content %}
-   
+<div class="tituloPrincipalMaterias">MATERIAS</div>
     <section class="SeccionIfts">
         <h1>Lista de Materias</h1>
         <div class="ifts">
@@ -16,12 +16,17 @@
 
             <div>
                 <div class="tarjetaIfts">
+                    <h2>{{ materia.nombre }}</h2>
+                    <p>Pertenece a {{materia.carrera}} </p>
+                    <div class="puntaje">
+                        <img src="{% static 'imagenes/Iconos/estrella.png' %}" alt="">
+                        <div>
+                            <p class="Qualification">X/5</p>
+                        </div>
+                    </div>
                     <div class="divBotonesTarjeta">
-                        <h2><b>{{ materia.nombre }}</b></h2>
-                        <p>Pertenece a {{materia.carrera}} </p>
                         <a href="{% url 'profesores_materia' materia_id=materia.id %}"><button id="btnIftsProfesores">Profesores</button></a>
                         <a href="{% url 'opiniones_por_entidad' model_name='materia' entity_id=materia.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
-                        <div>Puntaje</div>
                     </div>
                 </div>
             </div>

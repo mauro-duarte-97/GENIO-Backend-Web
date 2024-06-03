@@ -1,126 +1,188 @@
-.SeccionIfts{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+.tituloPrincipalCarreras{
+  font-size: 34px;
+  color: #ffffff;
+  transform: translateY(-135px);
+  font-weight:600;
+  background-color: #00000060;
+  padding: 15px;
+  letter-spacing: 2px;
 }
 
-.ifts{
+.textoYcarreras{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+
+  /* border: 5px solid red; */
+  justify-content: center;
+}
+
+.textoCarreras{
+  color: #EBF2FA ;    
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+}
+.textoCarreras h1{
+  background-color: #520436;
+  width: 90%;
+  height: 300px;
+ font-size: 22px;
+ padding: 20px;
+ border-radius: 20px 0 0 20px;
+}
+
+.tituloTarjetaYTarjetas{
+  width: 100%;
+  /* border: #872d55 3px solid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.tituloTarjetaCarreras{
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: #0e5204a1;
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+.tituloTarjetaCarreras h2{
+   
+    padding: 15px;
+    color:white;
+}
+
+.carrerasDiv{
     min-height: 20vh;
     max-height: 55vh;
     display: grid;
-    width: 65vw;
+    width: 100%;
     gap: 15px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 20px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;  
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
     justify-content: center;
     box-sizing: border-box;
+    /* border: #b3ad00 3px solid; */
 }
-
-
-/* .tarjetaIfts{ 
-   
-    height: 20vh;
-    display: flex;
-    flex: 0 0 24%; 
-    background-color: #F2D0A9;
-    border-radius: 10px;
-    margin: 10px auto;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-} 
-
-.tarjetaIfts:hover {
-    transform: scale(1.05);
-}
-
-.imgTarjetaIfts{
-    width: 45%;
-    height: 15vh;
-    margin: auto;
-    background-color: aquamarine;
-    border-radius: 10px;
-}
-
-.imgTarjetaIfts img{
-    width: 100%;
-}
-
-.divBotonesTarjeta{
-    width: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    gap: 2px;
-    justify-content: center;
-    align-content: space-around;
-    }
-
-.divBotonesTarjeta button{
-    border-radius: 5px;
-    background-color: zrgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-    font-size: 100%;
-}
- */
 
  /* Estilos de gepeto */
 .tarjetaIfts {
-    width: 300px; /* Ajusta el ancho según tus necesidades */
-    margin: 20px; /* Agrega espacio entre las tarjetas */
-    border: 1px solid #ccc; /* Borde para delimitar la tarjeta */
-    border-radius: 10px; /* Redondea las esquinas */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-    overflow: hidden; /* Permite que la imagen se recorte dentro del contenedor */
+
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin: 5px;
+    background-color: #043652;
+    border: #000000c6 3px solid;
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px;
   }
 
   
   .imgTarjetaIfts {
-    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-    height: 200px; /* Ajusta la altura según tus necesidades */
-    object-fit: cover; /* La imagen se ajusta al contenedor manteniendo la proporción */
+    width: 250px; 
+    justify-content: center;
+    align-items: center;
+    
+    color: white;
+    display: flex;
+    
+    /* border: #09ff9d 3px solid; */
+    transform: translateY(-45px);
+  
+  }
+  .imgTarjetaIfts h2{
+   
+    color: #ffffff;
+    padding: 15px;
+    font-size: 1em;
+    background-color: #000000c6;  
+    border-radius: 20px;
+    
   }
   
-  .imgTarjetaIfts img {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
-  }
+.contenidoInferiorTarjerta{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  color: white;
+  transform: translateY(-30px);
+  background-color: #00000070;
+}
+.contenidoInferiorTarjerta p{
+width: 90%;
+}
+
+  .puntaje{
+    /* border: red 2px solid; */
+    height: 50px;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.puntaje img{
+    width: 15px;
+    height: 15px;
+}
+.puntaje p{
+    font-size: 12px;
+    color: aliceblue;
+    padding: 4px;
+}
+
   .divBotonesTarjeta {
-    padding: 15px; /* Agrega espacio interno al contenedor */
+    width: 100%;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: #0056b3 3px solid; */
+    align-items: center;
+    
   }
 
-  .divBotonesTarjeta h2 {
-    margin: 0; /* Elimina el margen superior por defecto */
-    font-size: 18px; /* Ajusta el tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-  }
-
-  .divBotonesTarjeta p {
-    margin: 5px 0; /* Espacio entre párrafos */
-    font-size: 14px; /* Ajusta el tamaño de la fuente */
-    color: #666; /* Color gris claro */
-  }
+  .divBotonesTarjeta button{
+    border-radius: 5px;
+    background-color: #520436;
+    color: #ffffff;
+    font-size: 100%;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    transition: transform 0.5s ease;
+    padding: 5px;
+   cursor: pointer;
+}
 
   #btnIftsOpiniones {
-    background-color: #007bff; /* Color azul */
-    color: white; /* Texto blanco */
-    padding: 10px 20px; /* Espacio interno del botón */
+    background-color: #17a33c80; /* Color azul */
+    color: #ffffff; /* Texto blanco */
     border: none; /* Elimina el borde por defecto */
     border-radius: 5px; /* Redondea las esquinas */
     cursor: pointer; /* Indicador de que se puede hacer clic */
     transition: background-color 0.3s ease; /* Animación al pasar el cursor */
   }
   
-  #btnIftsOpiniones:hover {
+  #btnIftsOpiniones a:hover {
     background-color: #0056b3; /* Color azul más oscuro al pasar el cursor */
   }
 
@@ -137,4 +199,28 @@
 .ulIfts{
     list-style: none;
     text-decoration: none;
+}
+
+
+
+@media (max-width: 925px){
+  .tituloPrincipalCarreras{
+    font-size: 28px;
+  }
+  .textoYcarreras{
+    flex-direction: column;
+  }
+  .textoCarreras{
+    width: 80%;
+
+  }
+  .textoCarreras h1{
+   border-radius: 20px 20px 0 0;
+   font-size: 18px;
+  }
+  .carrerasDiv {
+
+  
+  }
+
 }

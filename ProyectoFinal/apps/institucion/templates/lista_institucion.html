@@ -8,30 +8,101 @@
 
 {% block content %}
    
-    
+    <div class="tituloPrincipalInstituciones">INSTITUCIONES</div>
     <section class="SeccionIfts">
-         <h1>Lista de Instituciones</h1>
-        <div class="ifts">
-
-        {% for institucion in instituciones %}
-
-            <ul class="ulIfts">
-                <li><a href="{{institucion.url}}">{{ institucion.nombre }}</a>
-
-                <div class="tarjetaIfts">
-                    <div class="imgTarjetaIfts"><img src="{{ institucion.img_perfil.url }}" alt=""></div>
-                    <div class="divBotonesTarjeta">
-                        <a href="{% url 'lista_carreras_instituto' institucion_id=institucion.id %}"><button id="btnIftsCarreras">Carreras</button></a>
-                        <a href="{% url 'lista_profesores_instituto' institucion_id=institucion.id %}"><button id="btnIftsProfesores">Profesores</button></a>
-                        <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=institucion.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
-                        <div>Puntaje</div>
-                    </div>
-                </div>
-                </li>
-            </ul>
-        {% endfor %}
-
+        <div class="tituloIFTS">
+            <h1 class="tituloIFTS">Seleccioná alguna de las opciones para ver información mas detallada de cada IFTS, sus carreras y los profesores que las dictan.<br><br>¡NO TE OLVIDES DE REVISAR LAS OPINIONES DE LOS DEMÁS USUARIOS!<BR>Dejá tu comentario. <span class="textoNaranja">G.E.N.I.O.</span> lo creamos entre tod@s.</h1>
         </div>
+        
+        <aside class="listaYopinionesIFTS">
+            <div class="tituloListaIFTS">
+                <h2>Lista de IFTS</h2>
+            </div>
+            <div class="ifts">
+            {% for institucion in instituciones %}
+
+                <ul class="ulIfts">
+                    
+                    <div class="tarjetaIfts">
+                        <div class="imgTarjetaIfts"><img src="{{ institucion.img_perfil.url }}" alt=""></div>
+                        <div class="tituloInstitucion"><a href="{{institucion.url}}">{{ institucion.nombre }}</a></div>
+                        <div class="puntaje">
+                            <img src="{% static 'imagenes/Iconos/estrella.png' %}" alt="">
+                            <p class="Qualification">X/5</p>
+                        </div>
+                        <div class="divBotonesTarjeta">
+                            <a href="{% url 'lista_carreras_instituto' institucion_id=institucion.id %}"><button id="btnIftsCarreras">Carreras</button></a>
+                            <a href="{% url 'lista_profesores_instituto' institucion_id=institucion.id %}"><button id="btnIftsProfesores">Profesores</button></a>
+                            <a href="{% url 'opiniones_por_entidad' model_name='institucion' entity_id=institucion.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
+                            
+                        </div>
+                    </div>
+                    
+                </ul>
+            {% endfor %}       
+            </div>
+            <!-- <h2>Opiniones Recientes Sobre los IFTS</h2>
+            <div class="opinionesSeccion">
+                   {% for opinion in opiniones %}
+        <div class="tarjetaOpinion">               
+            <div class="imgOpinion"><img src="{{ opinion.autor.img_perfil.url }}" alt="" style="width: 50px; height: 50px;"></div>
+            <div class="divTituloyopinion">
+              <div class="textosOpinion" >
+                <p>{{ opinion.titulo }}</p>
+              
+                 <div id="votacion">
+                 
+                  <div class="info">
+                    <div class="emoji"></div>
+                    <div class="status"></div>
+                  </div>
+                  <div class="stars">
+                    <div class="star" data-rate="5">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                    <div class="star" data-rate="4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                    <div class="star" data-rate="3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                    <div class="star" data-rate="2">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                    <div class="star" data-rate="1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                      </svg>
+                    </div>
+                  </div>
+          
+          
+
+                </div>
+                <p>{{ opinion.fecha }}</p>                        
+              </div>
+              <div class="parrafoOpinion" >
+                <p>{{ opinion.contenido }}</p>
+              </div>
+            </div> -->
+        <!-- </div>
+        {% endfor %}
+            </div> --> 
+        </aside>
+
     </section>
         
 {% endblock %}

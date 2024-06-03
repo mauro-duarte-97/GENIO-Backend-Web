@@ -53,7 +53,7 @@
                     </form>
 
                     {# Asume que configura la vista de restablecimiento de contraseña en su URLconf #}
-                    <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+                    <p><a class="olvidarPass" href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
 
                     {% for message in messages %}
                     <div class="mdl-textfield">
@@ -72,6 +72,13 @@
                         data-login_uri="https://localhost:8000/auth/login">
                     </div>
                     <div class="g_id_signin" data-type="standard"></div>
+
+                    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script>
+                    <div id="g_id_onload"
+                        data-client_id="1009220251212-nkro9apnh8d27brjpu37sq8v7lhr6cig.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse">
+                    </div>
+                    <div class="g_id_signin" data-type="standard"></div> -->
                   <button id="toggleButton">O registrate <b>acá</b></button>
                 </div>
                 <div class="loginFondoTexto">
