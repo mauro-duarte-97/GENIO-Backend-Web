@@ -41,15 +41,15 @@
 
                         <li><a href="{% url 'lista_profesores'%}">Docentes</a></li>    
                     </ul>
-
-                    <!-- Otras opciones de navegación -->
-                    <form action="{% url 'search_entity' %}" method="get">
-                        {% csrf_token %}
-                        <input type="text" name="query" placeholder="Buscar..." required>
-                        <button type="submit">Buscar</button>
-                    </form>
-                    
                 </nav>
+                <!-- Otras opciones de navegación -->                    
+
+                <!-- Search box -->
+                <form action="{% url 'search_entity' %}" method="get" class="search">
+                    {% csrf_token %}
+                    <input type="text" name="query" placeholder="Buscar..." required>
+                    <!-- <button type="submit"  class="search-btn" >Buscar</button> -->
+                </form>
         
  <!-- ################ NAVEGADOR MOVIL ######################## -->
  
@@ -67,10 +67,8 @@
                     </nav>
                 </details>
   
-            <!-- ################ FIN NAVEGADOR MOVIL ######################## -->
+<!-- ################ FIN NAVEGADOR MOVIL ######################## -->
         
-
-
 
                 <div>
                 <!-- IMG DE PERFIL -->           
@@ -94,6 +92,7 @@
             </div>
             
         </header>
+
         <div class="bannerVideo">
             <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
         </div>
@@ -114,24 +113,26 @@
 
 
 <!-- ################################ FOOTER ######################################## -->
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <p>¡Sumate a la comunidad IFTS!
-                      Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
-                </div>
-                <div class="footer-section2">
-                    <p>Seguinos en todas nuestras redes:</p>
-                    <div class="social-icons">
-                        <ul class="listaRedes">
-                            <li><a href="https://discord.gg/3EkEuBr5"><img src="{% static 'imagenes/Iconos/discord-ico.png' %}" alt="Discord-ico"></a></li>
-                            <li><a href="https://www.facebook.com/profile.php?id=61558876926447&notif_id=1714537805990917&notif_t=follower_invite_accept&ref=notif"><img src="{% static 'imagenes/Iconos/facebook-ico.png' %}" alt="Facebook-ico"></a></li>
-                            <li><a href="mailto:m.e.b.d.0904@ifts18.edu.ar?subject=Consulta%20desde%20la%20Web&body=Hola,%20vi%20tu%20sitio%20web%20y%20me%20gustaría%20saber..."><img src="{% static 'imagenes/Iconos/gmail-ico.png' %}" alt="Gmail-ico"></a></li>
-                            </a>
-                        </ul>
-                    </div>
+        <footer>        
+            <div class="footer-section">
+                <p>¡Sumate a la comunidad IFTS!
+                Un sitio donde se informa, opina y discute informacion relevante a los IFTS</p>
+            </div>
+            <div class="footer-section2">
+                <p>Seguinos en todas nuestras redes:</p>
+                <div class="social-icons">
+                    <ul class="listaRedes">
+                        <li><a href="https://discord.gg/3EkEuBr5"><img src="{% static 'imagenes/Iconos/discord-ico.png' %}" alt="Discord-ico"></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61558876926447&notif_id=1714537805990917&notif_t=follower_invite_accept&ref=notif"><img src="{% static 'imagenes/Iconos/facebook-ico.png' %}" alt="Facebook-ico"></a></li>
+                        <li><a href="mailto:m.e.b.d.0904@ifts18.edu.ar?subject=Consulta%20desde%20la%20Web&body=Hola,%20vi%20tu%20sitio%20web%20y%20me%20gustaría%20saber..."><img src="{% static 'imagenes/Iconos/gmail-ico.png' %}" alt="Gmail-ico"></a></li>
+                        </a>
+                    </ul>
                 </div>
             </div>
+        </div> 
+        <div class="footerContainer">
+            <video muted autoplay loop src="{% static 'imagenes/Portada/triangulosAzules.mp4' %}" ></video>
+        </div> 
         </footer>
     </body>
 </html>

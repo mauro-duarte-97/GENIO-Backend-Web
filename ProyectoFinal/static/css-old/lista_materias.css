@@ -110,7 +110,7 @@
     color: #666; /* Color gris claro */
   }
 
-  #btnIftsOpiniones {
+  #btnIftsOpiniones, #btnIftsProfesores {
     background-color: #007bff; /* Color azul */
     color: white; /* Texto blanco */
     padding: 10px 20px; /* Espacio interno del botón */
@@ -120,7 +120,7 @@
     transition: background-color 0.3s ease; /* Animación al pasar el cursor */
   }
   
-  #btnIftsOpiniones:hover {
+  #btnIftsOpiniones:hover, #btnIftsProfesores:hover {
     background-color: #0056b3; /* Color azul más oscuro al pasar el cursor */
   }
 
@@ -138,3 +138,4 @@
     list-style: none;
     text-decoration: none;
 }
+

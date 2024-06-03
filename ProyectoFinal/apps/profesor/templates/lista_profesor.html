@@ -8,7 +8,7 @@
 
 {% block content %}
    
-    <section class="SeccionIfts">
+    <section class="seccionDocentes">
          <h1>Lista de Profesores</h1>
         <div class="ifts">
 
@@ -19,9 +19,8 @@
                     <div class="imgTarjetaIfts"><img src="{{ profesor.img_perfil.url }}" alt=""></div>
                     <div class="divBotonesTarjeta">
                         <h2><b>{{ profesor.nombre }}</b></h2>
-                        <p><b>{{ profesor.materia }}</b></p>
-                        <div>2/5</div>
-                        <p>Carrera: {{ profesor.materia.carrera }} - {{ profesor.institucion }}</p>
+                        <p><b>Carrera:</b> {% for carrera in profesor.carrera.all %}{{ carrera }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <p><b>Institución:</b> {% for institucion in profesor.institucion.all %}{{ institucion.nombre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
                         <!-- <p></p> -->
                         <a href="{% url 'opiniones_por_entidad' model_name='profesor' entity_id=profesor.id %}"><button id="btnIftsOpiniones">Opiniones</button></a>
                     </div>
